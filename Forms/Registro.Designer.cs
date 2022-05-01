@@ -32,17 +32,17 @@ namespace TP1
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.apellido = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.dni = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.mail = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.password = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.rpassword = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nombre = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -69,66 +69,66 @@ namespace TP1
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(64, 168);
+            this.label2.Location = new System.Drawing.Point(354, 85);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 15);
             this.label2.TabIndex = 4;
             this.label2.Text = "Apellido";
             // 
-            // textBox2
+            // apellido
             // 
-            this.textBox2.Location = new System.Drawing.Point(64, 199);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(191, 23);
-            this.textBox2.TabIndex = 3;
+            this.apellido.Location = new System.Drawing.Point(354, 116);
+            this.apellido.Name = "apellido";
+            this.apellido.Size = new System.Drawing.Size(191, 23);
+            this.apellido.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(64, 257);
+            this.label3.Location = new System.Drawing.Point(354, 168);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 15);
             this.label3.TabIndex = 6;
             this.label3.Text = "DNI";
             // 
-            // textBox3
+            // dni
             // 
-            this.textBox3.Location = new System.Drawing.Point(64, 288);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(191, 23);
-            this.textBox3.TabIndex = 5;
+            this.dni.Location = new System.Drawing.Point(354, 199);
+            this.dni.Name = "dni";
+            this.dni.Size = new System.Drawing.Size(191, 23);
+            this.dni.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(354, 85);
+            this.label4.Location = new System.Drawing.Point(64, 168);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 15);
             this.label4.TabIndex = 8;
             this.label4.Text = "Mail";
             // 
-            // textBox4
+            // mail
             // 
-            this.textBox4.Location = new System.Drawing.Point(354, 116);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(191, 23);
-            this.textBox4.TabIndex = 7;
+            this.mail.Location = new System.Drawing.Point(64, 199);
+            this.mail.Name = "mail";
+            this.mail.Size = new System.Drawing.Size(191, 23);
+            this.mail.TabIndex = 7;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(354, 173);
+            this.label5.Location = new System.Drawing.Point(64, 260);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 15);
             this.label5.TabIndex = 10;
             this.label5.Text = "Contraseña";
             // 
-            // textBox5
+            // password
             // 
-            this.textBox5.Location = new System.Drawing.Point(354, 204);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(191, 23);
-            this.textBox5.TabIndex = 9;
+            this.password.Location = new System.Drawing.Point(64, 291);
+            this.password.Name = "password";
+            this.password.Size = new System.Drawing.Size(191, 23);
+            this.password.TabIndex = 9;
             // 
             // label6
             // 
@@ -139,12 +139,12 @@ namespace TP1
             this.label6.TabIndex = 12;
             this.label6.Text = "Repita su contraseña";
             // 
-            // textBox6
+            // rpassword
             // 
-            this.textBox6.Location = new System.Drawing.Point(354, 291);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(191, 23);
-            this.textBox6.TabIndex = 11;
+            this.rpassword.Location = new System.Drawing.Point(354, 291);
+            this.rpassword.Name = "rpassword";
+            this.rpassword.Size = new System.Drawing.Size(191, 23);
+            this.rpassword.TabIndex = 11;
             // 
             // button2
             // 
@@ -156,12 +156,12 @@ namespace TP1
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.crearButton_Click);
             // 
-            // textBox1
+            // nombre
             // 
-            this.textBox1.Location = new System.Drawing.Point(64, 116);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(191, 23);
-            this.textBox1.TabIndex = 14;
+            this.nombre.Location = new System.Drawing.Point(64, 116);
+            this.nombre.Name = "nombre";
+            this.nombre.Size = new System.Drawing.Size(191, 23);
+            this.nombre.TabIndex = 14;
             // 
             // label7
             // 
@@ -180,18 +180,18 @@ namespace TP1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(629, 442);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.nombre);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.rpassword);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.password);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.mail);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.dni);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.apellido);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -206,17 +206,17 @@ namespace TP1
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox apellido;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox dni;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox mail;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox password;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox rpassword;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox nombre;
         private System.Windows.Forms.Label label7;
     }
 }

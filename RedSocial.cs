@@ -2,19 +2,26 @@
 using System.Collections.Generic;
 using System.Text;
 
+
+
 namespace TP1
 {
-     class RedSocial
-    {
+     public class RedSocial
+     {
         private List<Usuario> usuarios;
         private List<Post> posts { get; set; }
         private List<Tag> tags { get; set; }
         private Usuario usuarioActual { get; set; }
-        usuarios = new list<Usuario>();
 
-        public void RegistrarUsuario(string user, string pass)
+        public RedSocial()
         {
-            usuarios.Add(new Usuario(user, pass));
+            usuarios = new List<Usuario>();
+            
+        }
+        
+        public void RegistrarUsuario(string nombre, string apellido, string mail, int dni, string pass)
+        {
+            usuarios.Add(new Usuario(nombre, apellido, mail, dni, pass));
 
         }
 
@@ -26,20 +33,24 @@ namespace TP1
         {
 
         }
-        public bool IniciarSesion(string usuario, string contraseña)
+        public bool IniciarSesion(string usuario, string pass)
         {
             bool flag = false;
             int intentos = 0;
 
-             foreach (Usuario usuario in usuarios)
+            foreach (Usuario asd in usuarios)
+            {
+                if (asd.email.Equals(usuario) && asd.password.Equals(pass)) 
                 {
-                    if (usuario.email.Equals(user) && usuario.password.Equals(pass))
-                        flag = true;    
+                    flag = true;
                 }
-             else { intentos++;}
+                else { intentos++; }
+            }
+
              return flag;
         }
-        public void CerrarSesion()
+
+    public void CerrarSesion()
         {
             
         }

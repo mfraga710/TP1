@@ -10,8 +10,11 @@ namespace TP1
 {
     public partial class Registro : Form
     {
-        public Registro()
+        private RedSocial rs = new RedSocial();
+
+        public Registro(RedSocial rs1)
         {
+            this.rs = rs1;
             InitializeComponent();
         }
 
@@ -27,7 +30,18 @@ namespace TP1
 
         private void crearButton_Click(object sender, EventArgs e)
         {
-           
+            int dni1 = Convert.ToInt32(dni.Text);
+            if (password.Text.Equals(rpassword.Text))
+            {
+                rs.RegistrarUsuario(nombre.Text, apellido.Text, mail.Text, dni1, password.Text);
+                MessageBox.Show("Su usuario ha sido creado correctamente. Ya puede iniciar sesion.");
+                this.Close();
+            }
+            else
+            {
+                label7.Show();
+                label7.Text = "La contraseña no coincide, PONELE VOLUNTAAAA";
+            }
         }
     }
 }

@@ -12,24 +12,34 @@ namespace TP1
 {
     public partial class Login : Form
     {
-        private RedSocial rs;
+        private RedSocial rs = new RedSocial();
 
-        public Login()
-
+        public Login(RedSocial rs1)
         {
+            this.rs = rs1;
             InitializeComponent();
-            rs = new RedSocial();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(rs.IniciarSesion)
+            if(rs.IniciarSesion(textBox1.Text, textBox2.Text))
+            {
+                this.Close();
+                Forms.Home home = new Forms.Home(rs);
+                home.Show();
+            }
+            else
+            {
+                label7.Show();
+                label7.Text = "Inicio de sesión Fallido, quedan 2 intentos";
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Registro fr2 = new Registro();
-            fr2.Show();
+            Registro reg = new Registro(rs);
+            reg.Show();
         }
 
     }

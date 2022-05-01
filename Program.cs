@@ -14,7 +14,7 @@ namespace TP1
         [STAThread]
         static void Main()
         {
-            Usuario user1 = new Usuario();
+            /*Usuario user1 = new Usuario();
             user1.id = 0;
             user1.dni = 32982710;
             user1.nombre = "Manuel";
@@ -26,7 +26,7 @@ namespace TP1
             user1.amigos = new List<Usuario>();
             user1.misPosts = new List<Post>();
             user1.misComentarios = new List<Comentario>();
-            user1.misReacciones = new List<Reaccion>();
+            user1.misReacciones = new List<Reaccion>();*/
 
             RedSocial rs1 = new RedSocial();
 

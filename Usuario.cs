@@ -19,10 +19,13 @@ namespace TP1
         public List<Comentario> misComentarios { get; set; }
         public List<Reaccion> misReacciones { get; set; }
 
-        public Usuario(string Nombre, string Pass)
+        public Usuario(string nombre, string apellido, string mail, int dni, string pass)
         {
-            nombre = Nombre;
-            password = Pass;
+            this.nombre = nombre;
+            this.password = pass;
+            this.apellido = apellido; 
+            this.email = mail;  
+            this.dni = dni;
         }
     }
 }
