@@ -10,15 +10,14 @@ namespace TP1
 {
     public partial class Registro : Form
     {
-        private RedSocial rs = new RedSocial();
+        private RedSocial rs;
         private Login frm;
 
         public Registro(RedSocial rs1,Login formLogin)
         {
             this.rs = rs1;
             frm = formLogin;
-            InitializeComponent();
-            
+            InitializeComponent();            
         }
 
         private void label1_Click(object sender, EventArgs e)

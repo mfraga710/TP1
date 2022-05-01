@@ -51,7 +51,7 @@ namespace TP1
              return flag;
         }
 
-    public void CerrarSesion()
+        public void CerrarSesion()
         {
             
         }

@@ -12,7 +12,7 @@ namespace TP1
 {
     public partial class Login : Form
     {
-        private RedSocial rs = new RedSocial();
+        private RedSocial rs;
 
         public Login(RedSocial rs1)
         {

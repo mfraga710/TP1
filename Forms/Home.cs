@@ -10,10 +10,11 @@ namespace TP1.Forms
 {
     public partial class Home : Form
     {
-        private RedSocial rs = new RedSocial();
+        private RedSocial rs;
         public Home(RedSocial rs1)
         {
-            this.rs = rs1;
+            this.rs = rs1;           
+
             InitializeComponent();
         }
     }
