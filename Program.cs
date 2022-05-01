@@ -33,7 +33,7 @@ namespace TP1
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(rs1));
+            Application.Run(new Login(rs1));
         }
     }
 }

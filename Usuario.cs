@@ -18,5 +18,11 @@ namespace TP1
         public List<Post> misPosts { get; set; }
         public List<Comentario> misComentarios { get; set; }
         public List<Reaccion> misReacciones { get; set; }
+
+        public Usuario(string Nombre, string Pass)
+        {
+            nombre = Nombre;
+            password = Pass;
+        }
     }
 }

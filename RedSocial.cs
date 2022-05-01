@@ -4,35 +4,40 @@ using System.Text;
 
 namespace TP1
 {
-    public class RedSocial
+     class RedSocial
     {
-        private List<Usuario> usuario{ get; set; }
+        private List<Usuario> usuarios;
         private List<Post> posts { get; set; }
         private List<Tag> tags { get; set; }
         private Usuario usuarioActual { get; set; }
+        usuarios = new list<Usuario>();
 
-        public void RegistrarUsuario(Usuario u)
+        public void RegistrarUsuario(string user, string pass)
         {
-            usuario.Add(u);
+            usuarios.Add(new Usuario(user, pass));
+
         }
+
         public void ModificaUsuario(Usuario u)
         {
-            /*TODO*/
+        
         }
         public void EliminarUsuario(Usuario u)
         {
 
         }
-        public bool IniciarSesion(string usuario, string contrasenia)
+        public bool IniciarSesion(string usuario, string contraseña)
         {
-            bool boleanoloco = false;
+            bool flag = false;
             int intentos = 0;
 
-            if (boleanoloco = true)
-            {
-                //TODO
-            }
-            return true;
+             foreach (Usuario usuario in usuarios)
+                {
+                    if (usuario.email.Equals(user) && usuario.password.Equals(pass))
+                        flag = true;    
+                }
+             else { intentos++;}
+             return flag;
         }
         public void CerrarSesion()
         {

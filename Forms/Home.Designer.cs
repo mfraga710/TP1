@@ -1,7 +1,6 @@
-﻿
-namespace TP1
+﻿namespace TP1.Forms
 {
-    partial class Form2
+    partial class Home
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +30,13 @@ namespace TP1
         {
             this.SuspendLayout();
             // 
-            // Form2
+            // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1446, 835);
-            this.Name = "Form2";
-            this.Text = "Form2";
+            this.ClientSize = new System.Drawing.Size(1471, 607);
+            this.Name = "Home";
+            this.Text = "Home";
             this.ResumeLayout(false);
 
         }

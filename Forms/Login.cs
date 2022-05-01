@@ -10,25 +10,27 @@ using System.Windows.Forms;
 
 namespace TP1
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        RedSocial rs;
+        private RedSocial rs;
 
-        public Form1(RedSocial rs)
+        public Login()
+
         {
-            this.rs = rs;
             InitializeComponent();
+            rs = new RedSocial();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            if(rs.IniciarSesion)
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form2 fr2 = new Form2();
+            Registro fr2 = new Registro();
             fr2.Show();
         }
+
     }
 }

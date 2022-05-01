@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TP1
+namespace TP1.Forms
 {
-    public partial class Form2 : Form
+    public partial class Home : Form
     {
-        public Form2()
+        public Home()
         {
             InitializeComponent();
         }
