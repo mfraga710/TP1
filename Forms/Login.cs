@@ -20,12 +20,19 @@ namespace TP1
             InitializeComponent();
         }
 
+        public Login(Login formLogin)
+        {
+            //this.rs = rs1;
+            InitializeComponent();
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             if(rs.IniciarSesion(textBox1.Text, textBox2.Text))
             {
-                this.Close();
-                Forms.Home home = new Forms.Home(rs);
+                this.Hide();
+                Forms.Home home = new Forms.Home(rs);                
                 home.Show();
             }
             else
@@ -38,9 +45,9 @@ namespace TP1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Registro reg = new Registro(rs);
+            Registro reg = new Registro(rs, this);
+            this.Enabled = false;
             reg.Show();
         }
-
     }
 }

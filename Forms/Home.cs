@@ -15,10 +15,6 @@ namespace TP1.Forms
         {
             this.rs = rs1;
             InitializeComponent();
-
-            Login login = new Login(rs);
-            login.Show();
         }
-
     }
 }

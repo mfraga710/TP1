@@ -38,10 +38,11 @@ namespace TP1
             bool flag = false;
             int intentos = 0;
 
-            foreach (Usuario asd in usuarios)
+            foreach (Usuario user in usuarios)
             {
-                if (asd.email.Equals(usuario) && asd.password.Equals(pass)) 
+                if (user.email.Equals(usuario) && user.password.Equals(pass)) 
                 {
+                    usuarioActual = user;
                     flag = true;
                 }
                 else { intentos++; }
