@@ -16,24 +16,40 @@ namespace TP1
         public RedSocial()
         {
             usuarios = new List<Usuario>();
+          
             
         }
         
-        public void RegistrarUsuario(string nombre, string apellido, string mail, int dni, string pass)
+        public void registrarUsuario(string nombre, string apellido, string mail, int dni, string pass)
         {
             usuarios.Add(new Usuario(nombre, apellido, mail, dni, pass));
 
+            
         }
 
-        public void ModificaUsuario(Usuario u)
-        {
-        
-        }
-        public void EliminarUsuario(Usuario u)
-        {
 
+        public void modificaUsuario(Usuario usuarioModificado)
+        {
+            Usuario usuarioAremover;
+
+            foreach(Usuario user in usuarios)
+            {
+                if (user.id.Equals(usuarioModificado))
+	            {
+                     usuarioAremover = user;
+                    
+	            }
+            }
+                usuarios.Remove(usuarioAremover);
+                usuarios.Add(usuarioModificado);
         }
-        public bool IniciarSesion(string usuario, string pass)
+
+        public void eliminarUsuario(Usuario u)
+        {
+            usuarios.Remove(u);
+        }
+
+        public bool iniciarSesion(string usuario, string pass)
         {
             bool flag = false;
             int intentos = 0;
@@ -51,66 +67,66 @@ namespace TP1
              return flag;
         }
 
-        public void CerrarSesion()
+        public void cerrarSesion()
         {
             
         }
-        public void AgregarAmigo(Usuario amigo)
+        public void agregarAmigo(Usuario amigo)
         {
 
         }
-        public void QuitarAmigo(Usuario exAmigo)
+        public void quitarAmigo(Usuario exAmigo)
         {
 
         }
-        public void Postear(Post p, List<Tag> t)
+        public void postear(Post p, List<Tag> t)
         {
                         
         }
-        public void ModificarPost(Post p)
+        public void modificarPost(Post p)
         {
 
         }
-        public void EliminarPost(Post p)
+        public void eliminarPost(Post p)
         {
 
         }
-        public void Comentar(Post p, Comentario c) 
+        public void comentar(Post p, Comentario c) 
         {
 
         }
-        public void ModificarComentario(Post p, Comentario c)
+        public void modificarComentario(Post p, Comentario c)
         {
 
         }
-        public void QuitarComentario(Post p, Comentario c)
+        public void quitarComentario(Post p, Comentario c)
         {
 
         }
-        public void Reaccionar(Post p, Reaccion r)
+        public void reaccionar(Post p, Reaccion r)
         {
             
         }
-        public void ModificarReacion(Post p, Reaccion r)
+        public void modificarReacion(Post p, Reaccion r)
         {
 
         }
-        public void QuitarReacion(Post p, Reaccion r)
+        public void quitarReacion(Post p, Reaccion r)
         {
 
         }
-        public Usuario MostrarDatos(Usuario u)
+        public Usuario mostrarDatos(Usuario u)
         {
             return u;
         }
-        public List<Post> MostrarPosts()
+        public List<Post> mostrarPosts()
         {
             List<Post> p = new List<Post>();
 
             return p;
         }
 
-        public List<Post> MostrarPostsAmigos()
+        public List<Post> mostrarPostsAmigos()
         {
             List<Post> p = new List<Post>();
 

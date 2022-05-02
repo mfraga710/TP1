@@ -36,7 +36,7 @@ namespace TP1
             int dni1 = Convert.ToInt32(dni.Text);
             if (password.Text.Equals(rpassword.Text))
             {
-                rs.RegistrarUsuario(nombre.Text, apellido.Text, mail.Text, dni1, password.Text);
+                rs.registrarUsuario(nombre.Text, apellido.Text, mail.Text, dni1, password.Text);
                 MessageBox.Show("Su usuario ha sido creado correctamente. Ya puede iniciar sesion.");
                 frm.Enabled = true;
                 this.Close();                
@@ -48,7 +48,7 @@ namespace TP1
             }
         }
 
-        private void Registro_Load(object sender, EventArgs e)
+        private void registro_Load(object sender, EventArgs e)
         {
 
         }

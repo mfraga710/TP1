@@ -18,6 +18,7 @@ namespace TP1
         public List<Post> misPosts { get; set; }
         public List<Comentario> misComentarios { get; set; }
         public List<Reaccion> misReacciones { get; set; }
+        static idCont = 0;
 
         public Usuario(string nombre, string apellido, string mail, int dni, string pass)
         {
@@ -26,6 +27,8 @@ namespace TP1
             this.apellido = apellido; 
             this.email = mail;  
             this.dni = dni;
+            this.id = idCont++;
+            
         }
     }
 }
