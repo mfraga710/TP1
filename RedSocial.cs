@@ -8,36 +8,34 @@ namespace TP1
 {
      public class RedSocial
      {
-        private List<Usuario> usuarios;
+        public List<Usuario> usuarios { get; set; }
         private List<Post> posts { get; set; }
         private List<Tag> tags { get; set; }
-        private Usuario usuarioActual { get; set; }
+        public Usuario usuarioActual { get; set; }
 
         public RedSocial()
         {
             usuarios = new List<Usuario>();
-          
-            
         }
         
         public void registrarUsuario(string nombre, string apellido, string mail, int dni, string pass)
         {
             usuarios.Add(new Usuario(nombre, apellido, mail, dni, pass));
-
-            
         }
 
 
         public void modificaUsuario(Usuario usuarioModificado)
         {
-            Usuario usuarioAremover;
+            
+            // volver a ver por que el id de usuario no se deberia modificar!!!!!!!!!!!!
+
+            Usuario usuarioAremover = null;
 
             foreach(Usuario user in usuarios)
             {
                 if (user.id.Equals(usuarioModificado))
 	            {
-                     usuarioAremover = user;
-                    
+                     usuarioAremover = user;                    
 	            }
             }
                 usuarios.Remove(usuarioAremover);
@@ -53,17 +51,17 @@ namespace TP1
         {
             bool flag = false;
             int intentos = 0;
-
+            
             foreach (Usuario user in usuarios)
             {
                 if (user.email.Equals(usuario) && user.password.Equals(pass)) 
                 {
+                    user.intentosFallidos = 0;
                     usuarioActual = user;
                     flag = true;
                 }
                 else { intentos++; }
             }
-
              return flag;
         }
 
@@ -73,7 +71,7 @@ namespace TP1
         }
         public void agregarAmigo(Usuario amigo)
         {
-
+            usuarioActual.amigos.Add(amigo);        
         }
         public void quitarAmigo(Usuario exAmigo)
         {

@@ -13,10 +13,12 @@ namespace TP1
     public partial class Login : Form
     {
         private RedSocial rs;
+        int intentosFallidos = 3;
 
         public Login(RedSocial rs1)
         {
             this.rs = rs1;
+            
             InitializeComponent();
         }
 
@@ -29,18 +31,38 @@ namespace TP1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(rs.IniciarSesion(textBox1.Text, textBox2.Text))
+
+            if (rs.iniciarSesion(textBox1.Text, textBox2.Text))
             {
                 this.Hide();
-                Forms.Home home = new Forms.Home(rs);                
+                Forms.Home home = new Forms.Home(rs);
                 home.Show();
             }
             else
             {
-                label7.Show();
-                label7.Text = "Inicio de sesión Fallido, quedan 2 intentos";
+                foreach (Usuario user in rs.usuarios)
+                {
+                    if (user.email == textBox1.Text)
+                    {
+                        if (user.bloqueado == false)
+                        {
+                            user.intentosFallidos++;
+                            intentosFallidos--;
+                            label7.Show();
+                            label7.Text = "Inicio de sesión Fallido, quedan " + intentosFallidos + " intentos";
+                            if (intentosFallidos == 0)
+                            {
+                                user.bloqueado = true;
+                            }
+                        }
+                        else
+                        {
+                            label7.Show();
+                            label7.Text = "Su usuario ha sido bloqueado por idiota";                            
+                        }
+                    }
+                }
             }
-
         }
 
         private void button2_Click(object sender, EventArgs e)

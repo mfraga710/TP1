@@ -13,9 +13,27 @@ namespace TP1.Forms
         private RedSocial rs;
         public Home(RedSocial rs1)
         {
-            this.rs = rs1;           
-
+            this.rs = rs1;
             InitializeComponent();
+            label1.Text = "Bienvenido " + rs.usuarioActual.nombre + " " + rs.usuarioActual.apellido;            
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Forms.BuscadorAmigos buscador = new Forms.BuscadorAmigos(rs);
+            
+            buscador.Show();
+
+            /*Usuario user2 = new Usuario("Mariano", "Rojas", "ble@ble.com", 2451231, "1234");
+            rs.agregarAmigo(user2);
+            listBox1.Items.Add(user2.nombre + " " + user2.apellido);*/
+        }
+
+        private void form_closing() 
+        {
+            
+        }
+
+
     }
 }

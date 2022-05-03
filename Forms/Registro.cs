@@ -48,9 +48,6 @@ namespace TP1
             }
         }
 
-        private void registro_Load(object sender, EventArgs e)
-        {
 
-        }
     }
 }
