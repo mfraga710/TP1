@@ -41,9 +41,10 @@ namespace TP1
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(447, 630);
+            this.button1.Location = new System.Drawing.Point(313, 378);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(520, 93);
+            this.button1.Size = new System.Drawing.Size(364, 56);
             this.button1.TabIndex = 0;
             this.button1.Text = "Iniciar sesion";
             this.button1.UseVisualStyleBackColor = true;
@@ -51,9 +52,10 @@ namespace TP1
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(447, 753);
+            this.button2.Location = new System.Drawing.Point(313, 452);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(520, 88);
+            this.button2.Size = new System.Drawing.Size(364, 53);
             this.button2.TabIndex = 1;
             this.button2.Text = "Registrarse";
             this.button2.UseVisualStyleBackColor = true;
@@ -61,37 +63,33 @@ namespace TP1
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(447, 335);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox1.Location = new System.Drawing.Point(313, 201);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(518, 31);
+            this.textBox1.Size = new System.Drawing.Size(364, 23);
             this.textBox1.TabIndex = 16;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(447, 283);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(313, 170);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 25);
+            this.label1.Size = new System.Drawing.Size(94, 15);
             this.label1.TabIndex = 15;
             this.label1.Text = "Usuario (Correo)";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(447, 478);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBox2.Location = new System.Drawing.Point(313, 287);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(518, 31);
+            this.textBox2.Size = new System.Drawing.Size(364, 23);
             this.textBox2.TabIndex = 18;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(447, 427);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(313, 256);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 25);
+            this.label2.Size = new System.Drawing.Size(67, 15);
             this.label2.TabIndex = 17;
             this.label2.Text = "Contraseña";
             // 
@@ -99,10 +97,9 @@ namespace TP1
             // 
             this.label7.AutoSize = true;
             this.label7.Enabled = false;
-            this.label7.Location = new System.Drawing.Point(447, 562);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(313, 337);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 25);
+            this.label7.Size = new System.Drawing.Size(43, 15);
             this.label7.TabIndex = 19;
             this.label7.Text = "Errores";
             this.label7.Visible = false;
@@ -111,18 +108,17 @@ namespace TP1
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(584, 83);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(409, 50);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(255, 106);
+            this.label3.Size = new System.Drawing.Size(172, 72);
             this.label3.TabIndex = 20;
             this.label3.Text = "LOGO";
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1424, 922);
+            this.ClientSize = new System.Drawing.Size(959, 519);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox2);
@@ -132,6 +128,7 @@ namespace TP1
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Log In";

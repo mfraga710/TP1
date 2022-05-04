@@ -37,17 +37,19 @@ namespace TP1.Forms
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(331, 44);
+            this.listBox1.ItemHeight = 15;
+            this.listBox1.Location = new System.Drawing.Point(79, 18);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(180, 354);
+            this.listBox1.Size = new System.Drawing.Size(127, 214);
             this.listBox1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(210, 437);
+            this.button1.Location = new System.Drawing.Point(11, 252);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(163, 34);
+            this.button1.Size = new System.Drawing.Size(114, 32);
             this.button1.TabIndex = 1;
             this.button1.Text = "Agregar amigo";
             this.button1.UseVisualStyleBackColor = true;
@@ -55,22 +57,24 @@ namespace TP1.Forms
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(475, 437);
+            this.button2.Location = new System.Drawing.Point(161, 252);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(142, 34);
+            this.button2.Size = new System.Drawing.Size(99, 32);
             this.button2.TabIndex = 2;
             this.button2.Text = "Salir";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // BuscadorAmigos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 539);
+            this.ClientSize = new System.Drawing.Size(288, 308);
             this.ControlBox = false;
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "BuscadorAmigos";
             this.Text = "BuscadorAmigos";
             this.ResumeLayout(false);

@@ -34,6 +34,9 @@ namespace TP1.Forms
             
         }
 
+        private void label2_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
