@@ -38,5 +38,12 @@ namespace TP1.Forms
         {
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Forms.BuscadorAmigos buscador = new Forms.BuscadorAmigos(rs);
+
+            buscador.Show();
+        }
     }
 }
