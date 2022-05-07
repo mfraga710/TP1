@@ -20,11 +20,6 @@ namespace TP1
             InitializeComponent();            
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void cancelarButton_Click(object sender, EventArgs e)
         {
             frm.Enabled = true;

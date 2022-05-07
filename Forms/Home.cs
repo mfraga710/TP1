@@ -15,35 +15,46 @@ namespace TP1.Forms
         {
             this.rs = rs1;
             InitializeComponent();
-            label1.Text = "Bienvenido " + rs.usuarioActual.nombre + " " + rs.usuarioActual.apellido;            
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Forms.BuscadorAmigos buscador = new Forms.BuscadorAmigos(rs);
-            
-            buscador.Show();
-
-            /*Usuario user2 = new Usuario("Mariano", "Rojas", "ble@ble.com", 2451231, "1234");
-            rs.agregarAmigo(user2);
-            listBox1.Items.Add(user2.nombre + " " + user2.apellido);*/
-        }
-
-        private void form_closing() 
-        {
-            
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
+            label1.Text = "Bienvenido " + rs.usuarioActual.nombre + " " + rs.usuarioActual.apellido;
+            foreach (Usuario user in rs.usuarios)
+            {
+                listBox2.Items.Add(user.nombre + " " + user.apellido);
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Forms.BuscadorAmigos buscador = new Forms.BuscadorAmigos(rs);
+            label3.Show();
+            listBox2.Show();
+            button1.Show();
+            button2.Show();
+        }
 
-            buscador.Show();
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            string selectedUser;
+            selectedUser = listBox2.SelectedItem.ToString();
+            
+            foreach (Usuario user in rs.usuarios)
+            {
+                rs.usuarioActual.amigos.Add(user);
+                user.amigos.Add(rs.usuarioActual);
+            }
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            label3.Visible = false;
+            label3.Visible = false;
+            listBox2.Visible = false;
+            button1.Visible = false;
+            button2.Visible = false;
+        }
+
+        private void Home_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
