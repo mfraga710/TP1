@@ -13,5 +13,15 @@ namespace TP1
         public List<Reaccion> reacciones { get; set; }
         public List<Tag> tags { get; set; }
         public DateTime fecha { get; set; }
+
+        static int idPost = 0;
+
+        public Post(Usuario user, string contenido)
+        {
+            id = idPost++;
+            this.user = user;
+            this.contentido = contenido;            
+        }
+
     }
 }

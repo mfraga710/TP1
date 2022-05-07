@@ -28,6 +28,7 @@ namespace TP1.Forms
             listBox2.Show();
             button1.Show();
             button2.Show();
+            listBox2.Items.Remove(rs.usuarioActual.nombre + " " + rs.usuarioActual.apellido);
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -35,12 +36,22 @@ namespace TP1.Forms
             string selectedUser;
             selectedUser = listBox2.SelectedItem.ToString();
             
+
             foreach (Usuario user in rs.usuarios)
             {
-                rs.usuarioActual.amigos.Add(user);
-                user.amigos.Add(rs.usuarioActual);
-            }
-            
+                if ((user.nombre + " " + user.apellido).Equals(selectedUser))
+                {
+                    rs.usuarioActual.amigos.Add(user);
+                    user.amigos.Add(rs.usuarioActual);
+                    listBox2.Items.Remove(selectedUser);                    
+                    listBox1.Items.Clear();
+
+                    foreach (Usuario userName in rs.usuarioActual.amigos)
+                    {
+                        listBox1.Items.Add(userName.nombre + " " + userName.apellido);
+                    }
+                }
+            }            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -55,6 +66,31 @@ namespace TP1.Forms
         private void Home_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            string selectedUser;
+
+            if (listBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Por favor seleccione un usuario a eliminar de la lista");
+            }
+            else
+            {
+                selectedUser = listBox1.SelectedItem.ToString();
+                foreach (Usuario user in rs.usuarios)
+                {
+                    if ((user.nombre + " " + user.apellido).Equals(selectedUser))
+                    {
+                        rs.usuarioActual.amigos.Remove(user);
+                        user.amigos.Remove(rs.usuarioActual);
+                        listBox1.Items.Remove(selectedUser);
+                        listBox2.Items.Add(selectedUser);
+                    }
+                }
+
+            }
         }
     }
 }

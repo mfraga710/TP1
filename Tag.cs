@@ -9,5 +9,12 @@ namespace TP1
         public int id { get; set; }
         public string palabra { get; set; }
         public List<Post> posts { get; set; }
+
+        static int idTag = 0;
+        public Tag(string palabra)
+        {
+            id = idTag++;         
+            this.palabra = palabra;
+        }
     }
 }

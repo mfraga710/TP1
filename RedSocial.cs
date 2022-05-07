@@ -79,7 +79,18 @@ namespace TP1
         }
         public void postear(Post p, List<Tag> t)
         {
-                        
+            posts.Add(p);
+            usuarioActual.misPosts.Add(p);
+            foreach (Tag tag in t)
+            {
+                foreach (Tag tagLocal in tags)
+                {
+                    if (!tags.Contains(tag))
+                    {
+                        tags.Add(tag);
+                    }
+                }
+            }
         }
         public void modificarPost(Post p)
         {
