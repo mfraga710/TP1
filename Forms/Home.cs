@@ -20,6 +20,7 @@ namespace TP1.Forms
             {
                 listBox2.Items.Add(user.nombre + " " + user.apellido);
             }
+            //TODO AGREGAR LOGICA PARA RELLENAR LA LISTA DE POSTS DE LA RED SOCIAL
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -89,8 +90,45 @@ namespace TP1.Forms
                         listBox2.Items.Add(selectedUser);
                     }
                 }
-
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Post post = new Post(rs.usuarioActual,textBox1.Text);
+            List<Tag> tags = new List<Tag>();
+
+            rs.postear(post, tags);
+            listBox4.Items.Clear();
+
+            foreach (Post p in rs.posts)
+            {
+                string sPost = p.user.nombre + " " + p.user.apellido + " escribio: " + p.contentido;
+
+                listBox4.Items.Add(sPost);
+            }
+
+            textBox1.Clear();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listBox3.Visible = true;
+
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string selectedItem;
+            selectedItem = listBox4.SelectedItem.ToString();
+            foreach (Post p in rs.posts)
+            {                
+                if (selectedItem.Equals(p.contentido))
+                {
+                    var idActual = p.id;
+                }
+            } 
         }
     }
 }

@@ -20,7 +20,8 @@ namespace TP1
         {
             id = idPost++;
             this.user = user;
-            this.contentido = contenido;            
+            this.contentido = contenido;
+            reacciones = new List<Reaccion>();
         }
 
     }

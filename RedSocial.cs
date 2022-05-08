@@ -9,13 +9,14 @@ namespace TP1
      public class RedSocial
      {
         public List<Usuario> usuarios { get; set; }
-        private List<Post> posts { get; set; }
-        private List<Tag> tags { get; set; }
+        public List<Post> posts { get; set; }
+        public List<Tag> tags { get; set; }
         public Usuario usuarioActual { get; set; }
 
         public RedSocial()
         {
             usuarios = new List<Usuario>();
+            posts = new List<Post>();
         }
         
         public void registrarUsuario(string nombre, string apellido, string mail, int dni, string pass)
@@ -81,16 +82,16 @@ namespace TP1
         {
             posts.Add(p);
             usuarioActual.misPosts.Add(p);
-            foreach (Tag tag in t)
-            {
-                foreach (Tag tagLocal in tags)
-                {
-                    if (!tags.Contains(tag))
-                    {
-                        tags.Add(tag);
-                    }
-                }
-            }
+            //foreach (Tag tag in t)
+            //{
+            //    foreach (Tag tagLocal in tags)
+            //    {
+            //        if (!tags.Contains(tag))
+            //        {
+            //            tags.Add(tag);
+            //        }
+            //    }
+            //}
         }
         public void modificarPost(Post p)
         {

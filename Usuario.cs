@@ -32,6 +32,7 @@ namespace TP1
             intentosFallidos = 0;
             bloqueado = false;
             amigos = new List<Usuario>();
+            misPosts = new List<Post>();
         }
     }
 }
