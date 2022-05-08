@@ -261,7 +261,7 @@
             this.listView1.Location = new System.Drawing.Point(809, 775);
             this.listView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1240, 279);
+            this.listView1.Size = new System.Drawing.Size(1240, 229);
             this.listView1.TabIndex = 16;
             this.listView1.Tag = "";
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -313,7 +313,7 @@
             this.listBox4.FormattingEnabled = true;
             this.listBox4.HorizontalScrollbar = true;
             this.listBox4.ItemHeight = 25;
-            this.listBox4.Location = new System.Drawing.Point(919, 395);
+            this.listBox4.Location = new System.Drawing.Point(137, 395);
             this.listBox4.Name = "listBox4";
             this.listBox4.Size = new System.Drawing.Size(824, 204);
             this.listBox4.TabIndex = 20;
