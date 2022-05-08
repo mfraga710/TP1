@@ -100,14 +100,13 @@ namespace TP1.Forms
 
             rs.postear(post, tags);
             listBox4.Items.Clear();
+            dataGridView1.Rows.Clear();
 
             foreach (Post p in rs.posts)
             {
-                string sPost = p.user.nombre + " " + p.user.apellido + " escribio: " + p.contentido;
-
-                listBox4.Items.Add(sPost);
+                dataGridView1.Rows.Add(p.id,p.user.nombre, p.contentido);                
             }
-
+            
             textBox1.Clear();
         }
 
@@ -120,15 +119,27 @@ namespace TP1.Forms
 
         private void button4_Click(object sender, EventArgs e)
         {
-            string selectedItem;
-            selectedItem = listBox4.SelectedItem.ToString();
-            foreach (Post p in rs.posts)
-            {                
-                if (selectedItem.Equals(p.contentido))
-                {
-                    var idActual = p.id;
-                }
-            } 
+            //string selectedItem;
+            //selectedItem = listBox4.SelectedItem.ToString();
+            var selrow = dataGridView1.SelectedRows;
+            int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+            
+            //foreach (Post p in rs.posts)
+            //{                
+            //    if (selectedItem.Equals(p.contentido))
+            //    {
+            //        var idActual = p.id;
+            //    }
+            //} 
+
+        
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
     }
 }

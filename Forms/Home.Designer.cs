@@ -52,16 +52,22 @@
             this.label7 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.listBox4 = new System.Windows.Forms.ListBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 25;
-            this.listBox1.Location = new System.Drawing.Point(1815, 105);
+            this.listBox1.Location = new System.Drawing.Point(1985, 106);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(173, 179);
             this.listBox1.TabIndex = 1;
@@ -80,7 +86,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(1815, 57);
+            this.label2.Location = new System.Drawing.Point(1985, 58);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(191, 25);
@@ -90,7 +96,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TP1.Properties.Resources.pngwing_com__4_;
-            this.pictureBox1.Location = new System.Drawing.Point(1812, 292);
+            this.pictureBox1.Location = new System.Drawing.Point(1982, 293);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(96, 98);
@@ -101,7 +107,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1918, 654);
+            this.button2.Location = new System.Drawing.Point(2088, 655);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(141, 53);
             this.button2.TabIndex = 8;
@@ -112,7 +118,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1745, 654);
+            this.button1.Location = new System.Drawing.Point(1915, 655);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(163, 53);
             this.button1.TabIndex = 7;
@@ -125,7 +131,7 @@
             // 
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 25;
-            this.listBox2.Location = new System.Drawing.Point(1812, 444);
+            this.listBox2.Location = new System.Drawing.Point(1982, 445);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(180, 179);
             this.listBox2.TabIndex = 6;
@@ -135,7 +141,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(1812, 395);
+            this.label3.Location = new System.Drawing.Point(1982, 396);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(179, 25);
@@ -146,7 +152,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::TP1.Properties.Resources.eliminar_amigo;
-            this.pictureBox2.Location = new System.Drawing.Point(1924, 319);
+            this.pictureBox2.Location = new System.Drawing.Point(2094, 320);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(59, 57);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -258,7 +264,7 @@
             listViewItem1.UseItemStyleForSubItems = false;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
-            this.listView1.Location = new System.Drawing.Point(809, 775);
+            this.listView1.Location = new System.Drawing.Point(809, 861);
             this.listView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(1240, 229);
@@ -282,7 +288,7 @@
             // 
             this.listBox3.FormattingEnabled = true;
             this.listBox3.ItemHeight = 25;
-            this.listBox3.Location = new System.Drawing.Point(141, 775);
+            this.listBox3.Location = new System.Drawing.Point(141, 861);
             this.listBox3.Name = "listBox3";
             this.listBox3.Size = new System.Drawing.Size(621, 229);
             this.listBox3.TabIndex = 17;
@@ -292,7 +298,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(20, 717);
+            this.label7.Location = new System.Drawing.Point(16, 775);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(187, 41);
             this.label7.TabIndex = 18;
@@ -300,7 +306,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(141, 644);
+            this.button4.Location = new System.Drawing.Point(141, 699);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(172, 52);
             this.button4.TabIndex = 19;
@@ -313,16 +319,64 @@
             this.listBox4.FormattingEnabled = true;
             this.listBox4.HorizontalScrollbar = true;
             this.listBox4.ItemHeight = 25;
-            this.listBox4.Location = new System.Drawing.Point(137, 395);
+            this.listBox4.Location = new System.Drawing.Point(984, 43);
             this.listBox4.Name = "listBox4";
             this.listBox4.Size = new System.Drawing.Size(824, 204);
             this.listBox4.TabIndex = 20;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(141, 655);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(1351, 31);
+            this.textBox3.TabIndex = 22;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Post";
+            this.Column2.MinimumWidth = 8;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 82;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Nombre";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 114;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "id";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 63;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column3,
+            this.Column1,
+            this.Column2});
+            this.dataGridView1.Location = new System.Drawing.Point(141, 365);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.RowTemplate.Height = 33;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(1667, 225);
+            this.dataGridView1.TabIndex = 21;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2298, 1138);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.listBox4);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label7);
@@ -348,6 +402,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,5 +432,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ListBox listBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
