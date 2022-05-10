@@ -64,11 +64,6 @@ namespace TP1.Forms
             button2.Visible = false;
         }
 
-        private void Home_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             string selectedUser;
@@ -104,7 +99,7 @@ namespace TP1.Forms
 
             foreach (Post p in rs.posts)
             {
-                dataGridView1.Rows.Add(p.id,p.user.nombre, p.contentido);                
+                dataGridView1.Rows.Add(p.id,p.user.nombre + " " + p.user.apellido, p.contentido);                
             }
             
             textBox1.Clear();
@@ -120,26 +115,46 @@ namespace TP1.Forms
         private void button4_Click(object sender, EventArgs e)
         {
             //string selectedItem;
-            //selectedItem = listBox4.SelectedItem.ToString();
+            //selectedItem = listBox4.SelectedItem.ToString();       
+            
             var selrow = dataGridView1.SelectedRows;
             int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
-            
-            //foreach (Post p in rs.posts)
-            //{                
-            //    if (selectedItem.Equals(p.contentido))
-            //    {
-            //        var idActual = p.id;
-            //    }
-            //} 
 
-        
+            foreach(Post p in rs.posts)
+            {
+                if (p.id == postId)
+                {           
+                    Comentario coment = new Comentario();
+                    coment.contenido = textBox3.Text;
+                    rs.comentar(p, coment);
+                    refreshList(p);
+                }
+            }
+            textBox3.Clear();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void refreshList(Post p)
         {
-
+            listBox3.Items.Clear();
+            foreach (Comentario c in p.comentarios)
+            {
+                listBox3.Items.Add(c.contenido);
+            }
         }
 
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var selrow = dataGridView1.SelectedRows;
+            int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
 
+            foreach (Post p in rs.posts)
+            {
+                if (p.id == postId)
+                {
+                    refreshList(p);
+                }
+            }
+            
+        }
     }
 }

@@ -103,7 +103,7 @@ namespace TP1
         }
         public void comentar(Post p, Comentario c) 
         {
-
+            p.comentarios.Add(c);
         }
         public void modificarComentario(Post p, Comentario c)
         {

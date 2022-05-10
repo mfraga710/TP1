@@ -22,6 +22,7 @@ namespace TP1
             this.user = user;
             this.contentido = contenido;
             reacciones = new List<Reaccion>();
+            comentarios = new List<Comentario>();
         }
 
     }
