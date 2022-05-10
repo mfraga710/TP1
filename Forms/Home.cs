@@ -92,6 +92,27 @@ namespace TP1.Forms
         {
             Post post = new Post(rs.usuarioActual,textBox1.Text);
             List<Tag> tags = new List<Tag>();
+            string[] sTags = textBox2.Text.Split('#');
+            foreach (var word in sTags)
+            {
+                if (word.Length > 1)
+                {
+                    if (rs.tags.Count > 0)
+                    {
+                        foreach (Tag tag in rs.tags)
+                        {
+                            if (!tag.palabra.Equals("#" + word))
+                            {
+                                tags.Add(new Tag("#" + word));
+                            }
+                        }
+                    }
+                    else
+                    {
+                        tags.Add(new Tag("#" + word));
+                    }
+                }
+            }    
 
             rs.postear(post, tags);
             
@@ -99,7 +120,13 @@ namespace TP1.Forms
 
             foreach (Post p in rs.posts)
             {
-                dataGridView1.Rows.Add(p.id,p.user.nombre + " " + p.user.apellido, p.contentido);                
+                string pTags = "";
+                foreach (Tag t in p.tags)
+                {
+                    pTags = pTags + t.palabra + " " ;
+                }
+
+                dataGridView1.Rows.Add(p.id,p.user.nombre + " " + p.user.apellido, p.contentido, pTags);                
             }
             
             textBox1.Clear();

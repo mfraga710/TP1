@@ -23,6 +23,7 @@ namespace TP1
             this.contentido = contenido;
             reacciones = new List<Reaccion>();
             comentarios = new List<Comentario>();
+            tags = new List<Tag>();
         }
 
     }

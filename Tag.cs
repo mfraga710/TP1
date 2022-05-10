@@ -15,6 +15,7 @@ namespace TP1
         {
             id = idTag++;         
             this.palabra = palabra;
+            posts = new List<Post>();
         }
     }
 }

@@ -17,6 +17,7 @@ namespace TP1
         {
             usuarios = new List<Usuario>();
             posts = new List<Post>();
+            tags = new List<Tag>();
         }
         
         public void registrarUsuario(string nombre, string apellido, string mail, int dni, string pass)
@@ -80,18 +81,18 @@ namespace TP1
         }
         public void postear(Post p, List<Tag> t)
         {
+            foreach (Tag tag in t)
+            {
+                if (!tags.Contains(tag))
+                {
+                    tag.posts.Add(p);
+                    p.tags.Add(tag);
+                    tags.Add(tag);
+                }
+            }
+
             posts.Add(p);
             usuarioActual.misPosts.Add(p);
-            //foreach (Tag tag in t)
-            //{
-            //    foreach (Tag tagLocal in tags)
-            //    {
-            //        if (!tags.Contains(tag))
-            //        {
-            //            tags.Add(tag);
-            //        }
-            //    }
-            //}
         }
         public void modificarPost(Post p)
         {
