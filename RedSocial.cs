@@ -41,7 +41,7 @@ namespace TP1
 	            }
             }
                 usuarios.Remove(usuarioAremover);
-                usuarios.Add(usuarioModificado);
+                usuarios.Add(usuarioModificado);                
         }
 
         public void eliminarUsuario(Usuario u)
@@ -72,12 +72,14 @@ namespace TP1
             
         }
         public void agregarAmigo(Usuario amigo)
-        {
-            usuarioActual.amigos.Add(amigo);        
+        {      
+            usuarioActual.amigos.Add(amigo);
+            amigo.amigos.Add(usuarioActual);
         }
         public void quitarAmigo(Usuario exAmigo)
         {
-
+            usuarioActual.amigos.Remove(exAmigo);
+            exAmigo.amigos.Remove(usuarioActual);
         }
         public void postear(Post p, List<Tag> t)
         {

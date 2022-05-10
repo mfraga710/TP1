@@ -31,7 +31,7 @@ namespace TP1.Forms
             button2.Show();
             listBox2.Items.Remove(rs.usuarioActual.nombre + " " + rs.usuarioActual.apellido);
         }
-
+        // BUTTON 1 - AGREGA AMIGO
         private void button1_Click_1(object sender, EventArgs e)
         {
             string selectedUser;
@@ -42,8 +42,7 @@ namespace TP1.Forms
             {
                 if ((user.nombre + " " + user.apellido).Equals(selectedUser))
                 {
-                    rs.usuarioActual.amigos.Add(user);
-                    user.amigos.Add(rs.usuarioActual);
+                    rs.agregarAmigo(user);
                     listBox2.Items.Remove(selectedUser);                    
                     listBox1.Items.Clear();
 
@@ -55,6 +54,7 @@ namespace TP1.Forms
             }            
         }
 
+        // BUTTON 2 - CIERRA LISTBOX 2
         private void button2_Click(object sender, EventArgs e)
         {
             label3.Visible = false;
@@ -64,6 +64,7 @@ namespace TP1.Forms
             button2.Visible = false;
         }
 
+        // PICTUREBOX 2 - ELIMINA AMIGO
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             string selectedUser;
@@ -79,8 +80,7 @@ namespace TP1.Forms
                 {
                     if ((user.nombre + " " + user.apellido).Equals(selectedUser))
                     {
-                        rs.usuarioActual.amigos.Remove(user);
-                        user.amigos.Remove(rs.usuarioActual);
+                        rs.quitarAmigo(user);
                         listBox1.Items.Remove(selectedUser);
                         listBox2.Items.Add(selectedUser);
                     }
@@ -223,6 +223,21 @@ namespace TP1.Forms
             }
             textBox3.Clear();
         }*/
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+            EditarUsuario edit = new EditarUsuario(rs,this);
+            this.Enabled = false;         
+            edit.Show();            
+        }
+        // BUTTON 7 - MODIFICAR POST
+        private void button7_Click(object sender, EventArgs e)
+        {
+            ModificarPostTag edit = new ModificarPostTag(rs, this);
+            this.Enabled = false;
+            edit.Show();
         }
     }
 }
