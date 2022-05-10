@@ -111,7 +111,7 @@ namespace TP1
         }
         public void quitarComentario(Post p, Comentario c)
         {
-
+            //(chequear si funciona)p.comentarios.Remove(c);
         }
         public void reaccionar(Post p, Reaccion r)
         {

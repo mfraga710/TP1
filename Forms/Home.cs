@@ -94,7 +94,7 @@ namespace TP1.Forms
             List<Tag> tags = new List<Tag>();
 
             rs.postear(post, tags);
-            listBox4.Items.Clear();
+            
             dataGridView1.Rows.Clear();
 
             foreach (Post p in rs.posts)
@@ -105,18 +105,8 @@ namespace TP1.Forms
             textBox1.Clear();
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            listBox3.Visible = true;
-
-
-        }
-
         private void button4_Click(object sender, EventArgs e)
         {
-            //string selectedItem;
-            //selectedItem = listBox4.SelectedItem.ToString();       
-            
             var selrow = dataGridView1.SelectedRows;
             int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
 
@@ -155,6 +145,57 @@ namespace TP1.Forms
                 }
             }
             
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            //falta arreglar para quitar comentarios 
+
+
+           /* string selectedUser;
+
+            if (listBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Por favor seleccione un usuario a eliminar de la lista");
+            }
+            else
+            {
+                selectedUser = listBox1.SelectedItem.ToString();
+                foreach (Usuario user in rs.usuarios)
+                {
+                    if ((user.nombre + " " + user.apellido).Equals(selectedUser))
+                    {
+                        rs.usuarioActual.amigos.Remove(user);
+                        user.amigos.Remove(rs.usuarioActual);
+                        listBox1.Items.Remove(selectedUser);
+                        listBox2.Items.Add(selectedUser);
+                    }*/
+
+            /*string selectedComment;
+
+            if (listBox3.SelectedItem == null)
+            {
+                MessageBox.Show("Por favor seleccione un comentario a eliminar de la lista");
+            }
+            else
+            {
+                selectedComment = listBox3.SelectedItem.ToString();
+
+                var commentId = Int32.Parse(listBox3.SelectedItem.ToString());
+
+            foreach (Post p in rs.posts)
+            {
+                if ( == )
+                {
+
+                    listBox3.Items.Remove(selectedComment);
+                    listBox3.Items.Clear();
+                    rs.quitarComentario(p,commentId);
+                    refreshList(p);
+                }
+            }
+            textBox3.Clear();
+        }*/
         }
     }
 }

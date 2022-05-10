@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,12 +47,8 @@
             this.listBox3 = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.listBox4 = new System.Windows.Forms.ListBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Post = new System.Windows.Forms.ColumnHeader();
-            this.Editar = new System.Windows.Forms.ColumnHeader();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,7 +63,7 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(1390, 64);
+            this.listBox1.Location = new System.Drawing.Point(1143, 58);
             this.listBox1.Margin = new System.Windows.Forms.Padding(2);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(122, 109);
@@ -89,7 +84,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(1390, 35);
+            this.label2.Location = new System.Drawing.Point(1143, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 16);
             this.label2.TabIndex = 4;
@@ -98,9 +93,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TP1.Properties.Resources.pngwing_com__4_;
-            this.pictureBox1.Location = new System.Drawing.Point(1387, 176);
+            this.pictureBox1.Location = new System.Drawing.Point(1143, 167);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(67, 59);
+            this.pictureBox1.Size = new System.Drawing.Size(47, 59);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -108,7 +103,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1462, 393);
+            this.button2.Location = new System.Drawing.Point(1218, 393);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(99, 32);
@@ -120,7 +115,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1340, 393);
+            this.button1.Location = new System.Drawing.Point(1096, 393);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(114, 32);
@@ -134,7 +129,7 @@
             // 
             this.listBox2.FormattingEnabled = true;
             this.listBox2.ItemHeight = 15;
-            this.listBox2.Location = new System.Drawing.Point(1387, 267);
+            this.listBox2.Location = new System.Drawing.Point(1143, 267);
             this.listBox2.Margin = new System.Windows.Forms.Padding(2);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(127, 109);
@@ -145,7 +140,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(1387, 238);
+            this.label3.Location = new System.Drawing.Point(1143, 238);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(115, 16);
             this.label3.TabIndex = 9;
@@ -155,10 +150,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::TP1.Properties.Resources.eliminar_amigo;
-            this.pictureBox2.Location = new System.Drawing.Point(1466, 192);
+            this.pictureBox2.Location = new System.Drawing.Point(1215, 167);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(41, 34);
+            this.pictureBox2.Size = new System.Drawing.Size(50, 59);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 10;
             this.pictureBox2.TabStop = false;
@@ -256,7 +251,7 @@
             this.listBox3.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.listBox3.FormattingEnabled = true;
             this.listBox3.ItemHeight = 15;
-            this.listBox3.Location = new System.Drawing.Point(99, 517);
+            this.listBox3.Location = new System.Drawing.Point(97, 495);
             this.listBox3.Margin = new System.Windows.Forms.Padding(2);
             this.listBox3.Name = "listBox3";
             this.listBox3.Size = new System.Drawing.Size(436, 139);
@@ -284,23 +279,12 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // listBox4
-            // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.HorizontalScrollbar = true;
-            this.listBox4.ItemHeight = 15;
-            this.listBox4.Location = new System.Drawing.Point(699, 35);
-            this.listBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(578, 124);
-            this.listBox4.TabIndex = 20;
-            // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(99, 393);
             this.textBox3.Margin = new System.Windows.Forms.Padding(2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(947, 23);
+            this.textBox3.Size = new System.Drawing.Size(879, 23);
             this.textBox3.TabIndex = 22;
             // 
             // dataGridView1
@@ -322,38 +306,9 @@
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(947, 161);
+            this.dataGridView1.Size = new System.Drawing.Size(879, 161);
             this.dataGridView1.TabIndex = 21;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // Post
-            // 
-            this.Post.Text = "Post";
-            this.Post.Width = 650;
-            // 
-            // Editar
-            // 
-            this.Editar.Text = "Editar";
-            this.Editar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Post,
-            this.Editar});
-            this.listView1.HideSelection = false;
-            listViewItem1.ToolTipText = "Editar";
-            listViewItem1.UseItemStyleForSubItems = false;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
-            this.listView1.Location = new System.Drawing.Point(566, 517);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(869, 139);
-            this.listView1.TabIndex = 16;
-            this.listView1.Tag = "";
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // Column3
             // 
@@ -374,19 +329,20 @@
             // Column2
             // 
             this.Column2.HeaderText = "Post";
-            this.Column2.MinimumWidth = 8;
+            this.Column2.MinimumWidth = 700;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 55;
+            this.Column2.Width = 700;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(224, 419);
+            this.button5.Location = new System.Drawing.Point(373, 643);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(104, 31);
+            this.button5.Size = new System.Drawing.Size(160, 25);
             this.button5.TabIndex = 23;
-            this.button5.Text = "button5";
+            this.button5.Text = "Eliminar Comentario";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Home
             // 
@@ -396,11 +352,9 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.listBox4);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.listBox3);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -445,15 +399,11 @@
         private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ListBox listBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ColumnHeader Post;
-        private System.Windows.Forms.ColumnHeader Editar;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.Button button5;
     }
 }
