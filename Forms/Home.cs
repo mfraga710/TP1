@@ -131,6 +131,7 @@ namespace TP1.Forms
             
             textBox1.Clear();
             textBox2.Clear();
+            MessageBox.Show("Su posteo ha sido publicado correctamente");
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -244,16 +245,26 @@ namespace TP1.Forms
         // BUTTON 7 - ELIMINAR POST
         private void button8_Click(object sender, EventArgs e)
         {
+            Post pBorrar = null;
             var selrow = dataGridView1.SelectedRows;
-            int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+            int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());            
 
             foreach (Post p in rs.posts)
             {
                 if (p.id == postId)
                 {
-                    dataGridView1.Rows.RemoveAt(postId);
-                    rs.eliminarPost(p);
+                    pBorrar = p;
+                    break;
                 }
+            }
+            if (pBorrar == null)
+            {
+                MessageBox.Show("El registro seleccionado no existe");
+            }
+            else
+            {
+                dataGridView1.Rows.RemoveAt(postId);
+                rs.eliminarPost(pBorrar);
             }
         }
     }
