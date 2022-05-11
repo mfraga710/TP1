@@ -36,13 +36,14 @@ namespace TP1
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(313, 378);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Location = new System.Drawing.Point(26, 366);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(364, 56);
             this.button1.TabIndex = 0;
@@ -52,8 +53,8 @@ namespace TP1
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(313, 452);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Location = new System.Drawing.Point(26, 440);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(364, 53);
             this.button2.TabIndex = 1;
@@ -63,7 +64,7 @@ namespace TP1
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(313, 201);
+            this.textBox1.Location = new System.Drawing.Point(26, 189);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(364, 23);
             this.textBox1.TabIndex = 16;
@@ -71,7 +72,7 @@ namespace TP1
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(313, 170);
+            this.label1.Location = new System.Drawing.Point(26, 158);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 15);
             this.label1.TabIndex = 15;
@@ -79,7 +80,7 @@ namespace TP1
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(313, 287);
+            this.textBox2.Location = new System.Drawing.Point(26, 275);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(364, 23);
             this.textBox2.TabIndex = 18;
@@ -87,7 +88,7 @@ namespace TP1
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(313, 256);
+            this.label2.Location = new System.Drawing.Point(26, 244);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 15);
             this.label2.TabIndex = 17;
@@ -97,29 +98,29 @@ namespace TP1
             // 
             this.label7.AutoSize = true;
             this.label7.Enabled = false;
-            this.label7.Location = new System.Drawing.Point(313, 337);
+            this.label7.Location = new System.Drawing.Point(26, 325);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 15);
             this.label7.TabIndex = 19;
             this.label7.Text = "Errores";
             this.label7.Visible = false;
             // 
-            // label3
+            // pictureBox1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(409, 50);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(172, 72);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "LOGO";
+            this.pictureBox1.Image = global::TP1.Properties.Resources.Akatsuki_Logo_PNG_Pic1;
+            this.pictureBox1.Location = new System.Drawing.Point(103, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(202, 129);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 519);
-            this.Controls.Add(this.label3);
+            this.ClientSize = new System.Drawing.Size(419, 519);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
@@ -128,10 +129,11 @@ namespace TP1
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Log In";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,7 +148,7 @@ namespace TP1
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

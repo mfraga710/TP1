@@ -19,13 +19,10 @@ namespace TP1
             posts = new List<Post>();
             tags = new List<Tag>();
         }
-        
         public void registrarUsuario(string nombre, string apellido, string mail, int dni, string pass)
         {
             usuarios.Add(new Usuario(nombre, apellido, mail, dni, pass));
         }
-
-
         public void modificaUsuario(Usuario usuarioModificado)
         {
             
@@ -43,12 +40,10 @@ namespace TP1
                 usuarios.Remove(usuarioAremover);
                 usuarios.Add(usuarioModificado);                
         }
-
         public void eliminarUsuario(Usuario u)
         {
             usuarios.Remove(u);
         }
-
         public bool iniciarSesion(string usuario, string pass)
         {
             bool flag = false;
@@ -66,7 +61,6 @@ namespace TP1
             }
              return flag;
         }
-
         public void cerrarSesion(Forms.Home home,Login frm)
         {
             usuarioActual = null;
@@ -135,7 +129,7 @@ namespace TP1
         }
         public Usuario mostrarDatos(Usuario u)
         {
-            return u;
+          return u;
         }
         public List<Post> mostrarPosts()
         {
@@ -143,7 +137,6 @@ namespace TP1
 
             return p;
         }
-
         public List<Post> mostrarPostsAmigos()
         {
             List<Post> p = new List<Post>();

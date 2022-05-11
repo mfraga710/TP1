@@ -63,6 +63,36 @@ namespace TP1.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Akatsuki_Logo_PNG_Pic {
+            get {
+                object obj = ResourceManager.GetObject("Akatsuki-Logo-PNG-Pic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Akatsuki_Logo_PNG_Pic1 {
+            get {
+                object obj = ResourceManager.GetObject("Akatsuki-Logo-PNG-Pic1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap akatsuki_nube_logo {
+            get {
+                object obj = ResourceManager.GetObject("akatsuki-nube-logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eliminar_amigo {
             get {
                 object obj = ResourceManager.GetObject("eliminar-amigo", resourceCulture);
@@ -97,6 +127,16 @@ namespace TP1.Properties {
         internal static System.Drawing.Bitmap pngwing_com__5_ {
             get {
                 object obj = ResourceManager.GetObject("pngwing.com (5)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngwing1 {
+            get {
+                object obj = ResourceManager.GetObject("pngwing1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
