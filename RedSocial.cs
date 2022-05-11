@@ -67,9 +67,11 @@ namespace TP1
              return flag;
         }
 
-        public void cerrarSesion()
+        public void cerrarSesion(Forms.Home home,Login frm)
         {
-            
+            usuarioActual = null;
+            home.Close();
+            frm.Show();
         }
         public void agregarAmigo(Usuario amigo)
         {      

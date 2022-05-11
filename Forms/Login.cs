@@ -34,8 +34,8 @@ namespace TP1
 
             if (rs.iniciarSesion(textBox1.Text, textBox2.Text))
             {
-                this.Hide();
-                Forms.Home home = new Forms.Home(rs);
+                this.Hide();                
+                Forms.Home home = new Forms.Home(rs,this);
                 home.Show();
             }
             else

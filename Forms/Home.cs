@@ -11,16 +11,30 @@ namespace TP1.Forms
     public partial class Home : Form
     {
         private RedSocial rs;
-        public Home(RedSocial rs1)
+        private Login frm;
+        public Home(RedSocial rs1, Login formLogin)
         {
             this.rs = rs1;
+            frm = formLogin;
             InitializeComponent();
             label1.Text = "Bienvenido " + rs.usuarioActual.nombre + " " + rs.usuarioActual.apellido;
             foreach (Usuario user in rs.usuarios)
             {
                 listBox2.Items.Add(user.nombre + " " + user.apellido);
             }
-            //TODO AGREGAR LOGICA PARA RELLENAR LA LISTA DE POSTS DE LA RED SOCIAL
+
+            dataGridView1.Rows.Clear();
+
+            foreach (Post p in rs.posts)
+            {
+                string pTags = "";
+                foreach (Tag t in p.tags)
+                {
+                    pTags = pTags + t.palabra + " ";
+                }
+
+                dataGridView1.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -266,6 +280,15 @@ namespace TP1.Forms
                 dataGridView1.Rows.RemoveAt(postId);
                 rs.eliminarPost(pBorrar);
             }
+        }
+        // CERRAR SESION
+        private void button9_Click(object sender, EventArgs e)
+        {
+
+            rs.cerrarSesion(this,frm);
+            //rs.usuarioActual = null;
+            //this.Close();
+            //frm.Show();
         }
     }
 }
