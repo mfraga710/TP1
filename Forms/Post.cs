@@ -8,14 +8,14 @@ using System.Windows.Forms;
 
 namespace TP1.Forms
 {
-    public partial class ModificarPostTag : Form
+    public partial class Posteos : Form
     {
-        private RedSocial rs;
-        private int id;
-        private Post p;
-        private Home frm;
-
-        public ModificarPostTag(RedSocial rs1,Home frm1, int postId)
+    private RedSocial rs;
+    private int id;
+    private Post p;
+    private Home frm;
+    
+        public Posteos(RedSocial rs1, Home frm1, int postId)
         {
             this.frm = frm1;
             this.rs = rs1;
@@ -25,7 +25,7 @@ namespace TP1.Forms
             {
                 if (p.id == postId)
                 {
-                    textBox1.Text = p.contentido;
+                    label5.Text = p.contentido;
 
                     foreach (Tag t in p.tags)
                     {
@@ -34,7 +34,6 @@ namespace TP1.Forms
                 }
             }
         }
-
         // BOTON GUARDAR
         private void button1_Click(object sender, EventArgs e)
         {
@@ -46,7 +45,7 @@ namespace TP1.Forms
                     p.contentido = textBox1.Text;
                 }
             }
-            
+
             frm.dataGridView1.Rows.Clear();
 
             foreach (Post p in rs.posts)
@@ -63,11 +62,18 @@ namespace TP1.Forms
         }
 
         // BOTON CANCELAR
-        private void button2_Click(object sender, EventArgs e)
+        private void button3_Click_1(object sender, EventArgs e)
         {
             frm.Enabled = true;
             this.Close();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            groupBox3.Show();
+            textBox1.Show();
+            textBox1.Text = label5.Text;
+            button1.Show();
+        }
     }
 }

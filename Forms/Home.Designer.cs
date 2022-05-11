@@ -311,7 +311,7 @@
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(956, 161);
+            this.dataGridView1.Size = new System.Drawing.Size(895, 161);
             this.dataGridView1.TabIndex = 21;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -370,19 +370,19 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(861, 394);
+            this.button7.Location = new System.Drawing.Point(999, 267);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(99, 22);
+            this.button7.Size = new System.Drawing.Size(99, 36);
             this.button7.TabIndex = 25;
-            this.button7.Text = "Modificar Post";
+            this.button7.Text = "Ver Post";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(966, 394);
+            this.button8.Location = new System.Drawing.Point(999, 309);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(89, 23);
+            this.button8.Size = new System.Drawing.Size(99, 34);
             this.button8.TabIndex = 26;
             this.button8.Text = "Eliminar Post";
             this.button8.UseVisualStyleBackColor = true;

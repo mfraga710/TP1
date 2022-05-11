@@ -237,7 +237,7 @@ namespace TP1.Forms
         {
             var selrow = dataGridView1.SelectedRows;
             int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
-            ModificarPostTag edit = new ModificarPostTag(rs, this, postId);
+            Posteos edit = new Posteos(rs, this, postId);
             this.Enabled = false;
             edit.Show();
         }

@@ -39,7 +39,7 @@ namespace TP1
             else
             {
                 label7.Show();
-                label7.Text = "La contraseña no coincide, PONELE VOLUNTAAAA";
+                label7.Text = "La contraseña no coincide, intentelo de nuevo";
             }
         }
 
