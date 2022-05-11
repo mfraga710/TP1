@@ -130,6 +130,7 @@ namespace TP1.Forms
             }
             
             textBox1.Clear();
+            textBox2.Clear();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -227,7 +228,6 @@ namespace TP1.Forms
 
         private void button6_Click(object sender, EventArgs e)
         {
-
             EditarUsuario edit = new EditarUsuario(rs,this);
             this.Enabled = false;         
             edit.Show();            
@@ -235,9 +235,26 @@ namespace TP1.Forms
         // BUTTON 7 - MODIFICAR POST
         private void button7_Click(object sender, EventArgs e)
         {
-            ModificarPostTag edit = new ModificarPostTag(rs, this);
+            var selrow = dataGridView1.SelectedRows;
+            int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+            ModificarPostTag edit = new ModificarPostTag(rs, this, postId);
             this.Enabled = false;
             edit.Show();
+        }
+        // BUTTON 7 - ELIMINAR POST
+        private void button8_Click(object sender, EventArgs e)
+        {
+            var selrow = dataGridView1.SelectedRows;
+            int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+
+            foreach (Post p in rs.posts)
+            {
+                if (p.id == postId)
+                {
+                    dataGridView1.Rows.RemoveAt(postId);
+                    rs.eliminarPost(p);
+                }
+            }
         }
     }
 }

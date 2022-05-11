@@ -172,7 +172,7 @@
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(11, 40);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 43);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tableLayoutPanel1.RowCount = 2;
@@ -311,7 +311,7 @@
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 33;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(946, 161);
+            this.dataGridView1.Size = new System.Drawing.Size(956, 161);
             this.dataGridView1.TabIndex = 21;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -372,20 +372,21 @@
             // 
             this.button7.Location = new System.Drawing.Point(861, 394);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(89, 22);
+            this.button7.Size = new System.Drawing.Size(99, 22);
             this.button7.TabIndex = 25;
-            this.button7.Text = "ModificarPost";
+            this.button7.Text = "Modificar Post";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(956, 394);
+            this.button8.Location = new System.Drawing.Point(966, 394);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(89, 23);
             this.button8.TabIndex = 26;
-            this.button8.Text = "EliminarPost";
+            this.button8.Text = "Eliminar Post";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // Home
             // 
@@ -445,7 +446,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -455,5 +455,6 @@
         public System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
+        public System.Windows.Forms.DataGridView dataGridView1;
     }
 }

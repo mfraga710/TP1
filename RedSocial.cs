@@ -98,11 +98,14 @@ namespace TP1
         }
         public void modificarPost(Post p)
         {
+           //* foreach (Post p in p)
+           //* posts.Remove(p);
 
         }
         public void eliminarPost(Post p)
         {
-
+            p.user.misPosts.Remove(p);
+            posts.Remove(p);
         }
         public void comentar(Post p, Comentario c) 
         {
