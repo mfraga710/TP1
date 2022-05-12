@@ -171,7 +171,7 @@ namespace TP1.Forms
             MessageBox.Show("Su comentario ha sido ingresado correctamente");
         }
 
-        // METODO PARA REFRESTAR LA LISTA DE POST
+        // METODO PARA REFRESCAR LA LISTA DE POST
         private void refreshList(Post p)
         {
             dataGridView2.Rows.Clear();
@@ -259,34 +259,75 @@ namespace TP1.Forms
             mostrar.Show();
         }
 
-        // BUTTON 10 - MOSTRAR PARA EDITAR COMENTARIO
+        // BUTTON 11 - EDITAR COMENTARIO
         private void button11_Click(object sender, EventArgs e)
         {
             var selrow = dataGridView2.SelectedRows;
-            int comtId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
-            if (selrow == null)
+            var selPostrow = dataGridView1.SelectedRows;
+            int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+
+            // selrow.Count para que no pinche cuando no se selecciona ningún comentario
+            if (selrow == null || selrow.Count <= 0)
             {
                 MessageBox.Show("Por favor seleccione un comentario a modificar");
             }
             else
             {
-               /* foreach (Post p in rs.posts)
-                {
-                    foreach (Comentario c in p.comentarios)
-                    {
-                       
-                    }*/
-                
-                    EditarComentario edit = new EditarComentario(rs, this, comtId);
-                    this.Enabled = false;
-                    edit.Show();
+                int comtId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+                EditarComentario edit = new EditarComentario(rs, this, comtId, postId);
+                this.Enabled = false;
+                edit.Show();
             }
         }
         // BUTTON 5 - ELIMINA COMENTARIO
         private void button5_Click(object sender, EventArgs e)
         {
             var selrow = dataGridView2.SelectedRows;
-            int comtId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+            int commentId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+            var selPostRow = dataGridView1.SelectedRows;
+            int postId = Int32.Parse(selPostRow[0].Cells[0].Value.ToString());
+
+            rs.quitarComentario(searchPost(postId), searchComent(commentId));
+            refreshCommentsGrid();
+        }
+
+        public Comentario searchComent(int id)
+        {
+            foreach (Post p in rs.posts)
+            {
+                foreach (Comentario c in p.comentarios)
+                {
+                    if (c.id == id)
+                    {
+                        return c;
+                    }
+                }
+            }
+            return null;
+        }
+
+        public Post searchPost(int idPost)
+        {
+            foreach (Post p in rs.posts)
+            {
+                if (idPost == p.id)
+                {
+                    return p;
+                }
+            }
+            return null;
+        }
+
+        public void refreshCommentsGrid()
+        {
+            dataGridView2.Rows.Clear();
+            foreach (Post p in rs.posts)
+            {
+                foreach (Comentario c in p.comentarios)
+                {
+                    dataGridView2.Rows.Add(c.id, c.usuario.nombre + " " + c.usuario.apellido, c.contenido);
+                }
+            }
         }
     }
 }

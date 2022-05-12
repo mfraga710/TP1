@@ -11,15 +11,17 @@ namespace TP1.Forms
     public partial class EditarComentario : Form
     {
         private RedSocial rs;
-        private int id;
+        private int idComment;
+        private int idPost;
         private Home frm;
         
 
-        public EditarComentario(RedSocial rs1, Home frm1, int id)
+        public EditarComentario(RedSocial rs1, Home frm1, int idComment1, int idPost1)
         {
             this.frm = frm1;
             this.rs = rs1;
-            this.id = id;
+            this.idComment = idComment1;
+            this.idPost = idPost1;
             
             InitializeComponent();
 
@@ -27,7 +29,7 @@ namespace TP1.Forms
             {
                 foreach (Comentario c in p.comentarios)
                 {
-                    if (c.id == id)
+                    if (c.id == idComment)
                     {
                         textBox1.Text = c.contenido;
                     }
@@ -35,37 +37,17 @@ namespace TP1.Forms
             }
         }
 
+        //GUARDAR CAMBIOS COMENTARIO EDITADO
         private void button1_Click(object sender, EventArgs e)
         {
             string newComent = textBox1.Text;
-            //*rs.modificarComentario();
-            foreach (Post p in rs.posts)
-            {
-                foreach (Comentario c in p.comentarios)
-                {
-                    if (c.id == id)
-                    {
-                        c.contenido = newComent;
-                    }
-                }
-            }
-            frm.dataGridView2.Rows.Clear();
-            foreach (Post p in rs.posts)
-            {
-                foreach (Comentario c in p.comentarios)
-                {
-                    if (c.id == id)
-                    {
-                        frm.dataGridView2.Rows.Add(c.id, c.usuario.nombre + " " + c.usuario.apellido, c.contenido);
-                        frm.dataGridView2.Refresh();
-                    }
-                }
-            }
-            
+            Comentario editedComment = frm.searchComent(idComment);
+            editedComment.contenido = newComent;
+            rs.modificarComentario(frm.searchPost(idPost), editedComment);
+            frm.refreshCommentsGrid();
             frm.Enabled = true;
             this.Close();
-
-
         }
+
     }
 }

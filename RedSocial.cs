@@ -117,11 +117,10 @@ namespace TP1
             p.comentarios.Add(c);
             
         }
-        //HACER
+        //OK
         public void modificarComentario(Post p, Comentario c)
         {
-            /*
-            foreach (Post post in posts)
+            if(p != null && c != null)
             {
                 foreach (Comentario coment in p.comentarios)
                 {
@@ -131,13 +130,13 @@ namespace TP1
                     }
                 }
             }
-            */
-
         }
-        //HACER
+
+        //OK
         public void quitarComentario(Post p, Comentario c)
         {
-            //(chequear si funciona)p.comentarios.Remove(c);
+            if(p != null && c != null)
+                p.comentarios.Remove(c);
         }
         //HACER
         public void reaccionar(Post p, Reaccion r)
