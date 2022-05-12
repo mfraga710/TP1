@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Posteos));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.Posteo = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,7 +47,10 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.Posteo.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -57,6 +61,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.linkLabel2);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.linkLabel1);
             this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.Posteo);
@@ -64,6 +72,12 @@
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            resources.ApplyResources(this.listBox1, "listBox1");
+            this.listBox1.Name = "listBox1";
             // 
             // label6
             // 
@@ -171,11 +185,27 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // listBox1
+            // linkLabel1
             // 
-            this.listBox1.FormattingEnabled = true;
-            resources.ApplyResources(this.listBox1, "listBox1");
-            this.listBox1.Name = "listBox1";
+            resources.ApplyResources(this.linkLabel1, "linkLabel1");
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.TabStop = true;
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // linkLabel2
+            // 
+            resources.ApplyResources(this.linkLabel2, "linkLabel2");
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.TabStop = true;
             // 
             // Posteos
             // 
@@ -221,5 +251,9 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

@@ -44,7 +44,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.listBox3 = new System.Windows.Forms.ListBox();
             this.label7 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -60,12 +59,15 @@
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.button12 = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
@@ -102,9 +104,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TP1.Properties.Resources.pngwing1;
-            this.pictureBox1.Location = new System.Drawing.Point(1154, 169);
+            this.pictureBox1.Location = new System.Drawing.Point(1144, 172);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(57, 54);
+            this.pictureBox1.Size = new System.Drawing.Size(68, 49);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -159,7 +161,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::TP1.Properties.Resources.eliminar_amigo;
-            this.pictureBox2.Location = new System.Drawing.Point(1215, 167);
+            this.pictureBox2.Location = new System.Drawing.Point(1215, 169);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(50, 59);
@@ -254,17 +256,6 @@
             this.label6.Size = new System.Drawing.Size(49, 21);
             this.label6.TabIndex = 14;
             this.label6.Text = "Posts";
-            // 
-            // listBox3
-            // 
-            this.listBox3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.ItemHeight = 15;
-            this.listBox3.Location = new System.Drawing.Point(97, 495);
-            this.listBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(436, 139);
-            this.listBox3.TabIndex = 17;
             // 
             // label7
             // 
@@ -424,34 +415,51 @@
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
-            // textBox4
+            // dataGridView2
             // 
-            this.textBox4.Location = new System.Drawing.Point(573, 495);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(421, 73);
-            this.textBox4.TabIndex = 30;
-            this.textBox4.Visible = false;
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column5,
+            this.Column6,
+            this.Column7});
+            this.dataGridView2.Location = new System.Drawing.Point(89, 499);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowTemplate.Height = 25;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(444, 138);
+            this.dataGridView2.TabIndex = 30;
             // 
-            // button12
+            // Column5
             // 
-            this.button12.Location = new System.Drawing.Point(735, 581);
-            this.button12.Margin = new System.Windows.Forms.Padding(2);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(120, 31);
-            this.button12.TabIndex = 31;
-            this.button12.Text = "Guardar Cambios";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Visible = false;
+            this.Column5.HeaderText = "id";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Visible = false;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Usuario";
+            this.Column6.MinimumWidth = 80;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Comentario";
+            this.Column7.MinimumWidth = 80;
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 300;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1344, 720);
-            this.Controls.Add(this.button12);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
@@ -463,7 +471,6 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.listBox3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -483,6 +490,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -504,7 +512,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ListBox listBox3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBox3;
@@ -521,7 +528,9 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        public System.Windows.Forms.DataGridView dataGridView2;
     }
 }

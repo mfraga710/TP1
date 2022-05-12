@@ -160,23 +160,24 @@ namespace TP1.Forms
             foreach(Post p in rs.posts)
             {
                 if (p.id == postId)
-                {           
-                    Comentario coment = new Comentario();
-                    coment.contenido = textBox3.Text;
+                {      
+                    string contenido = textBox3.Text;
+                    Comentario coment = new Comentario(p, rs.usuarioActual, contenido);
                     rs.comentar(p, coment);
                     refreshList(p);
                 }
             }
             textBox3.Clear();
+            MessageBox.Show("Su comentario ha sido ingresado correctamente");
         }
 
         // METODO PARA REFRESTAR LA LISTA DE POST
         private void refreshList(Post p)
         {
-            listBox3.Items.Clear();
+            dataGridView2.Rows.Clear();
             foreach (Comentario c in p.comentarios)
             {
-                listBox3.Items.Add(c.contenido);
+                dataGridView2.Rows.Add(c.id, c.usuario.nombre + " " + c.usuario.apellido, c.contenido);
             }
         }
 
@@ -196,58 +197,6 @@ namespace TP1.Forms
             
         }
 
-        // BUTTON 5 - ELIMINA COMENTARIO
-        private void button5_Click(object sender, EventArgs e)
-
-        {
-            //falta arreglar para quitar comentarios 
-
-
-           /* string selectedUser;
-
-            if (listBox1.SelectedItem == null)
-            {
-                MessageBox.Show("Por favor seleccione un usuario a eliminar de la lista");
-            }
-            else
-            {
-                selectedUser = listBox1.SelectedItem.ToString();
-                foreach (Usuario user in rs.usuarios)
-                {
-                    if ((user.nombre + " " + user.apellido).Equals(selectedUser))
-                    {
-                        rs.usuarioActual.amigos.Remove(user);
-                        user.amigos.Remove(rs.usuarioActual);
-                        listBox1.Items.Remove(selectedUser);
-                        listBox2.Items.Add(selectedUser);
-                    }*/
-
-            /*string selectedComment;
-
-            if (listBox3.SelectedItem == null)
-            {
-                MessageBox.Show("Por favor seleccione un comentario a eliminar de la lista");
-            }
-            else
-            {
-                selectedComment = listBox3.SelectedItem.ToString();
-
-                var commentId = Int32.Parse(listBox3.SelectedItem.ToString());
-
-            foreach (Post p in rs.posts)
-            {
-                if ( == )
-                {
-
-                    listBox3.Items.Remove(selectedComment);
-                    listBox3.Items.Clear();
-                    rs.quitarComentario(p,commentId);
-                    refreshList(p);
-                }
-            }
-            textBox3.Clear();
-        }*/
-        }
 
         // BUTTON 6 - EDITAR USUARIO
         private void button6_Click(object sender, EventArgs e)
@@ -290,7 +239,10 @@ namespace TP1.Forms
             {
                 dataGridView1.Rows.RemoveAt(postId);
                 rs.eliminarPost(pBorrar);
+                dataGridView2.Rows.Clear();
             }
+            
+            MessageBox.Show("Su posteo ha sido eliminado correctamente");
         }
 
         // CERRAR SESION
@@ -307,20 +259,34 @@ namespace TP1.Forms
             mostrar.Show();
         }
 
+        // BUTTON 10 - MOSTRAR PARA EDITAR COMENTARIO
         private void button11_Click(object sender, EventArgs e)
         {
-
-            if (listBox3.SelectedItem == null)
+            var selrow = dataGridView2.SelectedRows;
+            int comtId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+            if (selrow == null)
             {
                 MessageBox.Show("Por favor seleccione un comentario a modificar");
             }
             else
             {
-                textBox4.Show();
-                textBox4.Text = listBox3.SelectedItem.ToString();
-                button12.Show();
+               /* foreach (Post p in rs.posts)
+                {
+                    foreach (Comentario c in p.comentarios)
+                    {
+                       
+                    }*/
+                
+                    EditarComentario edit = new EditarComentario(rs, this, comtId);
+                    this.Enabled = false;
+                    edit.Show();
             }
-            
+        }
+        // BUTTON 5 - ELIMINA COMENTARIO
+        private void button5_Click(object sender, EventArgs e)
+        {
+            var selrow = dataGridView2.SelectedRows;
+            int comtId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
         }
     }
 }
