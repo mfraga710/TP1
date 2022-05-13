@@ -233,7 +233,7 @@ namespace TP1
                     {
                         if (bTags.Count > 0)
                         {
-                            if (pPost.fecha >= fechaDesde && pPost.fecha <= fechaHasta)
+                            if (pPost.fecha.Date >= fechaDesde.Date && pPost.fecha.Date <= fechaHasta.Date)
                             {
                                 foreach (Tag t in bTags)
                                 {
@@ -255,7 +255,7 @@ namespace TP1
                         }
                         else
                         {
-                            if (pPost.fecha >= fechaDesde && pPost.fecha <= fechaHasta)
+                            if (pPost.fecha.Date >= fechaDesde.Date && pPost.fecha.Date <= fechaHasta.Date)
                             {
                                 p.Add(pPost);
                             }
@@ -263,10 +263,10 @@ namespace TP1
                     }                    
                 }
                 else
-                {
+                  {
                     if (bTags.Count > 0)
                     {
-                        if (pPost.fecha >= fechaDesde && pPost.fecha <= fechaHasta)
+                        if (pPost.fecha.Date >= fechaDesde.Date && pPost.fecha.Date <= fechaHasta.Date)
                         {
                             foreach (Tag t in bTags)
                             {
@@ -288,7 +288,7 @@ namespace TP1
                     }
                     else
                     {
-                        if (pPost.fecha >= fechaDesde && pPost.fecha <= fechaHasta)
+                        if (pPost.fecha.Date >= fechaDesde.Date && pPost.fecha.Date <= fechaHasta.Date)
                         {
                             p.Add(pPost);
                         }
