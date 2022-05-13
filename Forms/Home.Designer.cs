@@ -459,7 +459,6 @@
             this.button13.TabIndex = 32;
             this.button13.Text = "Ver Post Amigos";
             this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // dataGridView3
             // 
@@ -474,7 +473,7 @@
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.RowTemplate.Height = 25;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(196, 108);
+            this.dataGridView3.Size = new System.Drawing.Size(209, 108);
             this.dataGridView3.TabIndex = 33;
             this.dataGridView3.Visible = false;
             // 
@@ -490,7 +489,7 @@
             this.Column9.HeaderText = "Nombre y Apellido";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
-            this.Column9.Width = 150;
+            this.Column9.Width = 160;
             // 
             // dataGridView4
             // 
@@ -505,7 +504,7 @@
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.RowTemplate.Height = 25;
             this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView4.Size = new System.Drawing.Size(196, 108);
+            this.dataGridView4.Size = new System.Drawing.Size(209, 108);
             this.dataGridView4.TabIndex = 34;
             // 
             // dataGridViewTextBoxColumn1
@@ -520,7 +519,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Nombre y Apellido";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 150;
+            this.dataGridViewTextBoxColumn2.Width = 160;
             // 
             // Home
             // 
@@ -605,9 +604,9 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridView dataGridView4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     }

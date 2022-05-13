@@ -86,8 +86,8 @@ namespace TP1.Forms
                 {
                     rs.quitarAmigo(u);
                     dataGridView4.Rows.Remove(selrow[0]);
-
                     refreshAmigos();
+                    refreshNoAmigos();
                     break;
                 }
             }
@@ -317,20 +317,38 @@ namespace TP1.Forms
                 }
             }
         }
-
+        // FUNCION QUE REFRESCA LISTA NO AMIGO
         public void refreshNoAmigos()
         {
             dataGridView3.Rows.Clear();
-            foreach (Usuario user in rs.usuarioActual.amigos)
-            {
-               if (!rs.usuarios.Contains(user))
+            // VERIFICA QUE NO TENGA AMIGOS
+            if (rs.usuarioActual.amigos.Count <= 0)
+            {   // CARGA TODOS LOS USUARIOS
+                foreach (Usuario user in rs.usuarios)
                 {
-                 dataGridView4.Rows.Add(user.id, user.nombre + " " + user.apellido);
+                    if (user.id != rs.usuarioActual.id)
+                    {
+                        dataGridView3.Rows.Add(user.id, user.nombre + " " + user.apellido);
+                    }
+                }
+            }
+            else
+            {   // TRAE TODAS LA LISTA DE USUARIOS QUE NO AMIGOS
+                foreach (Usuario amigo in rs.usuarioActual.amigos)
+                {   // INDICADOR DE NO AMIGO
+                    bool isnotamego = true;
+                    foreach (Usuario user in rs.usuarios) // VERIFICA QUE EL NO AMIGO LO TENGA
+                    {
+                        if (user.id == amigo.id)
+                            isnotamego = false;
+                    }
+                    if (isnotamego) // AGREGA A LA LISTA
+                        dataGridView3.Rows.Add(amigo.id, amigo.nombre + " " + amigo.apellido);
                 }
             }
         }
 
-
+        // FUNCION QUE REFRESCA LISTA DE AMIGO
         public void refreshAmigos()
         {
             dataGridView4.Rows.Clear();
@@ -362,12 +380,6 @@ namespace TP1.Forms
                 }
                 dataGridView1.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
             }
-
-        }
-
-        private void button13_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
