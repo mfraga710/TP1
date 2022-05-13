@@ -384,7 +384,78 @@ namespace TP1.Forms
 
         private void button14_Click(object sender, EventArgs e)
         {
+            DateTime fechaDesde = dateTimePicker1.Value;
+            DateTime fechaHasta = dateTimePicker2.Value;
+            string pContenido = textBox4.Text;
+            List<Tag> tags = new List<Tag>();
+            string[] sTags = textBox5.Text.Split('#');
 
+            foreach (var word in sTags)
+            {
+                if (word.Length > 1)
+                {
+                        tags.Add(new Tag("#" + word));
+                }                                       
+            }
+            List<Post> listaPost = rs.buscarPosts(pContenido, fechaDesde, fechaHasta, tags);
+
+            if (listaPost.Count > 0)
+            {
+                MessageBox.Show("Su busqueda se ha realizado con exito");
+                dataGridView1.Rows.Clear();
+
+                foreach (Post p in listaPost)
+                {
+                    string pTags = "";
+                    foreach (Tag t in p.tags)
+                    {
+                        pTags = pTags + t.palabra + " ";
+                    }
+
+                    dataGridView1.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Su busqueda devolvio 0 coincidencias");
+                dataGridView1.Rows.Clear();
+
+                foreach (Post p in rs.posts)
+                {
+                    string pTags = "";
+                    foreach (Tag t in p.tags)
+                    {
+                        pTags = pTags + t.palabra + " ";
+                    }
+
+                    dataGridView1.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
+                }
+            }
+        }
+        private void button13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+
+            foreach (Post p in rs.posts)
+            {
+                string pTags = "";
+                foreach (Tag t in p.tags)
+                {
+                    pTags = pTags + t.palabra + " ";
+                }
+
+                dataGridView1.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
+            }
         }
     }
 }

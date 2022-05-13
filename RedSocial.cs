@@ -214,9 +214,83 @@ namespace TP1
             return null;
         }
         //HACER
-        public List<Post> buscarPosts(String contenido, DateTime fecha, Tag t)
+        public List<Post> buscarPosts(String contenido, DateTime fechaDesde,DateTime fechaHasta, List<Tag> bTags)
         {
             List<Post> p = new List<Post>();
+            string fDesde = fechaDesde.Date.ToString("dd/MM/yyyy");
+            string hDesde = fechaHasta.Date.ToString("dd/MM/yyyy");
+            bool tagAgregado = false;
+
+            foreach (Post pPost in posts)
+            {
+                if (contenido != "" )
+                {
+                    if (pPost.contentido.Contains(contenido))
+                    {
+                        if (bTags.Count > 0)
+                        {
+                            if (pPost.fecha >= fechaDesde && pPost.fecha <= fechaHasta)
+                            {
+                                foreach (Tag t in bTags)
+                                {
+                                    foreach (Tag tPost in pPost.tags)
+                                    {
+                                        if (t.palabra.Equals(tPost.palabra))
+                                        {
+                                            p.Add(pPost);
+                                            tagAgregado = true;
+                                            break;
+                                        }
+                                    }
+                                    if (tagAgregado)
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            if (pPost.fecha >= fechaDesde && pPost.fecha <= fechaHasta)
+                            {
+                                p.Add(pPost);
+                            }
+                        }
+                    }                    
+                }
+                else
+                {
+                    if (bTags.Count > 0)
+                    {
+                        if (pPost.fecha >= fechaDesde && pPost.fecha <= fechaHasta)
+                        {
+                            foreach (Tag t in bTags)
+                            {
+                                foreach (Tag tPost in pPost.tags)
+                                {
+                                    if (t.palabra.Equals(tPost.palabra))
+                                    {
+                                        p.Add(pPost);
+                                        tagAgregado = true;
+                                        break;
+                                    }
+                                }
+                                if (tagAgregado)
+                                {
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (pPost.fecha >= fechaDesde && pPost.fecha <= fechaHasta)
+                        {
+                            p.Add(pPost);
+                        }
+                    }
+                }
+            }   
 
             return p;
         }
