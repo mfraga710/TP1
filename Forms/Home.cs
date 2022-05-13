@@ -434,6 +434,28 @@ namespace TP1.Forms
         }
         private void button13_Click(object sender, EventArgs e)
         {
+            List<Post> listaPost = rs.mostrarPostsAmigos();
+
+            if (listaPost.Count > 0)
+            {
+                dataGridView1.Rows.Clear();
+
+                foreach (Post p in listaPost)
+                {
+                    string pTags = "";
+                    foreach (Tag t in p.tags)
+                    {
+                        pTags = pTags + t.palabra + " ";
+                    }
+
+                    dataGridView1.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene amigos");
+            }
+
 
         }
 

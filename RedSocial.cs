@@ -209,11 +209,15 @@ namespace TP1
         //OK
         public List<Post> mostrarPostsAmigos()
         {
-            
+            List<Post> postsAmigos = new List<Post>();
+            foreach (Usuario amigo in usuarioActual.amigos)
+            {
+                postsAmigos.AddRange(amigo.misPosts);
+            }
 
-            return null;
+            return postsAmigos;
         }
-        //HACER
+        //OK
         public List<Post> buscarPosts(String contenido, DateTime fechaDesde,DateTime fechaHasta, List<Tag> bTags)
         {
             List<Post> p = new List<Post>();
