@@ -1,4 +1,11 @@
 Red Social Logo
+
+Requerimientos:
+
+Abrir con Microsoft Visual Studio 2019 o superior (se necesita de una version de Net Core para acceder a los diseños desde el IDE)
+
+Se debe abrir el proyecto desde el archivo TP1.sln y ejecutar usando el boton Ejecutar o con la tecla F5.
+
 (Guía de uso)
 1. Al ejecutar, el usuario observa una pantalla de inicio de sesión.
 a. Existe un botón que permite registrarse, esto lleva al usuario a una nueva
