@@ -479,5 +479,10 @@ namespace TP1.Forms
                 dataGridView1.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
             }
         }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

@@ -81,6 +81,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button15 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -359,10 +360,10 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(1050, 137);
+            this.button6.Location = new System.Drawing.Point(1050, 127);
             this.button6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(173, 50);
+            this.button6.Size = new System.Drawing.Size(184, 50);
             this.button6.TabIndex = 24;
             this.button6.Text = "Modificar Usuario";
             this.button6.UseVisualStyleBackColor = true;
@@ -392,9 +393,9 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(1050, 202);
+            this.button9.Location = new System.Drawing.Point(1050, 183);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(173, 50);
+            this.button9.Size = new System.Drawing.Size(184, 50);
             this.button9.TabIndex = 27;
             this.button9.Text = "Cerrar Sesion";
             this.button9.UseVisualStyleBackColor = true;
@@ -402,10 +403,10 @@
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(1050, 77);
+            this.button10.Location = new System.Drawing.Point(1050, 67);
             this.button10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(173, 50);
+            this.button10.Size = new System.Drawing.Size(184, 50);
             this.button10.TabIndex = 28;
             this.button10.Text = "Ver Usuario";
             this.button10.UseVisualStyleBackColor = true;
@@ -679,11 +680,22 @@
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
+            // button16
+            // 
+            this.button16.Location = new System.Drawing.Point(1050, 244);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(184, 50);
+            this.button16.TabIndex = 48;
+            this.button16.Text = "Salir de la Aplicacion";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(2077, 1299);
+            this.Controls.Add(this.button16);
             this.Controls.Add(this.button15);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView4);
@@ -784,5 +796,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.Button button16;
     }
 }
