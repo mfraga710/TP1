@@ -69,6 +69,13 @@
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button14 = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -521,11 +528,75 @@
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Width = 160;
             // 
+            // button14
+            // 
+            this.button14.Location = new System.Drawing.Point(553, 437);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(165, 29);
+            this.button14.TabIndex = 35;
+            this.button14.Text = "Buscar";
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(553, 499);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(165, 23);
+            this.textBox4.TabIndex = 36;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(553, 476);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(120, 15);
+            this.label8.TabIndex = 37;
+            this.label8.Text = "Buscar por contenido";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(553, 538);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(89, 15);
+            this.label9.TabIndex = 39;
+            this.label9.Text = "Buscar por Tags";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(553, 561);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(165, 23);
+            this.textBox5.TabIndex = 38;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(762, 478);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(95, 15);
+            this.label10.TabIndex = 40;
+            this.label10.Text = "Buscar por fecha";
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(762, 506);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 41;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 720);
+            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.button14);
             this.Controls.Add(this.dataGridView4);
             this.Controls.Add(this.dataGridView3);
             this.Controls.Add(this.button13);
@@ -609,5 +680,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }
