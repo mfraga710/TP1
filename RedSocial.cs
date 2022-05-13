@@ -19,13 +19,13 @@ namespace TP1
             posts = new List<Post>();
             tags = new List<Tag>();
         }
-        //OK
+
         public void registrarUsuario(string nombre, string apellido, string mail, int dni, string pass)
         {
             
             usuarios.Add(new Usuario(nombre, apellido, mail, dni, pass));
         }
-        //OK
+
         public void modificaUsuario(Usuario usuarioModificado)
         {
             if (usuarioModificado != null)
@@ -42,12 +42,12 @@ namespace TP1
                 }
             }
         }
-        //HACER
+
         public void eliminarUsuario(Usuario u)
         { 
             usuarios.Remove(u);
         }
-        //OK
+
         public bool iniciarSesion(string usuario, string pass)
         {
             bool flag = false;
@@ -65,14 +65,14 @@ namespace TP1
             }
              return flag;
         }
-        //OK
+
         public void cerrarSesion(Forms.Home home,Login frm)
         {
             usuarioActual = null;
             home.Close();
             frm.Show();
         }
-        //OK
+
         public void agregarAmigo(Usuario amigo)
         {
             foreach (Usuario u in usuarios)
@@ -84,7 +84,7 @@ namespace TP1
                 }
             }
         }
-        //OK
+
         public void quitarAmigo(Usuario exAmigo)
         {
             foreach (Usuario u in usuarios)
@@ -96,7 +96,7 @@ namespace TP1
                 }
             }
         }
-        //OK
+
         public void postear(Post p, List<Tag> t)
         {
             foreach (Tag tag in t)
@@ -111,7 +111,7 @@ namespace TP1
             posts.Add(p);
             usuarioActual.misPosts.Add(p);
         }
-        //OK
+
         public void modificarPost(Post p)
         {
             if (p != null)
@@ -125,19 +125,19 @@ namespace TP1
                 }
             }
         }
-        //OK
+
         public void eliminarPost(Post p)
         {
             p.user.misPosts.Remove(p);
             posts.Remove(p);
         }
-        //OK
+
         public void comentar(Post p, Comentario c) 
         {
             p.comentarios.Add(c);
             
         }
-        //OK
+
         public void modificarComentario(Post p, Comentario c)
         {
             if(p != null && c != null)
@@ -151,7 +151,7 @@ namespace TP1
                 }
             }
         }
-        //OK
+
         public void quitarComentario(Post p, Comentario c)
         {
             if(p != null && c != null)
@@ -172,12 +172,12 @@ namespace TP1
         {
 
         }
-        //OK
+
         public Usuario mostrarDatos(Usuario u)
         {
           return u;
         }
-        //OK
+
         public List<Post> mostrarPosts()
         {
           return usuarioActual.misPosts;

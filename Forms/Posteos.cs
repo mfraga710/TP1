@@ -25,7 +25,7 @@ namespace TP1.Forms
                 if (p.id == postId)
                 {
                     label5.Text = p.contentido;
-                    label6.Text = p.fecha.ToShortDateString();
+                    label6.Text = p.fecha.ToString("d");
                     foreach (Tag t in p.tags)
                     {
                         listBox1.Items.Add(t.palabra);
@@ -46,19 +46,7 @@ namespace TP1.Forms
                     rs.modificarPost(editedPost);
                 }
             }
-
-            frm.dataGridView1.Rows.Clear();
-            foreach (Post p in rs.posts)
-            {
-                string pTags = "";
-                foreach (Tag t in p.tags)
-                {
-                    pTags = pTags + t.palabra + " ";
-                }
-                frm.dataGridView1.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
-            }
-            frm.Enabled = true;
-            this.Close();
+            refreshpost();
         }
 
         // BOTON CANCELAR EL POST
@@ -105,8 +93,37 @@ namespace TP1.Forms
         // BOTON MODIFICAR TAGS
         private void button6_Click(object sender, EventArgs e)
         {
-        
+            Post editedPost = frm.searchPost(id);
+            foreach (Tag tag in editedPost.tags)
+            {
+                if (tag.id == editedPost.id)
+                {
+                    tag.palabra = textBox2.Text;
+                }
+            }
+            refreshpost();
+            frm.Enabled = true;
+            frm.dataGridView1.Refresh();
+            this.Close();
+
+
         }
 
+
+        private void refreshpost()
+        {
+            frm.dataGridView1.Rows.Clear();
+            foreach (Post p in rs.posts)
+            {
+                string pTags = "";
+                foreach (Tag t in p.tags)
+                {
+                    pTags = pTags + t.palabra + " ";
+                }
+                frm.dataGridView1.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
+            }
+            frm.Enabled = true;
+            this.Close();
+        }
     }
 }

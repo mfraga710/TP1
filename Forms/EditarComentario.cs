@@ -46,6 +46,7 @@ namespace TP1.Forms
             rs.modificarComentario(frm.searchPost(idPost), editedComment);
             frm.refreshCommentsGrid();
             frm.Enabled = true;
+
             this.Close();
         }
 

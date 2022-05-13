@@ -24,7 +24,8 @@ namespace TP1
             reacciones = new List<Reaccion>();
             comentarios = new List<Comentario>();
             tags = new List<Tag>();
-            DateTime fecha = DateTime.Now;
+            this.fecha = DateTime.Now;
+
         }
 
     }
