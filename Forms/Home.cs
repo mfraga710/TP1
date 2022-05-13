@@ -163,7 +163,7 @@ namespace TP1.Forms
         // BUTTON 6 - EDITAR USUARIO
         private void button6_Click(object sender, EventArgs e)
         {
-            EditarUsuario edit = new EditarUsuario(rs,this, searchUser(rs.usuarioActual.id));
+            EditarUsuario edit = new EditarUsuario(rs,this, searchUser(rs.usuarioActual.id), frm);
             this.Enabled = false;         
             edit.Show();            
         }

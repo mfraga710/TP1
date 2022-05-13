@@ -44,7 +44,7 @@ namespace TP1
         }
         //HACER
         public void eliminarUsuario(Usuario u)
-        {
+        { 
             usuarios.Remove(u);
         }
         //OK
@@ -108,7 +108,6 @@ namespace TP1
                     tags.Add(tag);
                 }
             }
-
             posts.Add(p);
             usuarioActual.misPosts.Add(p);
         }

@@ -13,12 +13,14 @@ namespace TP1.Forms
         private RedSocial rs;
         private Usuario usuario;
         private Home frm;
+        private Login log;
 
-        public EditarUsuario(RedSocial rs1,Home frm1, Usuario user)
+        public EditarUsuario(RedSocial rs1,Home frm1, Usuario user, Login log)
         {
             this.frm = frm1;
             this.rs = rs1;
             this.usuario = user;
+            this.log = log;
             InitializeComponent();
             nombre.Text = rs.usuarioActual.nombre;
             apellido.Text = rs.usuarioActual.apellido;
@@ -48,6 +50,14 @@ namespace TP1.Forms
         {
             frm.Enabled = true;
             this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            rs.eliminarUsuario(usuario);
+            rs.cerrarSesion(frm, log);
+            this.Close();
+            
         }
     }
 }

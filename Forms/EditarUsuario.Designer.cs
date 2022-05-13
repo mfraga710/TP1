@@ -40,6 +40,7 @@
             this.dni = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +56,7 @@
             this.groupBox1.Controls.Add(this.mail);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.dni);
-            this.groupBox1.Location = new System.Drawing.Point(75, 74);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(491, 237);
             this.groupBox1.TabIndex = 15;
@@ -138,7 +139,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(194, 360);
+            this.button1.Location = new System.Drawing.Point(523, 44);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 27);
             this.button1.TabIndex = 17;
@@ -148,7 +149,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(344, 360);
+            this.button2.Location = new System.Drawing.Point(523, 103);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(104, 27);
             this.button2.TabIndex = 18;
@@ -156,11 +157,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(523, 222);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(104, 27);
+            this.button3.TabIndex = 19;
+            this.button3.Text = "Eliminar Usuario";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // EditarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 434);
+            this.ClientSize = new System.Drawing.Size(646, 263);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
@@ -186,5 +198,6 @@
         private System.Windows.Forms.TextBox dni;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

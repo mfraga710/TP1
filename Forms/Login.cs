@@ -63,6 +63,8 @@ namespace TP1
                     }
                 }
             }
+            textBox1.Clear();
+            textBox2.Clear();
         }
 
         private void button2_Click(object sender, EventArgs e)
