@@ -28,17 +28,19 @@ namespace TP1
         //OK
         public void modificaUsuario(Usuario usuarioModificado)
         {
-            Usuario usuarioAremover = null;
-
-            foreach(Usuario user in usuarios)
+            if (usuarioModificado != null)
             {
-                if (user.id.Equals(usuarioModificado))
-	            {
-                     usuarioAremover = user;                    
-	            }
+                foreach (Usuario user in usuarios)
+                {
+                    if (user.id == usuarioModificado.id)
+                    {
+                        user.nombre = usuarioModificado.nombre;
+                        user.apellido = usuarioModificado.apellido;
+                        user.email = usuarioModificado.email;
+                        user.dni = usuarioModificado.dni;
+                    }
+                }
             }
-                usuarios.Remove(usuarioAremover);
-                usuarios.Add(usuarioModificado);                
         }
         //HACER
         public void eliminarUsuario(Usuario u)
@@ -72,15 +74,27 @@ namespace TP1
         }
         //OK
         public void agregarAmigo(Usuario amigo)
-        {      
-            usuarioActual.amigos.Add(amigo);
-            amigo.amigos.Add(usuarioActual);
+        {
+            foreach (Usuario u in usuarios)
+            {
+                if (u.id == usuarioActual.id)
+                {
+                    u.amigos.Add(amigo);
+                    amigo.amigos.Add(u);
+                }
+            }
         }
         //OK
         public void quitarAmigo(Usuario exAmigo)
         {
-            usuarioActual.amigos.Remove(exAmigo);
-            exAmigo.amigos.Remove(usuarioActual);
+            foreach (Usuario u in usuarios)
+            {
+                if (u.id == usuarioActual.id)
+                {
+                    u.amigos.Remove(exAmigo);
+                    exAmigo.amigos.Remove(u);
+                }
+            }
         }
         //OK
         public void postear(Post p, List<Tag> t)
@@ -98,12 +112,19 @@ namespace TP1
             posts.Add(p);
             usuarioActual.misPosts.Add(p);
         }
-        //HACER
+        //OK
         public void modificarPost(Post p)
         {
-           //* foreach (Post p in p)
-           //* posts.Remove(p);
-
+            if (p != null)
+            {
+                foreach (Post post in posts)
+                {
+                    if (post.id == p.id)
+                    {
+                        post.contentido = p.contentido;
+                    }
+                }
+            }
         }
         //OK
         public void eliminarPost(Post p)
@@ -131,7 +152,6 @@ namespace TP1
                 }
             }
         }
-
         //OK
         public void quitarComentario(Post p, Comentario c)
         {
@@ -161,16 +181,14 @@ namespace TP1
         //OK
         public List<Post> mostrarPosts()
         {
-            List<Post> p = new List<Post>();
-
-            return p;
+          return usuarioActual.misPosts;
         }
         //OK
         public List<Post> mostrarPostsAmigos()
         {
-            List<Post> p = new List<Post>();
+            
 
-            return p;
+            return null;
         }
         //HACER
         public List<Post> buscarPosts(String contenido, DateTime fecha, Tag t)

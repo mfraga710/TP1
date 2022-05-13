@@ -11,13 +11,14 @@ namespace TP1.Forms
     public partial class EditarUsuario : Form
     {
         private RedSocial rs;
-
+        private Usuario usuario;
         private Home frm;
 
-        public EditarUsuario(RedSocial rs1,Home frm1)
+        public EditarUsuario(RedSocial rs1,Home frm1, Usuario user)
         {
             this.frm = frm1;
             this.rs = rs1;
+            this.usuario = user;
             InitializeComponent();
             nombre.Text = rs.usuarioActual.nombre;
             apellido.Text = rs.usuarioActual.apellido;
@@ -28,10 +29,16 @@ namespace TP1.Forms
         // BUTTON 1 - GUARDAR MODIFICACIONES
         private void button1_Click(object sender, EventArgs e)
         {
-            rs.usuarioActual.nombre = nombre.Text;
-            rs.usuarioActual.apellido = apellido.Text;
-            rs.usuarioActual.email = mail.Text;
-            rs.usuarioActual.dni = Convert.ToInt32(dni.Text);         
+            string newNom = nombre.Text;
+            string newApe = apellido.Text;
+            string newEmail = mail.Text;
+            int newDni = Convert.ToInt32(dni.Text);
+            Usuario editedUsuario = frm.searchUser(usuario.id);
+            editedUsuario.nombre = newNom;
+            editedUsuario.apellido = newApe;
+            editedUsuario.email = newEmail;
+            editedUsuario.dni = newDni;
+            rs.modificaUsuario(editedUsuario);
             frm.label1.Text = "Bienvenido " + rs.usuarioActual.nombre + " " + rs.usuarioActual.apellido;
             frm.Enabled = true;
             this.Close();

@@ -12,7 +12,6 @@ namespace TP1.Forms
     {
     private RedSocial rs;
     private int id;
-    private Post p;
     private Home frm;
     
         public Posteos(RedSocial rs1, Home frm1, int postId)
@@ -27,7 +26,6 @@ namespace TP1.Forms
                 {
                     label5.Text = p.contentido;
                     label6.Text = p.fecha.ToShortDateString();
-
                     foreach (Tag t in p.tags)
                     {
                         listBox1.Items.Add(t.palabra);
@@ -42,13 +40,14 @@ namespace TP1.Forms
             {
                 if (p.id == id)
                 {
-                    //*rs.modificarPost(p);
-                    p.contentido = textBox1.Text;
+                    string newPost = textBox1.Text;
+                    Post editedPost = frm.searchPost(id);
+                    editedPost.contentido = newPost;
+                    rs.modificarPost(editedPost);
                 }
             }
 
             frm.dataGridView1.Rows.Clear();
-
             foreach (Post p in rs.posts)
             {
                 string pTags = "";
@@ -78,7 +77,7 @@ namespace TP1.Forms
             button1.Show();
         }
 
-        // BOTON EDITAR TAGS
+        // BOTON SELECCION DE TAGS PARA EDIT
         private void button5_Click(object sender, EventArgs e)
         {
             string selectTag;
