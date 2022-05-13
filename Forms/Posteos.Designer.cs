@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Posteos));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.Posteo = new System.Windows.Forms.GroupBox();
@@ -41,30 +46,28 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button6 = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button10 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.Posteo.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.linkLabel2);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.linkLabel1);
+            this.groupBox1.Controls.Add(this.button9);
+            this.groupBox1.Controls.Add(this.button8);
+            this.groupBox1.Controls.Add(this.button7);
             this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.Posteo);
@@ -72,6 +75,37 @@
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // button9
+            // 
+            resources.ApplyResources(this.button9, "button9");
+            this.button9.Name = "button9";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // button8
+            // 
+            resources.ApplyResources(this.button8, "button8");
+            this.button8.Name = "button8";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button7
+            // 
+            resources.ApplyResources(this.button7, "button7");
+            this.button7.Name = "button7";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // listBox1
             // 
@@ -143,28 +177,6 @@
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.button4);
-            this.groupBox4.Controls.Add(this.button5);
-            resources.ApplyResources(this.groupBox4, "groupBox4");
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.TabStop = false;
-            // 
-            // button4
-            // 
-            resources.ApplyResources(this.button4, "button4");
-            this.button4.Name = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button5
-            // 
-            resources.ApplyResources(this.button5, "button5");
-            this.button5.Name = "button5";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.textBox2);
@@ -185,32 +197,40 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // linkLabel1
+            // button5
             // 
-            resources.ApplyResources(this.linkLabel1, "linkLabel1");
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.TabStop = true;
+            resources.ApplyResources(this.button5, "button5");
+            this.button5.Name = "button5";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // label2
+            // button4
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.button4, "button4");
+            this.button4.Name = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // label3
+            // groupBox4
             // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
+            this.groupBox4.Controls.Add(this.button4);
+            this.groupBox4.Controls.Add(this.button5);
+            resources.ApplyResources(this.groupBox4, "groupBox4");
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.TabStop = false;
             // 
-            // linkLabel2
+            // button10
             // 
-            resources.ApplyResources(this.linkLabel2, "linkLabel2");
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.TabStop = true;
+            resources.ApplyResources(this.button10, "button10");
+            this.button10.Name = "button10";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // Posteos
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button10);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -224,9 +244,9 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -244,16 +264,18 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button10;
     }
 }

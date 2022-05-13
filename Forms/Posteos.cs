@@ -32,6 +32,7 @@ namespace TP1.Forms
                     }
                 }
             }
+            refreshReacciones();
         }
         // BOTON GUARDAR
         private void button1_Click(object sender, EventArgs e)
@@ -122,6 +123,56 @@ namespace TP1.Forms
                 }
                 frm.dataGridView1.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
             }
+            frm.Enabled = true;
+            this.Close();
+        }
+        // CLICK ME GUSTA
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Post editedPost = frm.searchPost(id);
+            Reaccion reaccion = new Reaccion(Reaccion.ME_GUSTA, editedPost, rs.usuarioActual);
+            rs.reaccionar(editedPost, reaccion);
+            refreshReacciones();
+        }
+        // CLICK NO ME GUSTA
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Post editedPost = frm.searchPost(id);
+            Reaccion reaccion = new Reaccion(Reaccion.NO_ME_GUSTA, editedPost, rs.usuarioActual);
+            rs.reaccionar(editedPost, reaccion);
+            refreshReacciones();
+        }
+        // CLICK ELIINAR REACCION
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Post editedPost = frm.searchPost(id);
+            Reaccion reaccion = new Reaccion(Reaccion.NO_ME_GUSTA, editedPost, rs.usuarioActual);
+            rs.quitarReacion(editedPost, reaccion);
+            refreshReacciones();
+        }
+
+        private int countReacciones(String tipo, Post post)
+        {
+            int cont = 0;
+            foreach (Reaccion r in  post.reacciones)
+            {
+                if (r.tipoReaccion.Equals(tipo))
+                {
+                    cont++;
+                }
+            }
+            return cont;
+        }
+
+        private void refreshReacciones()
+        {
+            Post editedPost = frm.searchPost(id);
+            label2.Text = countReacciones(Reaccion.ME_GUSTA, editedPost).ToString();
+            label3.Text = countReacciones(Reaccion.NO_ME_GUSTA, editedPost).ToString();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
             frm.Enabled = true;
             this.Close();
         }

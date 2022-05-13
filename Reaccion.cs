@@ -12,22 +12,14 @@ namespace TP1
         public Usuario usuario { get;  set; }
 
         static int idCont = 0;
-        static int mg = 0;
-        static int nmg = 0;
+        public const string ME_GUSTA = "Me gusta";
+        public const string NO_ME_GUSTA = "No me gusta";
         public Reaccion(string tipoReaccion, Post post, Usuario user)
         {
-            this.id = idCont++;
+            idCont++;
             this.tipoReaccion = tipoReaccion;
             this.post = post;
             this.usuario = user;
-            if (tipoReaccion == "Me gusta")
-            {
-                mg++;
-            }
-            else
-            {
-                nmg++;
-            }
 
         }
 

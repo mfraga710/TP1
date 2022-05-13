@@ -157,20 +157,44 @@ namespace TP1
             if(p != null && c != null)
                 p.comentarios.Remove(c);
         }
-        //HACER
+
         public void reaccionar(Post p, Reaccion r)
         {
-            
+            bool newReaction = true;
+            foreach (Reaccion reaccion in p.reacciones)
+            {
+                if (reaccion.usuario.id == usuarioActual.id)
+                {
+                    newReaction = false;
+                    modificarReacion(p, r);
+                }
+            }
+            if(newReaction)
+                p.reacciones.Add(r);
         }
         //HACER
         public void modificarReacion(Post p, Reaccion r)
         {
-
+            foreach (Reaccion reaccion in p.reacciones)
+            {
+                if (reaccion.usuario.id == usuarioActual.id)
+                {
+                    reaccion.tipoReaccion = r.tipoReaccion;
+                }
+            }
         }
         //HACER
         public void quitarReacion(Post p, Reaccion r)
         {
-
+            Reaccion rEliminar = null;
+            foreach (Reaccion reaccion in p.reacciones)
+            {
+                if (reaccion.usuario.id == usuarioActual.id)
+                {
+                    rEliminar = reaccion;
+                }
+            }
+            p.reacciones.Remove(rEliminar);
         }
 
         public Usuario mostrarDatos(Usuario u)
