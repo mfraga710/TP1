@@ -42,7 +42,7 @@ namespace TP1.Forms
                 if (p.id == id)
                 {
                     string newPost = textBox1.Text;
-                    Post editedPost = frm.searchPost(id);
+                    Post editedPost = rs.searchPost(id);
                     editedPost.contentido = newPost;
                     rs.modificarPost(editedPost);
                 }
@@ -94,7 +94,7 @@ namespace TP1.Forms
         // BOTON MODIFICAR TAGS
         private void button6_Click(object sender, EventArgs e)
         {
-            Post editedPost = frm.searchPost(id);
+            Post editedPost = rs.searchPost(id);
             foreach (Tag tag in editedPost.tags)
             {
                 if (tag.id == editedPost.id)
@@ -129,7 +129,7 @@ namespace TP1.Forms
         // CLICK ME GUSTA
         private void button7_Click(object sender, EventArgs e)
         {
-            Post editedPost = frm.searchPost(id);
+            Post editedPost = rs.searchPost(id);
             Reaccion reaccion = new Reaccion(Reaccion.ME_GUSTA, editedPost, rs.usuarioActual);
             rs.reaccionar(editedPost, reaccion);
             refreshReacciones();
@@ -137,7 +137,7 @@ namespace TP1.Forms
         // CLICK NO ME GUSTA
         private void button8_Click(object sender, EventArgs e)
         {
-            Post editedPost = frm.searchPost(id);
+            Post editedPost = rs.searchPost(id);
             Reaccion reaccion = new Reaccion(Reaccion.NO_ME_GUSTA, editedPost, rs.usuarioActual);
             rs.reaccionar(editedPost, reaccion);
             refreshReacciones();
@@ -145,7 +145,7 @@ namespace TP1.Forms
         // CLICK ELIINAR REACCION
         private void button9_Click(object sender, EventArgs e)
         {
-            Post editedPost = frm.searchPost(id);
+            Post editedPost = rs.searchPost(id);
             Reaccion reaccion = new Reaccion(Reaccion.NO_ME_GUSTA, editedPost, rs.usuarioActual);
             rs.quitarReacion(editedPost, reaccion);
             refreshReacciones();
@@ -166,7 +166,7 @@ namespace TP1.Forms
 
         private void refreshReacciones()
         {
-            Post editedPost = frm.searchPost(id);
+            Post editedPost = rs.searchPost(id);
             label2.Text = countReacciones(Reaccion.ME_GUSTA, editedPost).ToString();
             label3.Text = countReacciones(Reaccion.NO_ME_GUSTA, editedPost).ToString();
         }

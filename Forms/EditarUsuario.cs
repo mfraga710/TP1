@@ -31,15 +31,12 @@ namespace TP1.Forms
         // BUTTON 1 - GUARDAR MODIFICACIONES
         private void button1_Click(object sender, EventArgs e)
         {
-            string newNom = nombre.Text;
-            string newApe = apellido.Text;
-            string newEmail = mail.Text;
-            int newDni = Convert.ToInt32(dni.Text);
-            Usuario editedUsuario = frm.searchUser(usuario.id);
-            editedUsuario.nombre = newNom;
-            editedUsuario.apellido = newApe;
-            editedUsuario.email = newEmail;
-            editedUsuario.dni = newDni;
+            
+            Usuario editedUsuario = rs.searchUser(usuario.id);
+            editedUsuario.nombre = nombre.Text;
+            editedUsuario.apellido = apellido.Text;
+            editedUsuario.email = mail.Text;
+            editedUsuario.dni = Convert.ToInt32(dni.Text);
             rs.modificaUsuario(editedUsuario);
             frm.label1.Text = "Bienvenido " + rs.usuarioActual.nombre + " " + rs.usuarioActual.apellido;
             frm.Enabled = true;

@@ -16,28 +16,19 @@ namespace TP1.Forms
         {
             this.rs = rs1;
             frm = formLogin;
+
             InitializeComponent();
             // AGREGA NOMBRE DE USUARIO
             label1.Text = "Bienvenido " + rs.usuarioActual.nombre + " " + rs.usuarioActual.apellido;
             refreshAmigos();
-            // AGREGA LA LISTA DE NO AMIGOS
+            
             refreshNoAmigos();
 
+            refreshHomePosts(rs.posts);
+
             dataGridView1.Rows.Clear();
-
-            // AGREGA LOS POST YA GENERADOS
-            foreach (Post p in rs.posts)
-            {
-                string pTags = "";
-                foreach (Tag t in p.tags)
-                {
-                    pTags = pTags + t.palabra + " ";
-                }
-
-                dataGridView1.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
-            }
         }
-
+       
         // PICTURE BOX 1 - MUESTRA LOS AMIGOS A AGREGAR
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -51,18 +42,22 @@ namespace TP1.Forms
         // BUTTON 1 - AGREGA AMIGO
         private void button1_Click_1(object sender, EventArgs e)
         {
+            agregarAmigo();
+        }
+        private void agregarAmigo()
+        {
             var selrow = dataGridView3.SelectedRows;
             int amigoId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
-                foreach (Usuario u in rs.usuarios)
+            foreach (Usuario u in rs.usuarios)
+            {
+                if (u.id == amigoId)
                 {
-                    if (u.id == amigoId)
-                    {
-                        rs.agregarAmigo(u);
-                        dataGridView3.Rows.Remove(selrow[0]);
-                        refreshAmigos();
-                        break;
-                    }
+                    rs.agregarAmigo(u);
+                    dataGridView3.Rows.Remove(selrow[0]);
+                    refreshAmigos();
+                    break;
                 }
+            }
         }
 
         // BUTTON 2 - CIERRA LISTBOX 2
@@ -77,6 +72,11 @@ namespace TP1.Forms
 
         // PICTUREBOX 2 - ELIMINA AMIGO
         private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            eliminarAmigo();
+        }
+
+        private void eliminarAmigo()
         {
             var selrow = dataGridView4.SelectedRows;
             int amigoId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
@@ -97,48 +97,47 @@ namespace TP1.Forms
         private void button3_Click(object sender, EventArgs e)
         {
             Post post = new Post(rs.usuarioActual,textBox1.Text);
-            List<Tag> tags = new List<Tag>();
             string[] sTags = textBox2.Text.Split('#');
+            
+            rs.postear(post, crearTag());
+            refreshHomePosts(rs.posts);
+            textBox1.Clear();
+            textBox2.Clear();
+            MessageBox.Show("Su posteo ha sido publicado correctamente");
+        }
+        //corregir y ver si lo cambio a la clase red social
+        private List<Tag> crearTag()
+        {
+            string[] sTags = textBox2.Text.Split('#');
+            List<Tag> listTags = new List<Tag>();
+
             foreach (var word in sTags)
             {
+                Console.Write("1: "+word);
                 if (word.Length > 1)
                 {
                     if (rs.tags.Count > 0)
                     {
+
                         foreach (Tag tag in rs.tags)
                         {
+                            Console.Write("4: " + tag);
                             if (!tag.palabra.Equals("#" + word))
                             {
-                                tags.Add(new Tag("#" + word));
+                                listTags.Add(new Tag("#" + word));
                             }
                         }
                     }
                     else
                     {
-                        tags.Add(new Tag("#" + word));
+                        listTags.Add(new Tag("#" + word));
                     }
                 }
-            }    
-
-            rs.postear(post, tags);
-            
-            dataGridView1.Rows.Clear();
-
-            foreach (Post p in rs.posts)
-            {
-                string pTags = "";
-                foreach (Tag t in p.tags)
-                {
-                    pTags = pTags + t.palabra + " " ;
-                }
-
-                dataGridView1.Rows.Add(p.id,p.user.nombre + " " + p.user.apellido, p.contentido, pTags);                
             }
-            
-            textBox1.Clear();
-            textBox2.Clear();
-            MessageBox.Show("Su posteo ha sido publicado correctamente");
+            Console.Write("5: " + listTags);
+            return listTags;
         }
+
 
         // BUTTON 4 - COMENTA EL POST
         private void button4_Click(object sender, EventArgs e)
@@ -146,24 +145,29 @@ namespace TP1.Forms
             var selrow = dataGridView1.SelectedRows;
             int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
 
-            foreach(Post p in rs.posts)
+            crearContenido(postId);
+            
+            textBox3.Clear();
+            MessageBox.Show("Su comentario ha sido ingresado correctamente");
+        }
+
+        private void crearContenido(int idP)
+        {
+            foreach (Post p in rs.posts)
             {
-                if (p.id == postId)
-                {      
+                if (p.id == idP)
+                {
                     string contenido = textBox3.Text;
                     Comentario coment = new Comentario(p, rs.usuarioActual, contenido);
                     rs.comentar(p, coment);
                     refreshList(p);
                 }
             }
-            textBox3.Clear();
-            MessageBox.Show("Su comentario ha sido ingresado correctamente");
         }
-
         // BUTTON 6 - EDITAR USUARIO
         private void button6_Click(object sender, EventArgs e)
         {
-            EditarUsuario edit = new EditarUsuario(rs,this, searchUser(rs.usuarioActual.id), frm);
+            EditarUsuario edit = new EditarUsuario(rs,this, rs.searchUser(rs.usuarioActual.id), frm);
             this.Enabled = false;         
             edit.Show();            
         }
@@ -181,10 +185,15 @@ namespace TP1.Forms
         // BUTTON 7 - ELIMINAR POST
         private void button8_Click(object sender, EventArgs e)
         {
+            eliminarRegistro();
+            MessageBox.Show("Su posteo ha sido eliminado correctamente");
+        }
+
+        private void eliminarRegistro()
+        {
             Post pBorrar = null;
             var selrow = dataGridView1.SelectedRows;
-            int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());            
-
+            int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
             foreach (Post p in rs.posts)
             {
                 if (p.id == postId)
@@ -203,8 +212,6 @@ namespace TP1.Forms
                 rs.eliminarPost(pBorrar);
                 dataGridView2.Rows.Clear();
             }
-            
-            MessageBox.Show("Su posteo ha sido eliminado correctamente");
         }
 
         // CERRAR SESION
@@ -224,10 +231,13 @@ namespace TP1.Forms
         // BUTTON 11 - EDITAR COMENTARIO
         private void button11_Click(object sender, EventArgs e)
         {
-            var selrow = dataGridView2.SelectedRows;
-            var selPostrow = dataGridView1.SelectedRows;
-            int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+            editarComent();
+        }
 
+        private void editarComent()
+        {
+            var selrow = dataGridView2.SelectedRows;
+            int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
             // selrow.Count para que no pinche cuando no se selecciona ningún comentario
             if (selrow == null || selrow.Count <= 0)
             {
@@ -249,62 +259,21 @@ namespace TP1.Forms
             var selPostRow = dataGridView1.SelectedRows;
             int postId = Int32.Parse(selPostRow[0].Cells[0].Value.ToString());
 
-            rs.quitarComentario(searchPost(postId), searchComent(commentId));
+            rs.quitarComentario(rs.searchPost(postId), rs.searchComent(commentId));
             refreshCommentsGrid();
         }
-        // IDENTIFICADOR DE COMENTARIO
-        public Comentario searchComent(int id)
-        {
-            foreach (Post p in rs.posts)
-            {
-                foreach (Comentario c in p.comentarios)
-                {
-                    if (c.id == id)
-                    {
-                        return c;
-                    }
-                }
-            }
-            return null;
-        }
-        // IDENTIFICADOR DE POST
-        public Post searchPost(int idPost)
-        {
-            foreach (Post p in rs.posts)
-            {
-                if (idPost == p.id)
-                {
-                    return p;
-                }
-            }
-            return null;
-        }
-        // IDENTIFICADOR DE USUARIO
-        public Usuario searchUser(int idUser)
-        {
-            foreach (Usuario u in rs.usuarios)
-            {
-                if (idUser == u.id)
-                {
-                    return u;
-                }
-            }
-            return null;
-        }
+        
         // IDENTIFICADOR DEL ID DEL POST
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var selrow = dataGridView1.SelectedRows;
             int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
-
-            foreach (Post p in rs.posts)
-            {
-                if (p.id == postId)
-                {
-                    refreshList(p);
-                }
-            }
+            Post p = rs.searchPost(postId);
+            refreshList(p);
         }
+
+       
+
         // RECARGAR COMENTARIOS
         public void refreshCommentsGrid()
         {
@@ -360,28 +329,22 @@ namespace TP1.Forms
         // RECARGAR LA LISTA DE POST
         private void refreshList(Post p)
         {
-            dataGridView2.Rows.Clear();
-            foreach (Comentario c in p.comentarios)
-            {
-                dataGridView2.Rows.Add(c.id, c.usuario.nombre + " " + c.usuario.apellido, c.contenido);
+            if(p != null) { 
+                dataGridView2.Rows.Clear();
+                foreach (Comentario c in p.comentarios)
+                {
+                    dataGridView2.Rows.Add(c.id, c.usuario.nombre + " " + c.usuario.apellido, c.contenido);
+                }
             }
         }
         // BOTON MOSTRAR MIS POSTS
         private void button12_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
-            List<Post> po = rs.mostrarPosts();
-            foreach (Post p in po)
-            {
-                string pTags = "";
-                foreach (Tag t in p.tags)
-                {
-                    pTags = pTags + t.palabra + " ";
-                }
-                dataGridView1.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
-            }
+            refreshHomePosts(rs.mostrarPosts());
         }
 
+
+        //buscador de post a traves de tags
         private void button14_Click(object sender, EventArgs e)
         {
             DateTime fechaDesde = dateTimePicker1.Value;
@@ -402,34 +365,12 @@ namespace TP1.Forms
             if (listaPost.Count > 0)
             {
                 MessageBox.Show("Su busqueda se ha realizado con exito");
-                dataGridView1.Rows.Clear();
-
-                foreach (Post p in listaPost)
-                {
-                    string pTags = "";
-                    foreach (Tag t in p.tags)
-                    {
-                        pTags = pTags + t.palabra + " ";
-                    }
-
-                    dataGridView1.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
-                }
+                refreshHomePosts(listaPost);
             }
             else
             {
                 MessageBox.Show("Su busqueda devolvio 0 coincidencias");
-                dataGridView1.Rows.Clear();
-
-                foreach (Post p in rs.posts)
-                {
-                    string pTags = "";
-                    foreach (Tag t in p.tags)
-                    {
-                        pTags = pTags + t.palabra + " ";
-                    }
-
-                    dataGridView1.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
-                }
+                refreshHomePosts(rs.posts);
             }
         }
         private void button13_Click(object sender, EventArgs e)
@@ -438,18 +379,7 @@ namespace TP1.Forms
 
             if (listaPost.Count > 0)
             {
-                dataGridView1.Rows.Clear();
-
-                foreach (Post p in listaPost)
-                {
-                    string pTags = "";
-                    foreach (Tag t in p.tags)
-                    {
-                        pTags = pTags + t.palabra + " ";
-                    }
-
-                    dataGridView1.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
-                }
+                refreshHomePosts(listaPost);
             }
             else
             {
@@ -459,30 +389,34 @@ namespace TP1.Forms
 
         }
 
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button15_Click(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Clear();
-
-            foreach (Post p in rs.posts)
-            {
-                string pTags = "";
-                foreach (Tag t in p.tags)
-                {
-                    pTags = pTags + t.palabra + " ";
-                }
-
-                dataGridView1.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
-            }
+            refreshHomePosts(rs.posts);
         }
 
         private void button16_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
+        private void refreshHomePosts(List<Post> listaPost)
+        {
+
+            dataGridView1.Rows.Clear();
+            string pTags = "";
+            foreach (Post p in listaPost)
+            {
+                Console.Write("2: "+p.contentido);
+                foreach (Tag t in p.tags)
+                {
+                    Console.Write("3: "+t.palabra);
+                    pTags = pTags + t.palabra + " ";
+                }
+                dataGridView1.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
+            }
+            
+        }
+
+       
     }
 }

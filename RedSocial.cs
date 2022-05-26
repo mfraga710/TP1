@@ -97,9 +97,9 @@ namespace TP1
             }
         }
 
-        public void postear(Post p, List<Tag> t)
+        public void postear(Post p, List<Tag> newTags)
         {
-            foreach (Tag tag in t)
+            foreach (Tag tag in newTags)
             {
                 if (!tags.Contains(tag))
                 {
@@ -298,5 +298,49 @@ namespace TP1
 
             return p;
         }
+
+        // IDENTIFICADOR DE COMENTARIO del post
+        public Comentario searchComent(int id)
+        {
+            foreach (Post p in posts)
+            {
+                foreach (Comentario c in p.comentarios)
+                {
+                    if (c.id == id)
+                    {
+                        return c;
+                    }
+                }
+            }
+            return null;
+        }
+        // IDENTIFICADOR DE POST
+        public Post searchPost(int idPost)
+        {
+            foreach (Post p in posts)
+            {
+                if (idPost == p.id)
+                {
+                    return p;
+                }
+            }
+            return null;
+        }
+        // IDENTIFICADOR DE USUARIO
+        public Usuario searchUser(int idUser)
+        {
+            foreach (Usuario u in usuarios)
+            {
+                if (idUser == u.id)
+                {
+                    return u;
+                }
+            }
+            return null;
+        }
+        
+        
     }
+
+
 }

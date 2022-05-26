@@ -41,9 +41,9 @@ namespace TP1.Forms
         private void button1_Click(object sender, EventArgs e)
         {
             string newComent = textBox1.Text;
-            Comentario editedComment = frm.searchComent(idComment);
+            Comentario editedComment = rs.searchComent(idComment);
             editedComment.contenido = newComent;
-            rs.modificarComentario(frm.searchPost(idPost), editedComment);
+            rs.modificarComentario(rs.searchPost(idPost), editedComment);
             frm.refreshCommentsGrid();
             frm.Enabled = true;
 
