@@ -31,9 +31,9 @@ namespace TP1
         {
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxUsuario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -49,7 +49,7 @@ namespace TP1
             this.button1.TabIndex = 0;
             this.button1.Text = "Iniciar sesion";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.btnIniciarSesion_Click);
             // 
             // button2
             // 
@@ -60,14 +60,14 @@ namespace TP1
             this.button2.TabIndex = 1;
             this.button2.Text = "Registrarse";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.btnRegistrarse_Click);
             // 
-            // textBox1
+            // textBoxUsuario
             // 
-            this.textBox1.Location = new System.Drawing.Point(26, 189);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(364, 23);
-            this.textBox1.TabIndex = 16;
+            this.textBoxUsuario.Location = new System.Drawing.Point(26, 189);
+            this.textBoxUsuario.Name = "textBoxUsuario";
+            this.textBoxUsuario.Size = new System.Drawing.Size(364, 23);
+            this.textBoxUsuario.TabIndex = 16;
             // 
             // label1
             // 
@@ -78,12 +78,12 @@ namespace TP1
             this.label1.TabIndex = 15;
             this.label1.Text = "Usuario (Correo)";
             // 
-            // textBox2
+            // textBoxPassword
             // 
-            this.textBox2.Location = new System.Drawing.Point(26, 275);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(364, 23);
-            this.textBox2.TabIndex = 18;
+            this.textBoxPassword.Location = new System.Drawing.Point(26, 275);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(364, 23);
+            this.textBoxPassword.TabIndex = 18;
             // 
             // label2
             // 
@@ -122,9 +122,9 @@ namespace TP1
             this.ClientSize = new System.Drawing.Size(419, 519);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxUsuario);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -143,9 +143,9 @@ namespace TP1
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxUsuario;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pictureBox1;

@@ -104,7 +104,7 @@ namespace TP1.Forms
             }
             refreshpost();
             frm.Enabled = true;
-            frm.dataGridView1.Refresh();
+            frm.dataGridViewPosts.Refresh();
             this.Close();
 
 
@@ -113,7 +113,7 @@ namespace TP1.Forms
 
         private void refreshpost()
         {
-            frm.dataGridView1.Rows.Clear();
+            frm.dataGridViewPosts.Rows.Clear();
             foreach (Post p in rs.posts)
             {
                 string pTags = "";
@@ -121,7 +121,7 @@ namespace TP1.Forms
                 {
                     pTags = pTags + t.palabra + " ";
                 }
-                frm.dataGridView1.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
+                frm.dataGridViewPosts.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
             }
             frm.Enabled = true;
             this.Close();

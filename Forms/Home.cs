@@ -19,73 +19,73 @@ namespace TP1.Forms
 
             InitializeComponent();
             // AGREGA NOMBRE DE USUARIO
-            label1.Text = "Bienvenido " + rs.usuarioActual.nombre + " " + rs.usuarioActual.apellido;
+            labelNombreUsuario.Text = "Bienvenido " + rs.usuarioActual.nombre + " " + rs.usuarioActual.apellido;
             refreshAmigos();
             
             refreshNoAmigos();
 
             refreshHomePosts(rs.posts);
 
-            dataGridView1.Rows.Clear();
+            dataGridViewPosts.Rows.Clear();
         }
        
-        // PICTURE BOX 1 - MUESTRA LOS AMIGOS A AGREGAR
-        private void pictureBox1_Click(object sender, EventArgs e)
+        // PICTURE BOX - MUESTRA LOS AMIGOS A AGREGAR
+        private void pBoxAbrirBuscarAmigos_Click(object sender, EventArgs e)
         {
-            label3.Show();
-            dataGridView3.Show();
-            button1.Show();
-            button2.Show();
+            labelBuscarAmigos.Show();
+            dataGridViewBuscarAmigos.Show();
+            btnAgregarAmigo.Show();
+            btnSalirBuscarAmigos.Show();
             
         }
 
-        // BUTTON 1 - AGREGA AMIGO
-        private void button1_Click_1(object sender, EventArgs e)
+        // BUTTON - AGREGA AMIGO
+        private void btnAgregarAmigo_Click(object sender, EventArgs e)
         {
             agregarAmigo();
         }
         private void agregarAmigo()
         {
-            var selrow = dataGridView3.SelectedRows;
+            var selrow = dataGridViewBuscarAmigos.SelectedRows;
             int amigoId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
             foreach (Usuario u in rs.usuarios)
             {
                 if (u.id == amigoId)
                 {
                     rs.agregarAmigo(u);
-                    dataGridView3.Rows.Remove(selrow[0]);
+                    dataGridViewBuscarAmigos.Rows.Remove(selrow[0]);
                     refreshAmigos();
                     break;
                 }
             }
         }
 
-        // BUTTON 2 - CIERRA LISTBOX 2
-        private void button2_Click(object sender, EventArgs e)
+        // BUTTON - CIERRA LISTBOX 2
+        private void btnSalirBuscarAmigos_Click(object sender, EventArgs e)
         {
-            label3.Visible = false;
-            label3.Visible = false;
-            dataGridView3.Visible = false;
-            button1.Visible = false;
-            button2.Visible = false;
+            labelBuscarAmigos.Visible = false;
+            labelBuscarAmigos.Visible = false;
+            dataGridViewBuscarAmigos.Visible = false;
+            btnAgregarAmigo.Visible = false;
+            btnSalirBuscarAmigos.Visible = false;
         }
 
-        // PICTUREBOX 2 - ELIMINA AMIGO
-        private void pictureBox2_Click(object sender, EventArgs e)
+        // PICTUREBOX - ELIMINA AMIGO
+        private void pBoxEliminarAmigo_Click(object sender, EventArgs e)
         {
             eliminarAmigo();
         }
 
         private void eliminarAmigo()
         {
-            var selrow = dataGridView4.SelectedRows;
+            var selrow = dataGridViewAmigos.SelectedRows;
             int amigoId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
             foreach (Usuario u in rs.usuarios)
             {
                 if (u.id == amigoId)
                 {
                     rs.quitarAmigo(u);
-                    dataGridView4.Rows.Remove(selrow[0]);
+                    dataGridViewAmigos.Rows.Remove(selrow[0]);
                     refreshAmigos();
                     refreshNoAmigos();
                     break;
@@ -93,22 +93,22 @@ namespace TP1.Forms
             }
         }
 
-        // BUTTON 3 - POSTEA
-        private void button3_Click(object sender, EventArgs e)
+        // BUTTON - POSTEA
+        private void btnPublicarPost_Click(object sender, EventArgs e)
         {
-            Post post = new Post(rs.usuarioActual,textBox1.Text);
-            string[] sTags = textBox2.Text.Split('#');
+            Post post = new Post(rs.usuarioActual,textBoxNuevoPost.Text);
+            string[] sTags = textBoxNuevoTag.Text.Split('#');
             
             rs.postear(post, crearTag());
             refreshHomePosts(rs.posts);
-            textBox1.Clear();
-            textBox2.Clear();
+            textBoxNuevoPost.Clear();
+            textBoxNuevoTag.Clear();
             MessageBox.Show("Su posteo ha sido publicado correctamente");
         }
         //corregir y ver si lo cambio a la clase red social
         private List<Tag> crearTag()
         {
-            string[] sTags = textBox2.Text.Split('#');
+            string[] sTags = textBoxNuevoTag.Text.Split('#');
             List<Tag> listTags = new List<Tag>();
 
             foreach (var word in sTags)
@@ -139,15 +139,15 @@ namespace TP1.Forms
         }
 
 
-        // BUTTON 4 - COMENTA EL POST
-        private void button4_Click(object sender, EventArgs e)
+        // BUTTON - COMENTA EL POST
+        private void btnComentarPost_Click(object sender, EventArgs e)
         {
-            var selrow = dataGridView1.SelectedRows;
+            var selrow = dataGridViewPosts.SelectedRows;
             int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
 
             crearContenido(postId);
             
-            textBox3.Clear();
+            textBoxComentarPost.Clear();
             MessageBox.Show("Su comentario ha sido ingresado correctamente");
         }
 
@@ -157,33 +157,33 @@ namespace TP1.Forms
             {
                 if (p.id == idP)
                 {
-                    string contenido = textBox3.Text;
+                    string contenido = textBoxComentarPost.Text;
                     Comentario coment = new Comentario(p, rs.usuarioActual, contenido);
                     rs.comentar(p, coment);
                     refreshList(p);
                 }
             }
         }
-        // BUTTON 6 - EDITAR USUARIO
-        private void button6_Click(object sender, EventArgs e)
+        // BUTTON - EDITAR USUARIO
+        private void btnModUsuario_Click(object sender, EventArgs e)
         {
             EditarUsuario edit = new EditarUsuario(rs,this, rs.searchUser(rs.usuarioActual.id), frm);
             this.Enabled = false;         
             edit.Show();            
         }
 
-        // BUTTON 7 - MODIFICAR POST
-        private void button7_Click(object sender, EventArgs e)
+        // BUTTON - MODIFICAR POST
+        private void btnVerPost_Click(object sender, EventArgs e)
         {
-            var selrow = dataGridView1.SelectedRows;
+            var selrow = dataGridViewPosts.SelectedRows;
             int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
             Posteos edit = new Posteos(rs, this, postId);
             this.Enabled = false;
             edit.Show();
         }
 
-        // BUTTON 7 - ELIMINAR POST
-        private void button8_Click(object sender, EventArgs e)
+        // BUTTON - ELIMINAR POST
+        private void btnEliminarPost_Click(object sender, EventArgs e)
         {
             eliminarRegistro();
             MessageBox.Show("Su posteo ha sido eliminado correctamente");
@@ -192,7 +192,7 @@ namespace TP1.Forms
         private void eliminarRegistro()
         {
             Post pBorrar = null;
-            var selrow = dataGridView1.SelectedRows;
+            var selrow = dataGridViewPosts.SelectedRows;
             int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
             foreach (Post p in rs.posts)
             {
@@ -208,35 +208,35 @@ namespace TP1.Forms
             }
             else
             {
-                dataGridView1.Rows.RemoveAt(postId);
+                dataGridViewPosts.Rows.RemoveAt(postId);
                 rs.eliminarPost(pBorrar);
-                dataGridView2.Rows.Clear();
+                dataGridViewComentarios.Rows.Clear();
             }
         }
 
         // CERRAR SESION
-        private void button9_Click(object sender, EventArgs e)
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             rs.cerrarSesion(this,frm);
         }
 
-        // BUTTON 10 - MOSTRAR DATOS
-        private void button10_Click(object sender, EventArgs e)
+        // BUTTON - MOSTRAR DATOS
+        private void btnVerUsuario_Click(object sender, EventArgs e)
         {
             MostrarUsuario mostrar = new MostrarUsuario(rs, this, rs.usuarioActual);
             this.Enabled = false;
             mostrar.Show();
         }
 
-        // BUTTON 11 - EDITAR COMENTARIO
-        private void button11_Click(object sender, EventArgs e)
+        // BUTTON - EDITAR COMENTARIO
+        private void btnEditarComentario_Click(object sender, EventArgs e)
         {
             editarComent();
         }
 
         private void editarComent()
         {
-            var selrow = dataGridView2.SelectedRows;
+            var selrow = dataGridViewComentarios.SelectedRows;
             int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
             // selrow.Count para que no pinche cuando no se selecciona ningún comentario
             if (selrow == null || selrow.Count <= 0)
@@ -251,12 +251,12 @@ namespace TP1.Forms
                 edit.Show();
             }
         }
-        // BUTTON 5 - ELIMINA COMENTARIO
-        private void button5_Click(object sender, EventArgs e)
+        // BUTTON - ELIMINA COMENTARIO
+        private void btnEliminarComentario_Click(object sender, EventArgs e)
         {
-            var selrow = dataGridView2.SelectedRows;
+            var selrow = dataGridViewComentarios.SelectedRows;
             int commentId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
-            var selPostRow = dataGridView1.SelectedRows;
+            var selPostRow = dataGridViewPosts.SelectedRows;
             int postId = Int32.Parse(selPostRow[0].Cells[0].Value.ToString());
 
             rs.quitarComentario(rs.searchPost(postId), rs.searchComent(commentId));
@@ -266,7 +266,7 @@ namespace TP1.Forms
         // IDENTIFICADOR DEL ID DEL POST
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var selrow = dataGridView1.SelectedRows;
+            var selrow = dataGridViewPosts.SelectedRows;
             int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
             Post p = rs.searchPost(postId);
             refreshList(p);
@@ -277,19 +277,19 @@ namespace TP1.Forms
         // RECARGAR COMENTARIOS
         public void refreshCommentsGrid()
         {
-            dataGridView2.Rows.Clear();
+            dataGridViewComentarios.Rows.Clear();
             foreach (Post p in rs.posts)
             {
                 foreach (Comentario c in p.comentarios)
                 {
-                    dataGridView2.Rows.Add(c.id, c.usuario.nombre + " " + c.usuario.apellido, c.contenido);
+                    dataGridViewComentarios.Rows.Add(c.id, c.usuario.nombre + " " + c.usuario.apellido, c.contenido);
                 }
             }
         }
         // FUNCION QUE REFRESCA LISTA NO AMIGO
         public void refreshNoAmigos()
         {
-            dataGridView3.Rows.Clear();
+            dataGridViewBuscarAmigos.Rows.Clear();
             // VERIFICA QUE NO TENGA AMIGOS
             if (rs.usuarioActual.amigos.Count <= 0)
             {   // CARGA TODOS LOS USUARIOS
@@ -297,7 +297,7 @@ namespace TP1.Forms
                 {
                     if (user.id != rs.usuarioActual.id)
                     {
-                        dataGridView3.Rows.Add(user.id, user.nombre + " " + user.apellido);
+                        dataGridViewBuscarAmigos.Rows.Add(user.id, user.nombre + " " + user.apellido);
                     }
                 }
             }
@@ -312,7 +312,7 @@ namespace TP1.Forms
                             isnotamego = false;
                     }
                     if (isnotamego) // AGREGA A LA LISTA
-                        dataGridView3.Rows.Add(amigo.id, amigo.nombre + " " + amigo.apellido);
+                        dataGridViewBuscarAmigos.Rows.Add(amigo.id, amigo.nombre + " " + amigo.apellido);
                 }
             }
         }
@@ -320,38 +320,38 @@ namespace TP1.Forms
         // FUNCION QUE REFRESCA LISTA DE AMIGO
         public void refreshAmigos()
         {
-            dataGridView4.Rows.Clear();
+            dataGridViewAmigos.Rows.Clear();
             foreach (Usuario user in rs.usuarioActual.amigos)
             {
-                dataGridView4.Rows.Add(user.id, user.nombre + " " + user.apellido);
+                dataGridViewAmigos.Rows.Add(user.id, user.nombre + " " + user.apellido);
             }
         }
         // RECARGAR LA LISTA DE POST
         private void refreshList(Post p)
         {
             if(p != null) { 
-                dataGridView2.Rows.Clear();
+                dataGridViewComentarios.Rows.Clear();
                 foreach (Comentario c in p.comentarios)
                 {
-                    dataGridView2.Rows.Add(c.id, c.usuario.nombre + " " + c.usuario.apellido, c.contenido);
+                    dataGridViewComentarios.Rows.Add(c.id, c.usuario.nombre + " " + c.usuario.apellido, c.contenido);
                 }
             }
         }
         // BOTON MOSTRAR MIS POSTS
-        private void button12_Click(object sender, EventArgs e)
+        private void btnVerMisPost_Click(object sender, EventArgs e)
         {
             refreshHomePosts(rs.mostrarPosts());
         }
 
 
         //buscador de post a traves de tags
-        private void button14_Click(object sender, EventArgs e)
+        private void btnBuscarPost_Click(object sender, EventArgs e)
         {
             DateTime fechaDesde = dateTimePicker1.Value;
             DateTime fechaHasta = dateTimePicker2.Value;
-            string pContenido = textBox4.Text;
+            string pContenido = textBoxBuscarContenido.Text;
             List<Tag> tags = new List<Tag>();
-            string[] sTags = textBox5.Text.Split('#');
+            string[] sTags = textBoxBuscarTags.Text.Split('#');
 
             foreach (var word in sTags)
             {
@@ -373,7 +373,8 @@ namespace TP1.Forms
                 refreshHomePosts(rs.posts);
             }
         }
-        private void button13_Click(object sender, EventArgs e)
+        // BUTTON - VER POSTS DE AMIGOS
+        private void btnVerPostAmigos_Click(object sender, EventArgs e)
         {
             List<Post> listaPost = rs.mostrarPostsAmigos();
 
@@ -388,13 +389,13 @@ namespace TP1.Forms
 
 
         }
-
-        private void button15_Click(object sender, EventArgs e)
+        // BUTTON - VER TODOS LOS POSTS
+        private void btnVerAllPosts_Click(object sender, EventArgs e)
         {
             refreshHomePosts(rs.posts);
         }
 
-        private void button16_Click(object sender, EventArgs e)
+        private void btnSalirApp_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -402,7 +403,7 @@ namespace TP1.Forms
         private void refreshHomePosts(List<Post> listaPost)
         {
 
-            dataGridView1.Rows.Clear();
+            dataGridViewPosts.Rows.Clear();
             string pTags = "";
             foreach (Post p in listaPost)
             {
@@ -412,7 +413,7 @@ namespace TP1.Forms
                     Console.Write("3: "+t.palabra);
                     pTags = pTags + t.palabra + " ";
                 }
-                dataGridView1.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
+                dataGridViewPosts.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
             }
             
         }

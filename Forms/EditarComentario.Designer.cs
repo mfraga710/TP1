@@ -28,37 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnGuardarCambios = new System.Windows.Forms.Button();
+            this.textBoxEditComentario = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // button1
+            // btnGuardarCambios
             // 
-            this.button1.Location = new System.Drawing.Point(55, 120);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 31);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "Guardar Cambios";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnGuardarCambios.Location = new System.Drawing.Point(55, 120);
+            this.btnGuardarCambios.Margin = new System.Windows.Forms.Padding(2);
+            this.btnGuardarCambios.Name = "btnGuardarCambios";
+            this.btnGuardarCambios.Size = new System.Drawing.Size(120, 31);
+            this.btnGuardarCambios.TabIndex = 33;
+            this.btnGuardarCambios.Text = "Guardar Cambios";
+            this.btnGuardarCambios.UseVisualStyleBackColor = true;
+            this.btnGuardarCambios.Click += new System.EventHandler(this.btnGuardarCambios_Click);
             // 
-            // textBox1
+            // textBoxEditComentario
             // 
-            this.textBox1.Location = new System.Drawing.Point(11, 26);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(209, 73);
-            this.textBox1.TabIndex = 32;
+            this.textBoxEditComentario.Location = new System.Drawing.Point(11, 26);
+            this.textBoxEditComentario.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxEditComentario.Multiline = true;
+            this.textBoxEditComentario.Name = "textBoxEditComentario";
+            this.textBoxEditComentario.Size = new System.Drawing.Size(209, 73);
+            this.textBoxEditComentario.TabIndex = 32;
             // 
             // EditarComentario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(242, 162);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnGuardarCambios);
+            this.Controls.Add(this.textBoxEditComentario);
             this.Name = "EditarComentario";
             this.Text = "Editar Comentario";
             this.ResumeLayout(false);
@@ -68,7 +68,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnGuardarCambios;
+        private System.Windows.Forms.TextBox textBoxEditComentario;
     }
 }

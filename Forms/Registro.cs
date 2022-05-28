@@ -20,32 +20,27 @@ namespace TP1
             InitializeComponent();            
         }
 
-        private void cancelarButton_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             frm.Enabled = true;
             this.Close();
         }
 
-        private void crearButton_Click(object sender, EventArgs e)
+        private void btnCrear_Click(object sender, EventArgs e)
         {
-            int dni1 = Convert.ToInt32(dni.Text);
-            if (password.Text.Equals(rpassword.Text))
+            int dni1 = Convert.ToInt32(textBoxDni.Text);
+            if (textBoxPassword.Text.Equals(textBoxRepPassword.Text))
             {
-                rs.registrarUsuario(nombre.Text, apellido.Text, mail.Text, dni1, password.Text);
+                rs.registrarUsuario(textBoxNombre.Text, textBoxApellido.Text, textBoxMail.Text, dni1, textBoxPassword.Text);
                 MessageBox.Show("Su usuario ha sido creado correctamente. Ya puede iniciar sesion.");
                 frm.Enabled = true;
                 this.Close();                
             }
             else
             {
-                label7.Show();
-                label7.Text = "La contraseña no coincide, intentelo de nuevo";
+                labelErrores.Show();
+                labelErrores.Text = "La contraseña no coincide, intentelo de nuevo";
             }
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

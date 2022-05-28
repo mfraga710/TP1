@@ -31,16 +31,16 @@ namespace TP1.Forms
                 {
                     if (c.id == idComment)
                     {
-                        textBox1.Text = c.contenido;
+                        textBoxEditComentario.Text = c.contenido;
                     }
                 }
             }
         }
 
         //GUARDAR CAMBIOS COMENTARIO EDITADO
-        private void button1_Click(object sender, EventArgs e)
+        private void btnGuardarCambios_Click(object sender, EventArgs e)
         {
-            string newComent = textBox1.Text;
+            string newComent = textBoxEditComentario.Text;
             Comentario editedComment = rs.searchComent(idComment);
             editedComment.contenido = newComent;
             rs.modificarComentario(rs.searchPost(idPost), editedComment);

@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelDNI = new System.Windows.Forms.Label();
+            this.labelMail = new System.Windows.Forms.Label();
+            this.labelApellido = new System.Windows.Forms.Label();
+            this.labelNombre = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,22 +43,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button2
+            // btnCerrar
             // 
-            this.button2.Location = new System.Drawing.Point(440, 91);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 27);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Cerrar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnCerrar.Location = new System.Drawing.Point(440, 91);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(104, 27);
+            this.btnCerrar.TabIndex = 21;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.labelDNI);
+            this.groupBox1.Controls.Add(this.labelMail);
+            this.groupBox1.Controls.Add(this.labelApellido);
+            this.groupBox1.Controls.Add(this.labelNombre);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
@@ -71,41 +71,41 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Personales";
             // 
-            // label8
+            // labelDNI
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(73, 180);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 15);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "label8";
+            this.labelDNI.AutoSize = true;
+            this.labelDNI.Location = new System.Drawing.Point(73, 180);
+            this.labelDNI.Name = "labelDNI";
+            this.labelDNI.Size = new System.Drawing.Size(52, 15);
+            this.labelDNI.TabIndex = 12;
+            this.labelDNI.Text = "labelDNI";
             // 
-            // label7
+            // labelMail
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(73, 139);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(38, 15);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "label7";
+            this.labelMail.AutoSize = true;
+            this.labelMail.Location = new System.Drawing.Point(73, 139);
+            this.labelMail.Name = "labelMail";
+            this.labelMail.Size = new System.Drawing.Size(55, 15);
+            this.labelMail.TabIndex = 11;
+            this.labelMail.Text = "labelMail";
             // 
-            // label6
+            // labelApellido
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(73, 91);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 15);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "label6";
+            this.labelApellido.AutoSize = true;
+            this.labelApellido.Location = new System.Drawing.Point(73, 91);
+            this.labelApellido.Name = "labelApellido";
+            this.labelApellido.Size = new System.Drawing.Size(76, 15);
+            this.labelApellido.TabIndex = 10;
+            this.labelApellido.Text = "labelApellido";
             // 
-            // label5
+            // labelNombre
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(73, 44);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 15);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "label5";
+            this.labelNombre.AutoSize = true;
+            this.labelNombre.Location = new System.Drawing.Point(73, 44);
+            this.labelNombre.Name = "labelNombre";
+            this.labelNombre.Size = new System.Drawing.Size(76, 15);
+            this.labelNombre.TabIndex = 9;
+            this.labelNombre.Text = "labelNombre";
             // 
             // pictureBox1
             // 
@@ -158,7 +158,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(558, 251);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.groupBox1);
             this.Name = "MostrarUsuario";
             this.Text = "MostrarUsuario";
@@ -171,12 +171,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelDNI;
+        private System.Windows.Forms.Label labelMail;
+        private System.Windows.Forms.Label labelApellido;
+        private System.Windows.Forms.Label labelNombre;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

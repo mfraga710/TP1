@@ -38,9 +38,9 @@
             this.mail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dni = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnEliminarUsuario = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -137,44 +137,44 @@
             this.dni.Size = new System.Drawing.Size(191, 23);
             this.dni.TabIndex = 4;
             // 
-            // button1
+            // btnGuardar
             // 
-            this.button1.Location = new System.Drawing.Point(523, 44);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 27);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnGuardar.Location = new System.Drawing.Point(523, 44);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(102, 27);
+            this.btnGuardar.TabIndex = 17;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // button2
+            // btnCancelar
             // 
-            this.button2.Location = new System.Drawing.Point(523, 103);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 27);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnCancelar.Location = new System.Drawing.Point(523, 103);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(104, 27);
+            this.btnCancelar.TabIndex = 18;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // button3
+            // btnEliminarUsuario
             // 
-            this.button3.Location = new System.Drawing.Point(523, 222);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(104, 27);
-            this.button3.TabIndex = 19;
-            this.button3.Text = "Eliminar Usuario";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnEliminarUsuario.Location = new System.Drawing.Point(523, 222);
+            this.btnEliminarUsuario.Name = "btnEliminarUsuario";
+            this.btnEliminarUsuario.Size = new System.Drawing.Size(104, 27);
+            this.btnEliminarUsuario.TabIndex = 19;
+            this.btnEliminarUsuario.Text = "Eliminar Usuario";
+            this.btnEliminarUsuario.UseVisualStyleBackColor = true;
+            this.btnEliminarUsuario.Click += new System.EventHandler(this.btnEliminarUsuario_Click);
             // 
             // EditarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(646, 263);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnEliminarUsuario);
+            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
             this.Name = "EditarUsuario";
             this.Text = "Editar Usuario";
@@ -196,8 +196,8 @@
         private System.Windows.Forms.TextBox mail;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox dni;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnEliminarUsuario;
     }
 }

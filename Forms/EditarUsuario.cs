@@ -29,7 +29,7 @@ namespace TP1.Forms
         }
 
         // BUTTON 1 - GUARDAR MODIFICACIONES
-        private void button1_Click(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
             
             Usuario editedUsuario = rs.searchUser(usuario.id);
@@ -38,18 +38,18 @@ namespace TP1.Forms
             editedUsuario.email = mail.Text;
             editedUsuario.dni = Convert.ToInt32(dni.Text);
             rs.modificaUsuario(editedUsuario);
-            frm.label1.Text = "Bienvenido " + rs.usuarioActual.nombre + " " + rs.usuarioActual.apellido;
+            frm.labelNombreUsuario.Text = "Bienvenido " + rs.usuarioActual.nombre + " " + rs.usuarioActual.apellido;
             frm.Enabled = true;
             this.Close();
         }
         // BUTTON 2 - CANCELAR Y SALIR
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             frm.Enabled = true;
             this.Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnEliminarUsuario_Click(object sender, EventArgs e)
         {
             rs.eliminarUsuario(usuario);
             rs.cerrarSesion(frm, log);

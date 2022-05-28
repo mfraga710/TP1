@@ -18,13 +18,13 @@ namespace TP1.Forms
             this.rs = rs1;
             InitializeComponent();
             rs.mostrarDatos(u);
-            label5.Text = u.nombre;
-            label6.Text = u.apellido;
-            label7.Text = u.email;
-            label8.Text = u.dni.ToString();
+            labelNombre.Text = u.nombre;
+            labelApellido.Text = u.apellido;
+            labelMail.Text = u.email;
+            labelDNI.Text = u.dni.ToString();
         }
         // BUTTON 2 - CIERRA FORMULARIO
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
             frm.Enabled = true;
             this.Close();

@@ -29,10 +29,10 @@ namespace TP1
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
 
-            if (rs.iniciarSesion(textBox1.Text, textBox2.Text))
+            if (rs.iniciarSesion(textBoxUsuario.Text, textBoxPassword.Text))
             {
                 this.Hide();                
                 Forms.Home home = new Forms.Home(rs,this);
@@ -42,7 +42,7 @@ namespace TP1
             {
                 foreach (Usuario user in rs.usuarios)
                 {
-                    if (user.email == textBox1.Text)
+                    if (user.email == textBoxUsuario.Text)
                     {
                         if (user.bloqueado == false)
                         {
@@ -63,11 +63,11 @@ namespace TP1
                     }
                 }
             }
-            textBox1.Clear();
-            textBox2.Clear();
+            textBoxUsuario.Clear();
+            textBoxPassword.Clear();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnRegistrarse_Click(object sender, EventArgs e)
         {
             Registro reg = new Registro(rs, this);
             this.Enabled = false;
