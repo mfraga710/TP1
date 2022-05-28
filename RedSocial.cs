@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Data.SqlClient;
 
 
 namespace TP1
@@ -13,14 +13,32 @@ namespace TP1
         public List<Tag> tags { get; set; }
         public Usuario usuarioActual { get; set; }
 
+        private DAL DB;
         public RedSocial()
         {
             usuarios = new List<Usuario>();
             posts = new List<Post>();
             tags = new List<Tag>();
+            DB = new DAL();
+            inicializarAtributos();
         }
 
-        public void registrarUsuario(string nombre, string apellido, string mail, int dni, string pass)
+        private void inicializarAtributos()
+        {
+            usuarios = DB.inicializarUsuarios();
+            //posts = DB.inicializarPosts();
+        }
+
+        public List<List<string>> obtenerUsuarios()
+        {
+            List<List<string>> salida = new List<List<string>>();
+            foreach (Usuario u in usuarios)
+                salida.Add(new List<string>() { u.id.ToString(), u.nombre, u.apellido, u.mail, u.dni.ToString(), u.pass, u.bloqueado.ToString(), u.isAdm.ToString() });
+            return salida;
+        }
+
+
+        public void registrarUsuario(string nombre, string apellido, string mail, int dni, string pass )
         {
             
             usuarios.Add(new Usuario(nombre, apellido, mail, dni, pass));
@@ -38,6 +56,7 @@ namespace TP1
                         user.apellido = usuarioModificado.apellido;
                         user.email = usuarioModificado.email;
                         user.dni = usuarioModificado.dni;
+                        
                     }
                 }
             }
