@@ -79,17 +79,25 @@ namespace TP1.Forms
         private void eliminarAmigo()
         {
             var selrow = dataGridViewAmigos.SelectedRows;
-            int amigoId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
-            foreach (Usuario u in rs.usuarios)
+
+            if (selrow.Count > 0)
             {
-                if (u.id == amigoId)
+                int amigoId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+                foreach (Usuario u in rs.usuarios)
                 {
-                    rs.quitarAmigo(u);
-                    dataGridViewAmigos.Rows.Remove(selrow[0]);
-                    refreshAmigos();
-                    refreshNoAmigos();
-                    break;
+                    if (u.id == amigoId)
+                    {
+                        rs.quitarAmigo(u);
+                        dataGridViewAmigos.Rows.Remove(selrow[0]);
+                        refreshAmigos();
+                        refreshNoAmigos();
+                        break;
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un amigo para eliminar");
             }
         }
 
@@ -143,12 +151,19 @@ namespace TP1.Forms
         private void btnComentarPost_Click(object sender, EventArgs e)
         {
             var selrow = dataGridViewPosts.SelectedRows;
-            int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
 
-            crearContenido(postId);
-            
-            textBoxComentarPost.Clear();
-            MessageBox.Show("Su comentario ha sido ingresado correctamente");
+            if (selrow.Count > 0)
+            {
+                int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+                crearContenido(postId);
+
+                textBoxComentarPost.Clear();
+                MessageBox.Show("Su comentario ha sido ingresado correctamente");
+            }
+            else 
+            {
+                MessageBox.Show("Debe seleccionar un post para comentarlo");
+            }
         }
 
         private void crearContenido(int idP)
@@ -186,31 +201,38 @@ namespace TP1.Forms
         private void btnEliminarPost_Click(object sender, EventArgs e)
         {
             eliminarRegistro();
-            MessageBox.Show("Su posteo ha sido eliminado correctamente");
         }
 
         private void eliminarRegistro()
         {
             Post pBorrar = null;
             var selrow = dataGridViewPosts.SelectedRows;
-            int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
-            foreach (Post p in rs.posts)
+            if(selrow.Count > 0)
             {
-                if (p.id == postId)
+                int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+                foreach (Post p in rs.posts)
                 {
-                    pBorrar = p;
-                    break;
+                    if (p.id == postId)
+                    {
+                        pBorrar = p;
+                        break;
+                    }
                 }
-            }
-            if (pBorrar == null)
-            {
-                MessageBox.Show("El registro seleccionado no existe");
+                if (pBorrar == null)
+                {
+                    MessageBox.Show("El registro seleccionado no existe");
+                }
+                else
+                {
+                    dataGridViewPosts.Rows.RemoveAt(postId);
+                    rs.eliminarPost(pBorrar);
+                    dataGridViewComentarios.Rows.Clear();
+                }
+                MessageBox.Show("Su posteo ha sido eliminado correctamente");
             }
             else
             {
-                dataGridViewPosts.Rows.RemoveAt(postId);
-                rs.eliminarPost(pBorrar);
-                dataGridViewComentarios.Rows.Clear();
+                MessageBox.Show("Se debe seleccionar un post a eliminar");
             }
         }
 
@@ -237,30 +259,45 @@ namespace TP1.Forms
         private void editarComent()
         {
             var selrow = dataGridViewComentarios.SelectedRows;
-            int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
-            // selrow.Count para que no pinche cuando no se selecciona ningún comentario
-            if (selrow == null || selrow.Count <= 0)
+            if (selrow.Count > 0) 
             {
-                MessageBox.Show("Por favor seleccione un comentario a modificar");
+                int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+                // selrow.Count para que no pinche cuando no se selecciona ningún comentario
+                if (selrow == null || selrow.Count <= 0)
+                {
+                    MessageBox.Show("Por favor seleccione un comentario a modificar");
+                }
+                else
+                {
+                    int comtId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+                    EditarComentario edit = new EditarComentario(rs, this, comtId, postId);
+                    this.Enabled = false;
+                    edit.Show();
+                }
             }
             else
             {
-                int comtId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
-                EditarComentario edit = new EditarComentario(rs, this, comtId, postId);
-                this.Enabled = false;
-                edit.Show();
+                MessageBox.Show("Se debe seleccionar un comentario para editar");
             }
+            
         }
         // BUTTON - ELIMINA COMENTARIO
         private void btnEliminarComentario_Click(object sender, EventArgs e)
         {
             var selrow = dataGridViewComentarios.SelectedRows;
-            int commentId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
-            var selPostRow = dataGridViewPosts.SelectedRows;
-            int postId = Int32.Parse(selPostRow[0].Cells[0].Value.ToString());
+            if (selrow.Count > 0) 
+            {
+                int commentId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+                var selPostRow = dataGridViewPosts.SelectedRows;
+                int postId = Int32.Parse(selPostRow[0].Cells[0].Value.ToString());
 
-            rs.quitarComentario(rs.searchPost(postId), rs.searchComent(commentId));
-            refreshCommentsGrid();
+                rs.quitarComentario(rs.searchPost(postId), rs.searchComent(commentId));
+                refreshCommentsGrid();
+            }
+            else 
+            {
+                MessageBox.Show("Debe seleccionar un comentario para eliminar");
+            }
         }
         
         // IDENTIFICADOR DEL ID DEL POST
@@ -271,8 +308,6 @@ namespace TP1.Forms
             Post p = rs.searchPost(postId);
             refreshList(p);
         }
-
-       
 
         // RECARGAR COMENTARIOS
         public void refreshCommentsGrid()
@@ -342,7 +377,6 @@ namespace TP1.Forms
         {
             refreshHomePosts(rs.mostrarPosts());
         }
-
 
         //buscador de post a traves de tags
         private void btnBuscarPost_Click(object sender, EventArgs e)
