@@ -20,7 +20,7 @@ namespace TP1
         public List<Comentario> misComentarios { get; set; }
         public List<Reaccion> misReacciones { get; set; }
 
-        static int idCont = 0;
+        
 
         public Usuario(int id, string nombre, string apellido, string mail, int dni, string pass, int intentosFallidos, bool bloqueado, bool isAdm)
         {

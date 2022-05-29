@@ -52,7 +52,9 @@ namespace TP1
             return misUsuarios;
         }
 
-        public int agregarUsuario(int Dni, string Nombre,string Apellido, string Mail, string Password, int IntentosFallidos, bool Bloqueado, bool IsAdm)
+
+
+        public int agregarUsuario(int Dni, string Nombre, string Apellido, string Mail, string Password, int IntentosFallidos, bool Bloqueado, bool IsAdm)
         {
             //primero me aseguro que lo pueda agregar a la base
             int resultadoQuery;
@@ -129,7 +131,7 @@ namespace TP1
         }
 
         //devuelve la cantidad de elementos modificados en la base (debería ser 1 si anduvo bien)
-        public int modificarUsuario(int IdUsuario, string Nombre,string Apellido, string Mail, int Dni, bool Bloqueado, bool IsAdm)
+        public int modificarUsuario(int IdUsuario, string Nombre, string Apellido, string Mail, int Dni, bool Bloqueado, bool IsAdm)
         {
             string connectionString = Properties.Resources.ConnectionString;
             string queryString = "UPDATE [dbo].[Usuarios] SET Nombre=@nombre, Apellido=@apellido, Mail=@mail, Dni=@dni, Bloqueado=@bloqueado, IsAdmin=@isadm WHERE IdUsuario=@id;";
@@ -166,8 +168,107 @@ namespace TP1
         }
 
 
+        public List<Post> inicializarPosts()
+        {
 
 
+            List<Post> misPosts = new List<Post>();
+            List<Usuario> usuarios = inicializarUsuarios();
+
+
+
+            //Defino el string con la consulta que quiero realizar
+            string queryString = "SELECT * from dbo.Post";
+
+            // Creo una conexión SQL con un Using, de modo que al finalizar, la conexión se cierra y se liberan recursos
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                // Defino el comando a enviar al motor SQL con la consulta y la conexión
+                SqlCommand command = new SqlCommand(queryString, connection);
+
+
+
+                try
+                {
+                    //Abro la conexión
+                    connection.Open();
+                    //mi objecto DataReader va a obtener los resultados de la consulta, notar que a comando se le pide ExecuteReader()
+                    SqlDataReader reader = command.ExecuteReader();
+                    Post auxPost;
+                    Usuario usuarioAux = null;
+                    //mientras haya registros/filas en mi DataReader, sigo leyendo
+                    while (reader.Read())
+                    {
+                        foreach (Usuario u in usuarios)
+                        {
+                            if (u.id == reader.GetInt32(1))
+                            {
+                                usuarioAux = u;
+                            }
+                        }
+                        auxPost = new Post(reader.GetInt32(0), usuarioAux, reader.GetString(2));
+                        misPosts.Add(auxPost);
+                    }
+                    //En este punto ya recorrí todas las filas del resultado de la query
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return misPosts;
+
+
+
+
+        }
+
+        public int agregarPost(Usuario user, string contenido)
+        {
+            DateTime fecha = DateTime.Now;
+            //primero me aseguro que lo pueda agregar a la base
+            int resultadoQuery;
+            int idNuevoPost = -1;
+            string connectionString = Properties.Resources.ConnectionString;
+            string queryString =
+                "INSERT INTO [dbo].[Posts] ([IdUsuario],[Contenido],[Fecha]) " +
+                "VALUES (@idUser,@contenido,@fecha);";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.Add(new SqlParameter("@idUser", SqlDbType.Int));
+                command.Parameters.Add(new SqlParameter("@contenido", SqlDbType.NVarChar));
+                command.Parameters.Add(new SqlParameter("@fecha", SqlDbType.NVarChar));
+
+                command.Parameters["@idUser"].Value = user.id;
+                command.Parameters["@contenido"].Value = contenido;
+                command.Parameters["@fecha"].Value = fecha;
+                
+
+                try
+                {
+                    connection.Open();
+                    //esta consulta NO espera un resultado para leer, es del tipo NON Query
+                    resultadoQuery = command.ExecuteNonQuery();
+
+                    //*******************************************
+                    //Ahora hago esta query para obtener el ID
+                    string ConsultaID = "SELECT MAX([IdUsuario]) FROM [dbo].[Usuarios]";
+                    command = new SqlCommand(ConsultaID, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Read();
+                    idNuevoPost = reader.GetInt32(0);
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return -1;
+                }
+                return idNuevoPost;
+            }
+        }
 
 
     }

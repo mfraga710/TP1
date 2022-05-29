@@ -191,10 +191,18 @@ namespace TP1.Forms
         private void btnVerPost_Click(object sender, EventArgs e)
         {
             var selrow = dataGridViewPosts.SelectedRows;
-            int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
-            Posteos edit = new Posteos(rs, this, postId);
-            this.Enabled = false;
-            edit.Show();
+            if (selrow.Count >0)
+            {
+                int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+                Posteos edit = new Posteos(rs, this, postId);
+                this.Enabled = false;
+                edit.Show();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un Post");
+            }
+            
         }
 
         // BUTTON - ELIMINAR POST
