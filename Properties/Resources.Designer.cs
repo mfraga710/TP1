@@ -91,7 +91,7 @@ namespace TP1.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to data source=DESKTOP-K3JSQ17;initial catalog=TP2;trusted_connection=true.
+        ///   Looks up a localized string similar to data source=DESKTOP-AG2F151\SQLEXPRESS01;initial catalog=TP2;trusted_connection=true.
         /// </summary>
         internal static string ConnectionString {
             get {

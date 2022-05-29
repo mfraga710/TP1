@@ -39,9 +39,10 @@ namespace TP1
 
         public void registrarUsuario(string nombre, string apellido, string mail, int dni, string pass )
         {
-            usuarios.Add(new Usuario(nombre, apellido, mail, dni, pass));
-            DB.agregarUsuario(dni,nombre,apellido,mail,pass,0,false,false);
+            var aux = DB.agregarUsuario(dni, nombre, apellido, mail, pass, 0, false, false);
+            usuarios.Add(new Usuario(aux, nombre, apellido, mail, dni, pass));                 
         }
+
 
         public void modificaUsuario(Usuario usuarioModificado)
         {
@@ -62,8 +63,11 @@ namespace TP1
         }
 
         public void eliminarUsuario(Usuario u)
-        { 
-            usuarios.Remove(u);
+        {
+            if (DB.eliminarUsuario(u.id) > 0) 
+            {
+                usuarios.Remove(u);
+            }
         }
 
         public bool iniciarSesion(string usuario, string pass)

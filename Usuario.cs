@@ -22,14 +22,14 @@ namespace TP1
 
         static int idCont = 0;
 
-        public Usuario(string nombre, string apellido, string mail, int dni, string pass, int intentosFallidos, bool bloqueado, bool isAdm)
+        public Usuario(int id, string nombre, string apellido, string mail, int dni, string pass, int intentosFallidos, bool bloqueado, bool isAdm)
         {
             this.nombre = nombre;
             this.password = pass;
             this.apellido = apellido; 
             this.email = mail;  
             this.dni = dni;
-            this.id = idCont++;
+            this.id = id;
             this.intentosFallidos = 0;
             this.isAdm = false;
             this.bloqueado = false;
@@ -37,14 +37,14 @@ namespace TP1
             misPosts = new List<Post>();
         }
 
-        public Usuario(string nombre, string apellido, string mail, int dni, string pass)
+        public Usuario(int id, string nombre, string apellido, string mail, int dni, string pass)
         {
             this.nombre = nombre;
             this.password = pass;
             this.apellido = apellido;
             this.email = mail;
             this.dni = dni;
-            this.id = idCont++;
+            this.id = id;
             intentosFallidos = 0;
             isAdm = false;
             bloqueado = false;

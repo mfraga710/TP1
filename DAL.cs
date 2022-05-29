@@ -38,7 +38,7 @@ namespace TP1
                     //mientras haya registros/filas en mi DataReader, sigo leyendo
                     while (reader.Read())
                     {
-                        aux = new Usuario(reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(1), reader.GetString(5), reader.GetInt32(6), reader.GetBoolean(7), reader.GetBoolean(8));
+                        aux = new Usuario(reader.GetInt32(0), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(1), reader.GetString(5), reader.GetInt32(6), reader.GetBoolean(7), reader.GetBoolean(8));
                         misUsuarios.Add(aux);
                     }
                     //En este punto ya recorrí todas las filas del resultado de la query
@@ -108,12 +108,12 @@ namespace TP1
         public int eliminarUsuario(int Id)
         {
             string connectionString = Properties.Resources.ConnectionString;
-            string queryString = "DELETE FROM [dbo].[Usuarios] WHERE IdUsuario=@id";
+            string queryString = "DELETE FROM [dbo].[Usuarios] WHERE IdUsuario=@Id";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
-                command.Parameters.Add(new SqlParameter("@id", SqlDbType.Int));
-                command.Parameters["@id"].Value = Id;
+                command.Parameters.Add(new SqlParameter("@Id", SqlDbType.Int));
+                command.Parameters["@Id"].Value = Id;
                 try
                 {
                     connection.Open();
