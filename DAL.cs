@@ -38,7 +38,7 @@ namespace TP1
                     //mientras haya registros/filas en mi DataReader, sigo leyendo
                     while (reader.Read())
                     {
-                        aux = new Usuario(reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetInt32(3), reader.GetString(4), reader.GetInt32(5), reader.GetBoolean(6), reader.GetBoolean(7));
+                        aux = new Usuario(reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetInt32(1), reader.GetString(5), reader.GetInt32(6), reader.GetBoolean(7), reader.GetBoolean(8));
                         misUsuarios.Add(aux);
                     }
                     //En este punto ya recorrí todas las filas del resultado de la query
@@ -89,7 +89,7 @@ namespace TP1
 
                     //*******************************************
                     //Ahora hago esta query para obtener el ID
-                    string ConsultaID = "SELECT MAX([ID]) FROM [dbo].[Usuarios]";
+                    string ConsultaID = "SELECT MAX([IdUsuario]) FROM [dbo].[Usuarios]";
                     command = new SqlCommand(ConsultaID, connection);
                     SqlDataReader reader = command.ExecuteReader();
                     reader.Read();

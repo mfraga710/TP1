@@ -29,19 +29,18 @@ namespace TP1
             //posts = DB.inicializarPosts();
         }
 
-        public List<List<string>> obtenerUsuarios()
+        /*public List<List<string>> obtenerUsuarios()
         {
             List<List<string>> salida = new List<List<string>>();
             foreach (Usuario u in usuarios)
                 salida.Add(new List<string>() { u.id.ToString(), u.nombre, u.apellido, u.mail, u.dni.ToString(), u.pass, u.bloqueado.ToString(), u.isAdm.ToString() });
             return salida;
-        }
-
+        }*/
 
         public void registrarUsuario(string nombre, string apellido, string mail, int dni, string pass )
         {
-            
             usuarios.Add(new Usuario(nombre, apellido, mail, dni, pass));
+            DB.agregarUsuario(dni,nombre,apellido,mail,pass,0,false,false);
         }
 
         public void modificaUsuario(Usuario usuarioModificado)

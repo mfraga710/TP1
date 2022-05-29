@@ -16,12 +16,7 @@ namespace TP1
         {
 
             RedSocial rs1 = new RedSocial();
-            rs1.registrarUsuario("Manuel", "Fraga", "bla@bla.com", 32982710, "1234");
-            rs1.registrarUsuario("Mariano", "Rojas", "ble@ble.com", 2451231, "1234");
-            rs1.registrarUsuario("Paula", "Lezcano", "blo@blo.com", 15515312, "1234");
-            rs1.registrarUsuario("Mariano", "Ghislanzoni", "bli@bli.com", 15515312, "1234");
-            rs1.registrarUsuario("Mariano", "Rodriguez", "blu@blu.com", 15515312, "1234");
-
+            
 
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
