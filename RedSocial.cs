@@ -37,10 +37,10 @@ namespace TP1
             return salida;
         }*/
 
-        public void registrarUsuario(string nombre, string apellido, string mail, int dni, string pass )
+        public void registrarUsuario(string nombre, string apellido, string mail, int dni, string pass)
         {
             var aux = DB.agregarUsuario(dni, nombre, apellido, mail, pass, 0, false, false);
-            usuarios.Add(new Usuario(aux, nombre, apellido, mail, dni, pass));                 
+            usuarios.Add(new Usuario(aux , nombre, apellido, mail, dni, pass));                 
         }
 
 
@@ -48,6 +48,8 @@ namespace TP1
         {
             if (usuarioModificado != null)
             {
+                DB.modificarUsuario(usuarioModificado.id, usuarioModificado.nombre, usuarioModificado.apellido, usuarioModificado.email, usuarioModificado.dni,
+                usuarioModificado.bloqueado, usuarioModificado.isAdm);
                 foreach (Usuario user in usuarios)
                 {
                     if (user.id == usuarioModificado.id)

@@ -129,10 +129,10 @@ namespace TP1
         }
 
         //devuelve la cantidad de elementos modificados en la base (debería ser 1 si anduvo bien)
-        public int modificarUsuario(int IdUsuario, string Nombre,string Apellido, string Mail, int Dni, string Password, bool Bloqueado, bool IsAdm)
+        public int modificarUsuario(int IdUsuario, string Nombre,string Apellido, string Mail, int Dni, bool Bloqueado, bool IsAdm)
         {
             string connectionString = Properties.Resources.ConnectionString;
-            string queryString = "UPDATE [dbo].[Usuarios] SET Nombre=@nombre, Apellido=@apellido,Mail=@mail,Password=@password, Bloqueado=@bloqueado, IsAdm=@isadm WHERE IdUsuario=@id;";
+            string queryString = "UPDATE [dbo].[Usuarios] SET Nombre=@nombre, Apellido=@apellido, Mail=@mail, Dni=@dni, Bloqueado=@bloqueado, IsAdmin=@isadm WHERE IdUsuario=@id;";
             using (SqlConnection connection =
                 new SqlConnection(connectionString))
             {
@@ -142,7 +142,6 @@ namespace TP1
                 command.Parameters.Add(new SqlParameter("@apellido", SqlDbType.NVarChar));
                 command.Parameters.Add(new SqlParameter("@mail", SqlDbType.NVarChar));
                 command.Parameters.Add(new SqlParameter("@dni", SqlDbType.Int));
-                command.Parameters.Add(new SqlParameter("@password", SqlDbType.NVarChar));
                 command.Parameters.Add(new SqlParameter("@bloqueado", SqlDbType.Bit));
                 command.Parameters.Add(new SqlParameter("@isadm", SqlDbType.Bit));
                 command.Parameters["@id"].Value = IdUsuario;
@@ -150,7 +149,6 @@ namespace TP1
                 command.Parameters["@nombre"].Value = Nombre;
                 command.Parameters["@apellido"].Value = Apellido;
                 command.Parameters["@mail"].Value = Mail;
-                command.Parameters["@password"].Value = Password;
                 command.Parameters["@bloqueado"].Value = Bloqueado;
                 command.Parameters["@isadm"].Value = IsAdm;
                 try
