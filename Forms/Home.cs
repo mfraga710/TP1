@@ -22,13 +22,12 @@ namespace TP1.Forms
 
             // AGREGA NOMBRE DE USUARIO
             labelNombreUsuario.Text = "Bienvenido " + rs.usuarioActual.nombre + " " + rs.usuarioActual.apellido;
-            refreshAmigos();
-            
-            refreshNoAmigos();
 
+            refreshAmigos();            
+            refreshNoAmigos();            
             refreshHomePosts(rs.posts);
 
-            dataGridViewPosts.Rows.Clear();
+            //dataGridViewPosts.Rows.Clear();
         }
        
         // PICTURE BOX - MUESTRA LOS AMIGOS A AGREGAR
@@ -37,8 +36,7 @@ namespace TP1.Forms
             labelBuscarAmigos.Show();
             dataGridViewBuscarAmigos.Show();
             btnAgregarAmigo.Show();
-            btnSalirBuscarAmigos.Show();
-            
+            btnSalirBuscarAmigos.Show();            
         }
 
         // BUTTON - AGREGA AMIGO
@@ -174,10 +172,9 @@ namespace TP1.Forms
             {
                 if (p.id == idP)
                 {
-                    string contenido = textBoxComentarPost.Text;
-                    Comentario coment = new Comentario(p, rs.usuarioActual, contenido);
-                    DB.inicializarComentarios();
-                    DB.agregarComentario(p, p.user, contenido);
+                    string contenido = textBoxComentarPost.Text;                
+                    //DB.agregarComentario(p, p.user, contenido);
+                    Comentario coment = new Comentario(DB.agregarComentario(p, p.user, contenido),p, rs.usuarioActual, contenido);
                     rs.comentar(p, coment);
                     refreshList(p);
                 }
@@ -272,9 +269,10 @@ namespace TP1.Forms
         private void editarComent()
         {
             var selrow = dataGridViewComentarios.SelectedRows;
+            var selrowPost = dataGridViewPosts.SelectedRows;
             if (selrow.Count > 0) 
             {
-                int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+                int postId = Int32.Parse(selrowPost[0].Cells[0].Value.ToString());
                 // selrow.Count para que no pinche cuando no se selecciona ningún comentario
                 if (selrow == null || selrow.Count <= 0)
                 {

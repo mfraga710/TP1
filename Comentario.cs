@@ -22,5 +22,14 @@ namespace TP1
             DateTime fecha = DateTime.Now;
         }
 
+        public Comentario(int id, Post post, Usuario usuario, string contenido)
+        {
+            this.id = id;
+            this.post = post;
+            this.usuario = usuario;
+            this.contenido = contenido;
+            DateTime fecha = DateTime.Now;
+        }
+
     }
 }

@@ -35,6 +35,7 @@ namespace TP1
             this.bloqueado = false;
             amigos = new List<Usuario>();
             misPosts = new List<Post>();
+            misComentarios = new List<Comentario>();
         }
 
         public Usuario(int id, string nombre, string apellido, string mail, int dni, string pass)

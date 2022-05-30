@@ -27,10 +27,31 @@ namespace TP1
         {
             usuarios = DB.inicializarUsuarios();
             posts = DB.inicializarPosts();
-        }
+            List<Comentario> comentarios = DB.inicializarComentarios();
+            // VER logica para rellenar las listas de post de usuarios y comentarios de posts y de usuarios
+            //foreach (Post p in posts)
+            //{
+            //    foreach (Comentario c in comentarios)
+            //    {
+            //        if (p.id == c.post.id)
+            //        {
+            //            p.comentarios.Add(c);
+            //        }
+            //        foreach (Usuario user in usuarios)
+            //        {
+            //            if (c.usuario.id == user.id)
+            //            {
+            //                user.misComentarios.Add(c);
+            //            }
 
-
-       
+            //            if (p.user.id == user.id)
+            //            {
+            //                user.misPosts.Add(p);
+            //            }
+            //        }
+            //    }
+            //}
+        }       
         public void registrarUsuario(string nombre, string apellido, string mail, int dni, string pass)
         {
             var aux = DB.agregarUsuario(dni, nombre, apellido, mail, pass, 0, false, false);
@@ -164,6 +185,7 @@ namespace TP1
         {
             if(p != null && c != null)
             {
+                DB.modificarComent(c);
                 foreach (Comentario coment in p.comentarios)
                 {
                     if (coment.id == c.id)

@@ -170,12 +170,8 @@ namespace TP1
 
         public List<Post> inicializarPosts()
         {
-
-
             List<Post> misPosts = new List<Post>();
             List<Usuario> usuarios = inicializarUsuarios();
-
-
 
             //Defino el string con la consulta que quiero realizar
             string queryString = "SELECT * from dbo.Post";
@@ -185,8 +181,6 @@ namespace TP1
             {
                 // Defino el comando a enviar al motor SQL con la consulta y la conexión
                 SqlCommand command = new SqlCommand(queryString, connection);
-
-
 
                 try
                 {
@@ -218,10 +212,6 @@ namespace TP1
                 }
             }
             return misPosts;
-
-
-
-
         }
 
         public int agregarPost(Usuario user, string contenido)
@@ -340,9 +330,6 @@ namespace TP1
             {
                 // Defino el comando a enviar al motor SQL con la consulta y la conexión
                 SqlCommand command = new SqlCommand(queryString, connection);
-
-
-
                 try
                 {
                     //Abro la conexión
@@ -359,12 +346,14 @@ namespace TP1
                         {
                             foreach(Post p in posts)
                             {
-                                if (u.id == reader.GetInt32(1) && p.id == reader.GetInt32(1))
-                                usuarioAux = u;
-                                postAux = p;
+                                if (u.id == reader.GetInt32(1) && p.id == reader.GetInt32(3))
+                                {
+                                    usuarioAux = u;
+                                    postAux = p;
+                                }
                             }                            
                         }
-                        auxComentario = new Comentario(postAux, usuarioAux, reader.GetString(2));
+                        auxComentario = new Comentario(reader.GetInt32(0),postAux, usuarioAux, reader.GetString(2));
                         misComentarios.Add(auxComentario);
                     }
                     //En este punto ya recorrí todas las filas del resultado de la query
@@ -423,6 +412,32 @@ namespace TP1
                     return -1;
                 }
                 return idNuevoComentario;
+            }
+        }
+
+        public int modificarComent(Comentario c)
+        {
+            string connectionString = Properties.Resources.ConnectionString;
+            string queryString = "UPDATE [dbo].[Comentarios] SET [Contenido]=@contenido WHERE IdComentario=@id;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.Add(new SqlParameter("@id", SqlDbType.Int));
+                command.Parameters.Add(new SqlParameter("@contenido", SqlDbType.NVarChar));
+                command.Parameters["@id"].Value = c.id;                
+                command.Parameters["@contenido"].Value = c.contenido;
+                try
+                {
+                    connection.Open();
+                    //esta consulta NO espera un resultado para leer, es del tipo NON Query
+                    return command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return 0;
+                }
             }
         }
     }
