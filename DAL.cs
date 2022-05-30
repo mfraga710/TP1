@@ -323,5 +323,107 @@ namespace TP1
             }
         }
 
+        public List<Comentario> inicializarComentarios()
+        {
+
+
+            List<Comentario> misComentarios = new List<Comentario>();
+            List<Usuario> usuarios = inicializarUsuarios();
+            List<Post> posts = inicializarPosts();
+
+
+            //Defino el string con la consulta que quiero realizar
+            string queryString = "SELECT * from dbo.Comentarios";
+
+            // Creo una conexión SQL con un Using, de modo que al finalizar, la conexión se cierra y se liberan recursos
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                // Defino el comando a enviar al motor SQL con la consulta y la conexión
+                SqlCommand command = new SqlCommand(queryString, connection);
+
+
+
+                try
+                {
+                    //Abro la conexión
+                    connection.Open();
+                    //mi objecto DataReader va a obtener los resultados de la consulta, notar que a comando se le pide ExecuteReader()
+                    SqlDataReader reader = command.ExecuteReader();
+                    Comentario auxComentario;
+                    Usuario usuarioAux = null;
+                    Post postAux = null;
+                    //mientras haya registros/filas en mi DataReader, sigo leyendo
+                    while (reader.Read())
+                    {
+                        foreach (Usuario u in usuarios)
+                        {
+                            foreach(Post p in posts)
+                            {
+                                if (u.id == reader.GetInt32(1) && p.id == reader.GetInt32(1))
+                                usuarioAux = u;
+                                postAux = p;
+                            }                            
+                        }
+                        auxComentario = new Comentario(postAux, usuarioAux, reader.GetString(2));
+                        misComentarios.Add(auxComentario);
+                    }
+                    //En este punto ya recorrí todas las filas del resultado de la query
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return misComentarios;
+        }
+
+        public int agregarComentario(Post post, Usuario usuario, string contenido)
+        {
+            DateTime fecha = DateTime.Now;
+            //primero me aseguro que lo pueda agregar a la base
+            int resultadoQuery;
+            int idNuevoComentario = -1;
+            string connectionString = Properties.Resources.ConnectionString;
+            string queryString =
+                "INSERT INTO [dbo].[Comentarios] ([IdUsuario],[Contenido],[IdPost],[Fecha]) " +
+                "VALUES (@idUser,@contenido,@IdPost,@fecha);";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.Add(new SqlParameter("@idUser", SqlDbType.Int));
+                command.Parameters.Add(new SqlParameter("@contenido", SqlDbType.NVarChar));
+                command.Parameters.Add(new SqlParameter("@idPost", SqlDbType.Int));
+                command.Parameters.Add(new SqlParameter("@fecha", SqlDbType.DateTime));
+           
+                command.Parameters["@idUser"].Value = usuario.id;
+                command.Parameters["@contenido"].Value = contenido;
+                command.Parameters["@idPost"].Value = post.id;
+                command.Parameters["@fecha"].Value = fecha;
+
+
+                try
+                {
+                    connection.Open();
+                    //esta consulta NO espera un resultado para leer, es del tipo NON Query
+                    resultadoQuery = command.ExecuteNonQuery();
+
+                    //*******************************************
+                    //Ahora hago esta query para obtener el ID
+                    string ConsultaID = "SELECT MAX([IdComentario]) FROM [dbo].[Comentarios]";
+                    command = new SqlCommand(ConsultaID, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Read();
+                    idNuevoComentario = reader.GetInt32(0);
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return -1;
+                }
+                return idNuevoComentario;
+            }
+        }
     }
 }

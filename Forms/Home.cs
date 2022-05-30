@@ -12,12 +12,14 @@ namespace TP1.Forms
     {
         private RedSocial rs;
         private Login frm;
+        private DAL DB;
         public Home(RedSocial rs1, Login formLogin)
         {
             this.rs = rs1;
             frm = formLogin;
-
+            DB = new DAL();
             InitializeComponent();
+
             // AGREGA NOMBRE DE USUARIO
             labelNombreUsuario.Text = "Bienvenido " + rs.usuarioActual.nombre + " " + rs.usuarioActual.apellido;
             refreshAmigos();
@@ -174,6 +176,8 @@ namespace TP1.Forms
                 {
                     string contenido = textBoxComentarPost.Text;
                     Comentario coment = new Comentario(p, rs.usuarioActual, contenido);
+                    DB.inicializarComentarios();
+                    DB.agregarComentario(p, p.user, contenido);
                     rs.comentar(p, coment);
                     refreshList(p);
                 }
