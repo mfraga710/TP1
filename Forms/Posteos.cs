@@ -24,7 +24,7 @@ namespace TP1.Forms
             {
                 if (p.id == postId)
                 {
-                    label5.Text = p.contentido;
+                    label5.Text = p.contenido;
                     label6.Text = p.fecha.ToString("d");
                     foreach (Tag t in p.tags)
                     {
@@ -43,7 +43,7 @@ namespace TP1.Forms
                 {
                     string newPost = textBox1.Text;
                     Post editedPost = rs.searchPost(id);
-                    editedPost.contentido = newPost;
+                    editedPost.contenido = newPost;
                     rs.modificarPost(editedPost);
                 }
             }
@@ -121,7 +121,7 @@ namespace TP1.Forms
                 {
                     pTags = pTags + t.palabra + " ";
                 }
-                frm.dataGridViewPosts.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
+                frm.dataGridViewPosts.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contenido, pTags);
             }
             frm.Enabled = true;
             this.Close();

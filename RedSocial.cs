@@ -118,7 +118,7 @@ namespace TP1
         public void postear(Post p, List<Tag> newTags)
         {
 
-            DB.agregarPost(p.user,p.contenido);
+            int auxPostId = DB.agregarPost(p.user,p.contenido);
             foreach (Tag tag in newTags)
             {
                 if (!tags.Contains(tag))
@@ -128,6 +128,7 @@ namespace TP1
                     tags.Add(tag);
                 }
             }
+            p.id = auxPostId;
             posts.Add(p);
             usuarioActual.misPosts.Add(p);
         }
@@ -136,11 +137,12 @@ namespace TP1
         {
             if (p != null)
             {
+                DB.modificarPost(p.id, p.user, p.contenido);
                 foreach (Post post in posts)
                 {
                     if (post.id == p.id)
                     {
-                        post.contentido = p.contentido;
+                        post.contenido = p.contenido;
                     }
                 }
             }
@@ -148,6 +150,7 @@ namespace TP1
 
         public void eliminarPost(Post p)
         {
+            DB.eliminarPost(p.id);
             p.user.misPosts.Remove(p);
             posts.Remove(p);
         }
@@ -249,7 +252,7 @@ namespace TP1
             {
                 if (contenido != "" )
                 {
-                    if (pPost.contentido.Contains(contenido))
+                    if (pPost.contenido.Contains(contenido))
                     {
                         if (bTags.Count > 0)
                         {

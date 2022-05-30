@@ -232,14 +232,14 @@ namespace TP1
             int idNuevoPost = -1;
             string connectionString = Properties.Resources.ConnectionString;
             string queryString =
-                "INSERT INTO [dbo].[Posts] ([IdUsuario],[Contenido],[Fecha]) " +
+                "INSERT INTO [dbo].[Post] ([IdUsuario],[Contenido],[Fecha]) " +
                 "VALUES (@idUser,@contenido,@fecha);";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
                 command.Parameters.Add(new SqlParameter("@idUser", SqlDbType.Int));
                 command.Parameters.Add(new SqlParameter("@contenido", SqlDbType.NVarChar));
-                command.Parameters.Add(new SqlParameter("@fecha", SqlDbType.NVarChar));
+                command.Parameters.Add(new SqlParameter("@fecha", SqlDbType.DateTime));
 
                 command.Parameters["@idUser"].Value = user.id;
                 command.Parameters["@contenido"].Value = contenido;
@@ -254,7 +254,7 @@ namespace TP1
 
                     //*******************************************
                     //Ahora hago esta query para obtener el ID
-                    string ConsultaID = "SELECT MAX([IdUsuario]) FROM [dbo].[Usuarios]";
+                    string ConsultaID = "SELECT MAX([IdPost]) FROM [dbo].[Post]";
                     command = new SqlCommand(ConsultaID, connection);
                     SqlDataReader reader = command.ExecuteReader();
                     reader.Read();
@@ -270,6 +270,58 @@ namespace TP1
             }
         }
 
+        public int modificarPost(int idPost, Usuario user, string contenido)
+        {
+            string connectionString = Properties.Resources.ConnectionString;
+            string queryString = "UPDATE [dbo].[Post] SET [IdUsuario]=@usuario, [Contenido]=@contenido WHERE IdPost=@id;";
+            int auxUserId = user.id;
+
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.Add(new SqlParameter("@id", SqlDbType.Int));
+                command.Parameters.Add(new SqlParameter("@usuario", SqlDbType.Int));
+                command.Parameters.Add(new SqlParameter("@contenido", SqlDbType.NVarChar));
+                command.Parameters["@id"].Value = idPost;
+                command.Parameters["@usuario"].Value = auxUserId;
+                command.Parameters["@contenido"].Value = contenido;
+                try
+                {
+                    connection.Open();
+                    //esta consulta NO espera un resultado para leer, es del tipo NON Query
+                    return command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return 0;
+                }
+            }
+        }
+
+        public int eliminarPost(int postId)
+        {
+            string connectionString = Properties.Resources.ConnectionString;
+            string queryString = "DELETE FROM [dbo].[Post] WHERE [IdPost]=@Id";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.Add(new SqlParameter("@Id", SqlDbType.Int));
+                command.Parameters["@Id"].Value = postId;
+                try
+                {
+                    connection.Open();
+                    //esta consulta NO espera un resultado para leer, es del tipo NON Query
+                    return command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return 0;
+                }
+            }
+        }
 
     }
 }

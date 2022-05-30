@@ -232,7 +232,8 @@ namespace TP1.Forms
                 }
                 else
                 {
-                    dataGridViewPosts.Rows.RemoveAt(postId);
+                    //Se realiza el -1 ya que los indices del datgriu empiezan en 0, en la DB en 1
+                    dataGridViewPosts.Rows.RemoveAt(postId - 1);
                     rs.eliminarPost(pBorrar);
                     dataGridViewComentarios.Rows.Clear();
                 }
@@ -449,13 +450,13 @@ namespace TP1.Forms
             string pTags = "";
             foreach (Post p in listaPost)
             {
-                Console.Write("2: "+p.contentido);
+                Console.Write("2: "+p.contenido);
                 foreach (Tag t in p.tags)
                 {
                     Console.Write("3: "+t.palabra);
                     pTags = pTags + t.palabra + " ";
                 }
-                dataGridViewPosts.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contentido, pTags);
+                dataGridViewPosts.Rows.Add(p.id, p.user.nombre + " " + p.user.apellido, p.contenido, pTags);
             }
             
         }
