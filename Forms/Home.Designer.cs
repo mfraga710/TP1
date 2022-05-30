@@ -46,10 +46,6 @@
             this.btnComentarPost = new System.Windows.Forms.Button();
             this.textBoxComentarPost = new System.Windows.Forms.TextBox();
             this.dataGridViewPosts = new System.Windows.Forms.DataGridView();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminarComentario = new System.Windows.Forms.Button();
             this.btnModUsuario = new System.Windows.Forms.Button();
             this.btnVerPost = new System.Windows.Forms.Button();
@@ -82,6 +78,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnVerAllPosts = new System.Windows.Forms.Button();
             this.btnSalirApp = new System.Windows.Forms.Button();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxAbrirBuscarAmigos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxEliminarAmigo)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -311,39 +311,6 @@
             this.dataGridViewPosts.Size = new System.Drawing.Size(895, 213);
             this.dataGridViewPosts.TabIndex = 21;
             this.dataGridViewPosts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "id";
-            this.Column3.MinimumWidth = 8;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Visible = false;
-            this.Column3.Width = 42;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Nombre";
-            this.Column1.MinimumWidth = 8;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 76;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Post";
-            this.Column2.MinimumWidth = 700;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 700;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Tags";
-            this.Column4.MinimumWidth = 8;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 55;
             // 
             // btnEliminarComentario
             // 
@@ -677,6 +644,38 @@
             this.btnSalirApp.UseVisualStyleBackColor = true;
             this.btnSalirApp.Click += new System.EventHandler(this.btnSalirApp_Click);
             // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "id";
+            this.Column3.MinimumWidth = 8;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 42;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Nombre";
+            this.Column1.MinimumWidth = 8;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 76;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Post";
+            this.Column2.MinimumWidth = 700;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 700;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Tags";
+            this.Column4.MinimumWidth = 8;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 55;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -747,10 +746,6 @@
         private System.Windows.Forms.Button btnComentarPost;
         private System.Windows.Forms.TextBox textBoxComentarPost;
         private System.Windows.Forms.Button btnEliminarComentario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.Button btnModUsuario;
         public System.Windows.Forms.Label labelNombreUsuario;
         private System.Windows.Forms.Button btnVerPost;
@@ -784,5 +779,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.Button btnSalirApp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

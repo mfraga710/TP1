@@ -234,7 +234,7 @@ namespace TP1
                 command.Parameters["@idUser"].Value = user.id;
                 command.Parameters["@contenido"].Value = contenido;
                 command.Parameters["@fecha"].Value = fecha;
-                
+
 
                 try
                 {
@@ -344,16 +344,16 @@ namespace TP1
                     {
                         foreach (Usuario u in usuarios)
                         {
-                            foreach(Post p in posts)
+                            foreach (Post p in posts)
                             {
                                 if (u.id == reader.GetInt32(1) && p.id == reader.GetInt32(3))
                                 {
                                     usuarioAux = u;
                                     postAux = p;
                                 }
-                            }                            
+                            }
                         }
-                        auxComentario = new Comentario(reader.GetInt32(0),postAux, usuarioAux, reader.GetString(2));
+                        auxComentario = new Comentario(reader.GetInt32(0), postAux, usuarioAux, reader.GetString(2));
                         misComentarios.Add(auxComentario);
                     }
                     //En este punto ya recorrí todas las filas del resultado de la query
@@ -384,7 +384,7 @@ namespace TP1
                 command.Parameters.Add(new SqlParameter("@contenido", SqlDbType.NVarChar));
                 command.Parameters.Add(new SqlParameter("@idPost", SqlDbType.Int));
                 command.Parameters.Add(new SqlParameter("@fecha", SqlDbType.DateTime));
-           
+
                 command.Parameters["@idUser"].Value = usuario.id;
                 command.Parameters["@contenido"].Value = contenido;
                 command.Parameters["@idPost"].Value = post.id;
@@ -425,8 +425,31 @@ namespace TP1
                 SqlCommand command = new SqlCommand(queryString, connection);
                 command.Parameters.Add(new SqlParameter("@id", SqlDbType.Int));
                 command.Parameters.Add(new SqlParameter("@contenido", SqlDbType.NVarChar));
-                command.Parameters["@id"].Value = c.id;                
+                command.Parameters["@id"].Value = c.id;
                 command.Parameters["@contenido"].Value = c.contenido;
+                try
+                {
+                    connection.Open();
+                    //esta consulta NO espera un resultado para leer, es del tipo NON Query
+                    return command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return 0;
+                }
+            }
+        }
+
+        public int eliminarComent (int comentarioId)
+        {
+            string connectionString = Properties.Resources.ConnectionString;
+            string queryString = "DELETE FROM [dbo].[Comentarios] WHERE [IdComentario]=@Id";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.Add(new SqlParameter("@Id", SqlDbType.Int));
+                command.Parameters["@Id"].Value = comentarioId;
                 try
                 {
                     connection.Open();

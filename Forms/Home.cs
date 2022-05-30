@@ -216,7 +216,8 @@ namespace TP1.Forms
         {
             Post pBorrar = null;
             var selrow = dataGridViewPosts.SelectedRows;
-            if(selrow.Count > 0)
+            int sel = dataGridViewPosts.CurrentRow.Index;
+            if (selrow.Count > 0)
             {
                 int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
                 foreach (Post p in rs.posts)
@@ -233,8 +234,8 @@ namespace TP1.Forms
                 }
                 else
                 {
-                    //Se realiza el -1 ya que los indices del datgriu empiezan en 0, en la DB en 1
-                    dataGridViewPosts.Rows.RemoveAt(postId - 1);
+                    //Se realiza el -1 ya que los indices del datgriu empiezan en 0, en la DB en 1                    
+                    dataGridViewPosts.Rows.RemoveAt(sel);
                     rs.eliminarPost(pBorrar);
                     dataGridViewComentarios.Rows.Clear();
                 }

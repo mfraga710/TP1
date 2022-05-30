@@ -171,7 +171,14 @@ namespace TP1
 
         public void eliminarPost(Post p)
         {
-            DB.eliminarPost(p.id);
+            if(p.comentarios.Count > 0)
+            {
+                foreach(Comentario c in p.comentarios)
+                {
+                    DB.eliminarComent(c.id);
+                }
+            }            
+            DB.eliminarPost(p.id);         
             p.user.misPosts.Remove(p);
             posts.Remove(p);
         }
@@ -198,6 +205,7 @@ namespace TP1
 
         public void quitarComentario(Post p, Comentario c)
         {
+            DB.eliminarComent(c.id);
             if(p != null && c != null)
                 p.comentarios.Remove(c);
         }
