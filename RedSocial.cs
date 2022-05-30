@@ -212,6 +212,7 @@ namespace TP1
 
         public void reaccionar(Post p, Reaccion r)
         {
+            
             bool newReaction = true;
             foreach (Reaccion reaccion in p.reacciones)
             {
@@ -221,8 +222,11 @@ namespace TP1
                     modificarReacion(p, r);
                 }
             }
-            if(newReaction)
+            if (newReaction)
+            {
                 p.reacciones.Add(r);
+                DB.agregarReaccion(r.tipoReaccion,p.id,r.usuario.id);
+            }
         }
         //HACER
         public void modificarReacion(Post p, Reaccion r)

@@ -14,6 +14,16 @@ namespace TP1
         static int idCont = 0;
         public const string ME_GUSTA = "Me gusta";
         public const string NO_ME_GUSTA = "No me gusta";
+
+
+        public Reaccion(int id, string tipoReaccion, Post post, Usuario user)
+        {
+            this.id = id;
+            this.tipoReaccion = tipoReaccion;
+            this.post = post;
+            this.usuario = user;
+
+        }
         public Reaccion(string tipoReaccion, Post post, Usuario user)
         {
             idCont++;
