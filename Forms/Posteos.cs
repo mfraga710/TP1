@@ -20,10 +20,21 @@ namespace TP1.Forms
             this.rs = rs1;
             this.id = postId;
             InitializeComponent();
+            
             foreach (Post p in rs1.posts)
             {
                 if (p.id == postId)
                 {
+                    if(rs.usuarioActual.id == p.user.id || rs.usuarioActual.isAdm)
+                    {
+                        groupBox2.Visible = true;
+                        groupBox4.Visible = true;
+                    }
+                    else
+                    {
+                        groupBox2.Visible = false;
+                        groupBox4.Visible = false;
+                    }
                     label5.Text = p.contenido;
                     label6.Text = p.fecha.ToString("d");
                     foreach (Tag t in p.tags)

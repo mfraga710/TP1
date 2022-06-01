@@ -91,7 +91,7 @@ namespace TP1.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a data source=GASTON-PC;initial catalog=tp2;trusted_connection=true.
+        ///   Busca una cadena traducida similar a data source=DESKTOP-UJOAFST\BASEDATO1;initial catalog=TP2;trusted_connection=true.
         /// </summary>
         internal static string ConnectionString {
             get {

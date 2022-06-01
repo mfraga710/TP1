@@ -20,6 +20,8 @@ namespace TP1.Forms
             DB = new DAL();
             InitializeComponent();
 
+
+
             // AGREGA NOMBRE DE USUARIO
             labelNombreUsuario.Text = "Bienvenido " + rs.usuarioActual.nombre + " " + rs.usuarioActual.apellido;
 
@@ -234,12 +236,19 @@ namespace TP1.Forms
                 }
                 else
                 {
-                    //Se realiza el -1 ya que los indices del datgriu empiezan en 0, en la DB en 1                    
-                    dataGridViewPosts.Rows.RemoveAt(sel);
-                    rs.eliminarPost(pBorrar);
-                    dataGridViewComentarios.Rows.Clear();
+                    if (rs.usuarioActual.id == pBorrar.user.id || rs.usuarioActual.isAdm)
+                    {
+                        //Se realiza el -1 ya que los indices del datgriu empiezan en 0, en la DB en 1                    
+                        dataGridViewPosts.Rows.RemoveAt(sel);
+                        rs.eliminarPost(pBorrar);
+                        dataGridViewComentarios.Rows.Clear();
+                        MessageBox.Show("Su posteo ha sido eliminado correctamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("El post no se puede eliminar ya que no es de su usuario.");
+                    }
                 }
-                MessageBox.Show("Su posteo ha sido eliminado correctamente");
             }
             else
             {
