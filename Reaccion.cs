@@ -11,7 +11,7 @@ namespace TP1
         public Post post { get;  set; }
         public Usuario usuario { get;  set; }
 
-        static int idCont = 0;
+        //static int idCont = 0;
         public const string ME_GUSTA = "Me gusta";
         public const string NO_ME_GUSTA = "No me gusta";
 
@@ -26,7 +26,7 @@ namespace TP1
         }
         public Reaccion(string tipoReaccion, Post post, Usuario user)
         {
-            idCont++;
+          
             this.tipoReaccion = tipoReaccion;
             this.post = post;
             this.usuario = user;

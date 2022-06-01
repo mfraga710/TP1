@@ -33,6 +33,7 @@ namespace TP1.Forms
                 }
             }
             refreshReacciones();
+
         }
         // BOTON GUARDAR
         private void button1_Click(object sender, EventArgs e)
@@ -102,6 +103,7 @@ namespace TP1.Forms
                     tag.palabra = textBox2.Text;
                 }
             }
+
             refreshpost();
             frm.Enabled = true;
             frm.dataGridViewPosts.Refresh();
@@ -129,8 +131,9 @@ namespace TP1.Forms
         // CLICK ME GUSTA
         private void button7_Click(object sender, EventArgs e)
         {
+
             Post editedPost = rs.searchPost(id);
-            Reaccion reaccion = new Reaccion(Reaccion.ME_GUSTA, editedPost, rs.usuarioActual);
+            Reaccion reaccion = new Reaccion(0,Reaccion.ME_GUSTA, editedPost, rs.usuarioActual);
             rs.reaccionar(editedPost, reaccion);
             refreshReacciones();
         }
@@ -138,16 +141,16 @@ namespace TP1.Forms
         private void button8_Click(object sender, EventArgs e)
         {
             Post editedPost = rs.searchPost(id);
-            Reaccion reaccion = new Reaccion(Reaccion.NO_ME_GUSTA, editedPost, rs.usuarioActual);
+            Reaccion reaccion = new Reaccion(0,Reaccion.NO_ME_GUSTA, editedPost, rs.usuarioActual);
             rs.reaccionar(editedPost, reaccion);
             refreshReacciones();
         }
-        // CLICK ELIINAR REACCION
+        // CLICK ELImINAR REACCION
         private void button9_Click(object sender, EventArgs e)
         {
             Post editedPost = rs.searchPost(id);
-            Reaccion reaccion = new Reaccion(Reaccion.NO_ME_GUSTA, editedPost, rs.usuarioActual);
-            rs.quitarReacion(editedPost, reaccion);
+            Reaccion reaccion = new Reaccion(0,Reaccion.NO_ME_GUSTA, editedPost, rs.usuarioActual);
+            rs.quitarReaccion(editedPost, reaccion);
             refreshReacciones();
         }
 

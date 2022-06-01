@@ -21,12 +21,24 @@ namespace TP1
             tags = new List<Tag>();
             DB = new DAL();
             inicializarAtributos();
+
         }
 
         private void inicializarAtributos()
         {
             usuarios = DB.inicializarUsuarios();
             posts = DB.inicializarPosts();
+            List<Reaccion> reacciones = DB.inicializarReaccion();
+            foreach (Reaccion reaccion in reacciones)
+            {
+                foreach (Post p in posts)
+                {
+                    if (p.id == reaccion.post.id)
+                    {
+                        p.reacciones.Add(reaccion);
+                    }
+                }
+            }
             List<Comentario> comentarios = DB.inicializarComentarios();
             // VER logica para rellenar las listas de post de usuarios y comentarios de posts y de usuarios
             //foreach (Post p in posts)
@@ -219,28 +231,33 @@ namespace TP1
                 if (reaccion.usuario.id == usuarioActual.id)
                 {
                     newReaction = false;
-                    modificarReacion(p, r);
+                    modificarReaccion(p, r);
                 }
             }
             if (newReaction)
             {
+                int idAuxR = DB.agregarReaccion(r.tipoReaccion, p.id, r.usuario.id);
+                r.id = idAuxR;
                 p.reacciones.Add(r);
-                DB.agregarReaccion(r.tipoReaccion,p.id,r.usuario.id);
+
+                                 
             }
         }
-        //HACER
-        public void modificarReacion(Post p, Reaccion r)
+        
+        public void modificarReaccion(Post p, Reaccion r)
         {
             foreach (Reaccion reaccion in p.reacciones)
             {
+                
                 if (reaccion.usuario.id == usuarioActual.id)
                 {
                     reaccion.tipoReaccion = r.tipoReaccion;
+                    DB.modificarReaccion(reaccion.id, reaccion.tipoReaccion);
                 }
             }
         }
         //HACER
-        public void quitarReacion(Post p, Reaccion r)
+        public void quitarReaccion(Post p, Reaccion r)
         {
             Reaccion rEliminar = null;
             foreach (Reaccion reaccion in p.reacciones)
@@ -250,7 +267,9 @@ namespace TP1
                     rEliminar = reaccion;
                 }
             }
+            DB.eliminarReaccion(p.id, r.usuario.id);
             p.reacciones.Remove(rEliminar);
+            
         }
 
         public Usuario mostrarDatos(Usuario u)

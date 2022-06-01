@@ -497,7 +497,7 @@ namespace TP1
                         {
                             foreach (Post p in posts)
                             {
-                                if (u.id == reader.GetInt32(1) && p.id == reader.GetInt32(3))
+                                if (u.id == reader.GetInt32(2) && p.id == reader.GetInt32(3))
                                 {
                                     usuarioAux = u;
                                     postAux = p;
@@ -562,5 +562,60 @@ namespace TP1
                 return idNuevaReaccion;
             }
         }
+        public int modificarReaccion(int idReaccion, string tipo )
+        {
+            string connectionString = Properties.Resources.ConnectionString;
+            string queryString = "UPDATE [dbo].[Reacciones] SET [Tipo]=@tipo WHERE [IdReaccion]=@id;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.Add(new SqlParameter("@id", SqlDbType.Int));
+                command.Parameters.Add(new SqlParameter("@tipo", SqlDbType.NVarChar));
+                command.Parameters["@id"].Value = idReaccion;
+                command.Parameters["@tipo"].Value = tipo;
+                try
+                {
+                    connection.Open();
+                    //esta consulta NO espera un resultado para leer, es del tipo NON Query
+                    return command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return 0;
+                }
+            }
+        }
+
+        public int eliminarReaccion(int postId, int userId)
+        {
+            string connectionString = Properties.Resources.ConnectionString;
+            string queryString = "DELETE FROM [dbo].[Reacciones] WHERE [IdPost]=@IdP AND [IdUsuario] = @IdU";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.Add(new SqlParameter("@IdP", SqlDbType.Int));
+                command.Parameters.Add(new SqlParameter("@IdU", SqlDbType.Int));
+                command.Parameters["@IdP"].Value = postId;
+                command.Parameters["@IdU"].Value = userId;
+                try
+                {
+                    connection.Open();
+                    //esta consulta NO espera un resultado para leer, es del tipo NON Query
+                    return command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return 0;
+                }
+            }
+        }
+
+
+
+
+
     }
 }
