@@ -167,6 +167,31 @@ namespace TP1
             }
         }
 
+        public int bloqUsuario(int IdUsuario, bool Bloqueado)
+        {
+            string connectionString = Properties.Resources.ConnectionString;
+            string queryString = "UPDATE [dbo].[Usuarios] SET Bloqueado=@bloqueado WHERE IdUsuario=@id;";
+            using (SqlConnection connection =
+                new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.Add(new SqlParameter("@id", SqlDbType.Int));
+                command.Parameters.Add(new SqlParameter("@bloqueado", SqlDbType.Bit));
+                command.Parameters["@id"].Value = IdUsuario;
+                command.Parameters["@bloqueado"].Value = Bloqueado;
+                try
+                {
+                    connection.Open();
+                    //esta consulta NO espera un resultado para leer, es del tipo NON Query
+                    return command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return 0;
+                }
+            }
+        }
 
         public List<Post> inicializarPosts()
         {

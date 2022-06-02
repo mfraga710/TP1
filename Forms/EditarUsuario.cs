@@ -13,8 +13,23 @@ namespace TP1.Forms
         private RedSocial rs;
         private Usuario usuario;
         private Home frm;
+        private Admin frm1;
         private Login log;
+        
 
+
+        public EditarUsuario(RedSocial rs1, Admin frm1, Usuario user)
+        {
+            this.frm1 = frm1;
+            this.rs = rs1;
+            this.usuario = user;
+            InitializeComponent();
+            button1.Visible = true;
+            nombre.Text = usuario.nombre;
+            apellido.Text = usuario.apellido;
+            mail.Text = usuario.email;
+            dni.Text = usuario.dni.ToString();
+        }
         public EditarUsuario(RedSocial rs1,Home frm1, Usuario user, Login log)
         {
             this.frm = frm1;
@@ -22,6 +37,7 @@ namespace TP1.Forms
             this.usuario = user;
             this.log = log;
             InitializeComponent();
+            button1.Visible = false;
             nombre.Text = rs.usuarioActual.nombre;
             apellido.Text = rs.usuarioActual.apellido;
             mail.Text = rs.usuarioActual.email;
@@ -38,7 +54,10 @@ namespace TP1.Forms
             editedUsuario.email = mail.Text;
             editedUsuario.dni = Convert.ToInt32(dni.Text);
             rs.modificaUsuario(editedUsuario);
-            frm.labelNombreUsuario.Text = "Bienvenido " + rs.usuarioActual.nombre + " " + rs.usuarioActual.apellido;
+            if (!rs.usuarioActual.isAdm)
+            {
+                frm.labelNombreUsuario.Text = "Bienvenido " + rs.usuarioActual.nombre + " " + rs.usuarioActual.apellido;
+            }
             frm.Enabled = true;
             this.Close();
         }
@@ -52,9 +71,30 @@ namespace TP1.Forms
         private void btnEliminarUsuario_Click(object sender, EventArgs e)
         {
             rs.eliminarUsuario(usuario);
-            rs.cerrarSesion(frm, log);
-            this.Close();
+            if (!rs.usuarioActual.isAdm)
+            {
+                rs.cerrarSesion(frm, log);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("El usuario fue eliminado");
+                frm1.listaUsuarios.Rows.Clear();
+                frm1.refreshUsuarios();
+                frm1.Enabled = true;
+                this.Close();
+            }
             
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Usuario editedUsuario = rs.searchUser(usuario.id);
+            rs.bloqUser(editedUsuario.id, false);
+            MessageBox.Show("El usuario fue desbloqueado");
+            frm1.Enabled = true;
+            this.Close();
+
         }
     }
 }

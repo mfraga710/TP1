@@ -34,9 +34,19 @@ namespace TP1
 
             if (rs.iniciarSesion(textBoxUsuario.Text, textBoxPassword.Text))
             {
-                this.Hide();                
-                Forms.Home home = new Forms.Home(rs,this);
-                home.Show();
+                if (rs.usuarioActual.isAdm)
+                {
+                    this.Hide();
+                    Forms.Admin Admin = new Forms.Admin(rs, this);
+                    Admin.Show();
+                }
+                else
+                {
+                    this.Hide();
+                    Forms.Home home = new Forms.Home(rs, this);
+                    home.Show();
+                }
+                ;
             }
             else
             {

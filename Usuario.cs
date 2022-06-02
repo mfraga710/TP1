@@ -31,8 +31,8 @@ namespace TP1
             this.dni = dni;
             this.id = id;
             this.intentosFallidos = 0;
-            this.isAdm = false;
-            this.bloqueado = false;
+            this.isAdm = isAdm;
+            this.bloqueado = bloqueado;
             amigos = new List<Usuario>();
             misPosts = new List<Post>();
             misComentarios = new List<Comentario>();

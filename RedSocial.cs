@@ -414,7 +414,10 @@ namespace TP1
             return null;
         }
         
-        
+        public void bloqUser(int IdUsuario, bool Bloqueado)
+        {
+            DB.bloqUsuario(IdUsuario, Bloqueado);
+        }
     }
 
 

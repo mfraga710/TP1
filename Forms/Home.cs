@@ -472,7 +472,5 @@ namespace TP1.Forms
             }
             
         }
-
-       
     }
 }
