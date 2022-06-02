@@ -82,7 +82,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnVerAllPosts = new System.Windows.Forms.Button();
             this.btnSalirApp = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxAbrirBuscarAmigos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pBoxEliminarAmigo)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -677,21 +676,11 @@
             this.btnSalirApp.UseVisualStyleBackColor = true;
             this.btnSalirApp.Click += new System.EventHandler(this.btnSalirApp_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(997, 81);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 49;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSalirApp);
             this.Controls.Add(this.btnVerAllPosts);
             this.Controls.Add(this.groupBox1);
@@ -794,6 +783,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.Button button1;
     }
 }

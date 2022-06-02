@@ -16,10 +16,12 @@ namespace TP1.Forms
         public Admin(RedSocial rs1, Login formLogin)
         {
             this.rs = rs1;
-            //frm = formLogin;
+            frm = formLogin;
             DB = new DAL();
             InitializeComponent();
             refreshUsuarios();
+            refreshTags();
+            refreshPost();
         }
 
 
@@ -34,19 +36,25 @@ namespace TP1.Forms
 
         public void refreshPost()
         {
-            listaUsuarios.Rows.Clear();
-            foreach (Usuario user in rs.usuarios)
+            listadoPost.Rows.Clear();
+            foreach (Post post in rs.posts)
             {
-                listaUsuarios.Rows.Add(user.id, user.nombre + " " + user.apellido);
+                listadoPost.Rows.Add(post.id, post.user.nombre + " " + post.user.apellido, post.contenido);
             }
         }
 
 
-
+        public void refreshTags()
+        {
+            listadoTags.Rows.Clear();
+            foreach (Tag t in rs.tags)
+            {
+                listadoTags.Rows.Add(t.id, t.palabra);
+            }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             var selrow = listaUsuarios.SelectedRows;
             if (selrow.Count > 0)
             {
@@ -61,5 +69,32 @@ namespace TP1.Forms
                 MessageBox.Show("Debe seleccionar un Usuario");
             }
         }
-     }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            rs.cerrarSesionAdm(this, frm);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var selrow = listadoPost.SelectedRows;
+            if (selrow.Count > 0)
+            {
+                int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+                Post p = rs.searchPost(postId);
+                AdminPosts adminPost = new AdminPosts(rs, this, p);
+                this.Enabled = false;
+                adminPost.Show();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un Post");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

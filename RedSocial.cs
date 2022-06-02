@@ -124,6 +124,13 @@ namespace TP1
             frm.Show();
         }
 
+        public void cerrarSesionAdm(Forms.Admin adim, Login frm)
+        {
+            usuarioActual = null;
+            adim.Close();
+            frm.Show();
+        }
+
         public void agregarAmigo(Usuario amigo)
         {
             foreach (Usuario u in usuarios)

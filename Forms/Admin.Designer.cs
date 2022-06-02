@@ -32,15 +32,22 @@
             this.listaUsuarios = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.editUser = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.listadoPost = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
+            this.verPost = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.listadoTags = new System.Windows.Forms.DataGridView();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.verTags = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listaUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listadoPost)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listadoTags)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -81,15 +88,15 @@
             this.Column2.ReadOnly = true;
             this.Column2.Width = 400;
             // 
-            // button1
+            // editUser
             // 
-            this.button1.Location = new System.Drawing.Point(574, 66);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 35);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Editar Usuario";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.editUser.Location = new System.Drawing.Point(574, 66);
+            this.editUser.Name = "editUser";
+            this.editUser.Size = new System.Drawing.Size(111, 35);
+            this.editUser.TabIndex = 2;
+            this.editUser.Text = "Editar Usuario";
+            this.editUser.UseVisualStyleBackColor = true;
+            this.editUser.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -102,6 +109,8 @@
             // 
             // listadoPost
             // 
+            this.listadoPost.AllowUserToAddRows = false;
+            this.listadoPost.AllowUserToDeleteRows = false;
             this.listadoPost.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.listadoPost.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -109,7 +118,9 @@
             this.Column4});
             this.listadoPost.Location = new System.Drawing.Point(12, 160);
             this.listadoPost.Name = "listadoPost";
+            this.listadoPost.ReadOnly = true;
             this.listadoPost.RowTemplate.Height = 25;
+            this.listadoPost.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.listadoPost.Size = new System.Drawing.Size(545, 150);
             this.listadoPost.TabIndex = 4;
             // 
@@ -117,42 +128,109 @@
             // 
             this.Id.HeaderText = "Id";
             this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Usuario";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Post";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             this.Column4.Width = 300;
             // 
-            // button2
+            // verPost
             // 
-            this.button2.Location = new System.Drawing.Point(574, 221);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 38);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Ver Post";
-            this.button2.UseVisualStyleBackColor = true;
+            this.verPost.Location = new System.Drawing.Point(574, 221);
+            this.verPost.Name = "verPost";
+            this.verPost.Size = new System.Drawing.Size(111, 38);
+            this.verPost.TabIndex = 5;
+            this.verPost.Text = "Ver Post";
+            this.verPost.UseVisualStyleBackColor = true;
+            this.verPost.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(729, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 15);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Tags";
+            // 
+            // listadoTags
+            // 
+            this.listadoTags.AllowUserToAddRows = false;
+            this.listadoTags.AllowUserToDeleteRows = false;
+            this.listadoTags.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.listadoTags.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column5,
+            this.Column6});
+            this.listadoTags.Location = new System.Drawing.Point(729, 37);
+            this.listadoTags.Name = "listadoTags";
+            this.listadoTags.ReadOnly = true;
+            this.listadoTags.RowTemplate.Height = 25;
+            this.listadoTags.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.listadoTags.Size = new System.Drawing.Size(446, 155);
+            this.listadoTags.TabIndex = 7;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Id";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Tags";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 300;
+            // 
+            // verTags
+            // 
+            this.verTags.Location = new System.Drawing.Point(915, 221);
+            this.verTags.Name = "verTags";
+            this.verTags.Size = new System.Drawing.Size(111, 38);
+            this.verTags.TabIndex = 8;
+            this.verTags.Text = "Ver Tag";
+            this.verTags.UseVisualStyleBackColor = true;
+            this.verTags.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(1068, 395);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(93, 34);
+            this.button4.TabIndex = 9;
+            this.button4.Text = "Cerrar Sesion";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1251, 450);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(1199, 450);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.verTags);
+            this.Controls.Add(this.listadoTags);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.verPost);
             this.Controls.Add(this.listadoPost);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.editUser);
             this.Controls.Add(this.listaUsuarios);
             this.Controls.Add(this.label1);
             this.Name = "Admin";
             this.Text = "Admin";
             ((System.ComponentModel.ISupportInitialize)(this.listaUsuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listadoPost)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listadoTags)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,13 +241,19 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button editUser;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView listadoPost;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button verPost;
         public System.Windows.Forms.DataGridView listaUsuarios;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView listadoTags;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.Button verTags;
+        private System.Windows.Forms.Button button4;
     }
 }
