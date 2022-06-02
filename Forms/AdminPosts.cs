@@ -55,7 +55,7 @@ namespace TP1.Forms
             groupBox3.Show();
             textBox1.Show();
             textBox1.Text = label1.Text;
-            button1.Show();
+            AceptarPost.Show();
             button6.Show();
         }
 
@@ -76,6 +76,12 @@ namespace TP1.Forms
             {
                 MessageBox.Show("Debe seleccionar un Usuario");
             }
+        }
+
+        private void AceptarPost_Click(object sender, EventArgs e)
+        {
+            label1.Text = textBox1.Text;
+            rs.modificarPostAdmin(post.id,textBox1.Text);
         }
     }
 }

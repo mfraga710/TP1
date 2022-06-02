@@ -222,6 +222,21 @@ namespace TP1
             }
         }
 
+        public void modificarPostAdmin(int postId, string nuevoContenido)
+        {
+            if (postId != 0)
+            {
+                DB.modificarPostAdm(postId, nuevoContenido);
+                foreach (Post post in posts)
+                {
+                    if (post.id == postId)
+                    {
+                        post.contenido = nuevoContenido;
+                    }
+                }
+            }
+        }
+
         public void quitarComentario(Post p, Comentario c)
         {
             DB.eliminarComent(c.id);
@@ -426,6 +441,4 @@ namespace TP1
             DB.bloqUsuario(IdUsuario, Bloqueado);
         }
     }
-
-
 }

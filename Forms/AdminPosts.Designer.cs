@@ -35,7 +35,7 @@
             this.editarPosteoBotton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button6 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AceptarPost = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -50,6 +50,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.Posteo.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -91,6 +92,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.editarPosteoBotton);
             this.groupBox2.Location = new System.Drawing.Point(608, 12);
             this.groupBox2.Name = "groupBox2";
@@ -101,7 +103,7 @@
             // 
             // editarPosteoBotton
             // 
-            this.editarPosteoBotton.Location = new System.Drawing.Point(18, 42);
+            this.editarPosteoBotton.Location = new System.Drawing.Point(18, 28);
             this.editarPosteoBotton.Name = "editarPosteoBotton";
             this.editarPosteoBotton.Size = new System.Drawing.Size(75, 23);
             this.editarPosteoBotton.TabIndex = 0;
@@ -112,7 +114,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.button6);
-            this.groupBox3.Controls.Add(this.button1);
+            this.groupBox3.Controls.Add(this.AceptarPost);
             this.groupBox3.Controls.Add(this.textBox1);
             this.groupBox3.Location = new System.Drawing.Point(741, 12);
             this.groupBox3.Name = "groupBox3";
@@ -131,14 +133,15 @@
             this.button6.Text = "Cancelar";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // AceptarPost
             // 
-            this.button1.Location = new System.Drawing.Point(220, 107);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Aceptar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.AceptarPost.Location = new System.Drawing.Point(220, 107);
+            this.AceptarPost.Name = "AceptarPost";
+            this.AceptarPost.Size = new System.Drawing.Size(75, 23);
+            this.AceptarPost.TabIndex = 1;
+            this.AceptarPost.Text = "Aceptar";
+            this.AceptarPost.UseVisualStyleBackColor = true;
+            this.AceptarPost.Click += new System.EventHandler(this.AceptarPost_Click);
             // 
             // textBox1
             // 
@@ -272,6 +275,15 @@
             this.button3.Text = "Comentar";
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(18, 63);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Eliminar";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // AdminPosts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -313,7 +325,7 @@
         private System.Windows.Forms.Button editarPosteoBotton;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button AceptarPost;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -328,5 +340,6 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button1;
     }
 }
