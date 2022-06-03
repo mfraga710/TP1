@@ -127,7 +127,6 @@ namespace TP1
                 }
             }
         }
-
         //devuelve la cantidad de elementos modificados en la base (debería ser 1 si anduvo bien)
         public int modificarUsuario(int IdUsuario, string Nombre, string Apellido, string Mail, int Dni, bool Bloqueado, bool IsAdm)
         {
@@ -164,7 +163,6 @@ namespace TP1
                 }
             }
         }
-
         public int bloqUsuario(int IdUsuario, bool Bloqueado)
         {
             string connectionString = Properties.Resources.ConnectionString;
@@ -190,7 +188,6 @@ namespace TP1
                 }
             }
         }
-
         public List<Post> inicializarPosts()
         {
             List<Post> misPosts = new List<Post>();
@@ -236,7 +233,6 @@ namespace TP1
             }
             return misPosts;
         }
-
         public int agregarPost(Usuario user, string contenido)
         {
             DateTime fecha = DateTime.Now;
@@ -257,7 +253,6 @@ namespace TP1
                 command.Parameters["@idUser"].Value = user.id;
                 command.Parameters["@contenido"].Value = contenido;
                 command.Parameters["@fecha"].Value = fecha;
-
 
                 try
                 {
@@ -280,6 +275,35 @@ namespace TP1
                     return -1;
                 }
                 return idNuevoPost;
+            }
+        }
+        public int relTag(int idTag, int idPost)
+        {
+            DateTime fecha = DateTime.Now;
+            //primero me aseguro que lo pueda agregar a la base
+
+            string connectionString = Properties.Resources.ConnectionString;
+            string queryString =
+                "INSERT INTO [dbo].[Post_Tag] ([IdTag],[IdPost]) " +
+                "VALUES (@idTag,@idPost);";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.Add(new SqlParameter("@idTag", SqlDbType.Int));
+                command.Parameters.Add(new SqlParameter("@idPost", SqlDbType.Int));                command.Parameters["@idTag"].Value = idTag;
+                command.Parameters["@idPost"].Value = idPost;
+
+                try
+                {
+                    connection.Open();
+                    //esta consulta NO espera un resultado para leer, es del tipo NON Query
+                    return command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return 0;
+                }
             }
         }
 

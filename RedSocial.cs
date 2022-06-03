@@ -146,18 +146,16 @@ namespace TP1
 
         public void postear(Post p, List<Tag> newTags)
         {
-
             int auxPostId = DB.agregarPost(p.user,p.contenido);
             foreach (Tag tag in newTags)
             {
-                
                 if (!tags.Contains(tag))
                 {
                     tag.posts.Add(p);
                     p.tags.Add(tag);
-                    DB.agregarTag(tag.palabra, auxPostId);
+                    int auxTagId = DB.agregarTag(tag.palabra, auxPostId);
+                    DB.relTag(auxTagId, auxPostId);
                     tags.Add(tag);
-                    
                 }
             }
             p.id = auxPostId;
