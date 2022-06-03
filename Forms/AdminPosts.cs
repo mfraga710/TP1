@@ -78,28 +78,47 @@ namespace TP1.Forms
         {
             label1.Text = textBox1.Text;
             rs.modificarPostAdmin(post.id,textBox1.Text);
+            MessageBox.Show("El post ha sido modificado");
         }
 
         private void aceptarComment_Click(object sender, EventArgs e)
         {
             rs.modificarCommentAdmin(post, c.id, textBox2.Text);
-            dataGridView1.Rows.Clear();
             refreshComent();
+            MessageBox.Show("El comentario ha sido modificado");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            rs.comentarAdmin(post,rs.usuarioActual,textBox3.Text);
-            refreshComent();
-        }
+            if (textBox3.Text.Length > 0)
+            {
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+                rs.comentarAdmin(post, rs.usuarioActual, textBox3.Text);
+                refreshComent();
+                MessageBox.Show("El comentario ha sido agregado");
+            }
+            else
+            {
+                MessageBox.Show("Comenta algo, ponele volunta");
+            }
         }
 
         private void ElimComentButton_Click(object sender, EventArgs e)
         {
+            
+            var selrow = dataGridView1.SelectedRows;
+            if (selrow.Count > 0)
+            {
+                int comentId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+                c = rs.searchComent(comentId);
+                rs.quitarComentario(post, c);
+                MessageBox.Show("El comentario ha sido eliminado");
+                refreshComent();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un comentario por favor");
+            }
 
         }
 
@@ -116,7 +135,8 @@ namespace TP1.Forms
 
         private void salirButton_Click(object sender, EventArgs e)
         {
-
+            frm1.Enabled = true;
+            this.Close();
         }
     }
 }

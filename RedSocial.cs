@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Data.SqlClient;
@@ -149,11 +150,14 @@ namespace TP1
             int auxPostId = DB.agregarPost(p.user,p.contenido);
             foreach (Tag tag in newTags)
             {
+                
                 if (!tags.Contains(tag))
                 {
                     tag.posts.Add(p);
                     p.tags.Add(tag);
+                    DB.agregarTag(tag.palabra, auxPostId);
                     tags.Add(tag);
+                    
                 }
             }
             p.id = auxPostId;

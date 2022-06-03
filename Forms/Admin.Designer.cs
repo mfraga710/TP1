@@ -43,7 +43,7 @@
             this.listadoTags = new System.Windows.Forms.DataGridView();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.verTags = new System.Windows.Forms.Button();
+            this.EliminarTags = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.eliminarPost = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.listaUsuarios)).BeginInit();
@@ -54,10 +54,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 15);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 25);
+            this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuarios";
             // 
@@ -69,14 +68,13 @@
             this.listaUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            this.listaUsuarios.Location = new System.Drawing.Point(17, 45);
-            this.listaUsuarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.listaUsuarios.Location = new System.Drawing.Point(12, 27);
             this.listaUsuarios.Name = "listaUsuarios";
             this.listaUsuarios.ReadOnly = true;
             this.listaUsuarios.RowHeadersWidth = 62;
             this.listaUsuarios.RowTemplate.Height = 25;
             this.listaUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.listaUsuarios.Size = new System.Drawing.Size(779, 168);
+            this.listaUsuarios.Size = new System.Drawing.Size(545, 101);
             this.listaUsuarios.TabIndex = 1;
             // 
             // Column1
@@ -97,10 +95,9 @@
             // 
             // editUser
             // 
-            this.editUser.Location = new System.Drawing.Point(820, 45);
-            this.editUser.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.editUser.Location = new System.Drawing.Point(574, 27);
             this.editUser.Name = "editUser";
-            this.editUser.Size = new System.Drawing.Size(159, 58);
+            this.editUser.Size = new System.Drawing.Size(111, 35);
             this.editUser.TabIndex = 2;
             this.editUser.Text = "Editar Usuario";
             this.editUser.UseVisualStyleBackColor = true;
@@ -109,10 +106,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 237);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(12, 142);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 25);
+            this.label2.Size = new System.Drawing.Size(35, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "Posts";
             // 
@@ -125,14 +121,13 @@
             this.Id,
             this.Column3,
             this.Column4});
-            this.listadoPost.Location = new System.Drawing.Point(17, 267);
-            this.listadoPost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.listadoPost.Location = new System.Drawing.Point(12, 160);
             this.listadoPost.Name = "listadoPost";
             this.listadoPost.ReadOnly = true;
             this.listadoPost.RowHeadersWidth = 62;
             this.listadoPost.RowTemplate.Height = 25;
             this.listadoPost.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.listadoPost.Size = new System.Drawing.Size(779, 250);
+            this.listadoPost.Size = new System.Drawing.Size(545, 150);
             this.listadoPost.TabIndex = 4;
             // 
             // Id
@@ -161,10 +156,9 @@
             // 
             // verPost
             // 
-            this.verPost.Location = new System.Drawing.Point(820, 296);
-            this.verPost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.verPost.Location = new System.Drawing.Point(574, 178);
             this.verPost.Name = "verPost";
-            this.verPost.Size = new System.Drawing.Size(159, 63);
+            this.verPost.Size = new System.Drawing.Size(111, 38);
             this.verPost.TabIndex = 5;
             this.verPost.Text = "Ver Post";
             this.verPost.UseVisualStyleBackColor = true;
@@ -173,10 +167,9 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1041, 15);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(729, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 25);
+            this.label3.Size = new System.Drawing.Size(30, 15);
             this.label3.TabIndex = 6;
             this.label3.Text = "Tags";
             // 
@@ -188,14 +181,13 @@
             this.listadoTags.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column5,
             this.Column6});
-            this.listadoTags.Location = new System.Drawing.Point(1041, 62);
-            this.listadoTags.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.listadoTags.Location = new System.Drawing.Point(729, 37);
             this.listadoTags.Name = "listadoTags";
             this.listadoTags.ReadOnly = true;
             this.listadoTags.RowHeadersWidth = 62;
             this.listadoTags.RowTemplate.Height = 25;
             this.listadoTags.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.listadoTags.Size = new System.Drawing.Size(637, 258);
+            this.listadoTags.Size = new System.Drawing.Size(446, 155);
             this.listadoTags.TabIndex = 7;
             // 
             // Column5
@@ -214,23 +206,22 @@
             this.Column6.ReadOnly = true;
             this.Column6.Width = 300;
             // 
-            // verTags
+            // EliminarTags
             // 
-            this.verTags.Location = new System.Drawing.Point(1307, 368);
-            this.verTags.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.verTags.Name = "verTags";
-            this.verTags.Size = new System.Drawing.Size(159, 63);
-            this.verTags.TabIndex = 8;
-            this.verTags.Text = "Ver Tag";
-            this.verTags.UseVisualStyleBackColor = true;
-            this.verTags.Click += new System.EventHandler(this.button3_Click);
+            this.EliminarTags.Location = new System.Drawing.Point(1064, 198);
+            this.EliminarTags.Name = "EliminarTags";
+            this.EliminarTags.Size = new System.Drawing.Size(111, 38);
+            this.EliminarTags.TabIndex = 8;
+            this.EliminarTags.Text = "Eliminar Tag";
+            this.EliminarTags.UseVisualStyleBackColor = true;
+            this.EliminarTags.Visible = false;
+            this.EliminarTags.Click += new System.EventHandler(this.eliminarTag_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(1526, 658);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.button4.Location = new System.Drawing.Point(1068, 395);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(133, 57);
+            this.button4.Size = new System.Drawing.Size(93, 34);
             this.button4.TabIndex = 9;
             this.button4.Text = "Cerrar Sesion";
             this.button4.UseVisualStyleBackColor = true;
@@ -238,9 +229,10 @@
             // 
             // eliminarPost
             // 
-            this.eliminarPost.Location = new System.Drawing.Point(820, 419);
+            this.eliminarPost.Location = new System.Drawing.Point(574, 251);
+            this.eliminarPost.Margin = new System.Windows.Forms.Padding(2);
             this.eliminarPost.Name = "eliminarPost";
-            this.eliminarPost.Size = new System.Drawing.Size(159, 58);
+            this.eliminarPost.Size = new System.Drawing.Size(111, 35);
             this.eliminarPost.TabIndex = 10;
             this.eliminarPost.Text = "Eliminar Post";
             this.eliminarPost.UseVisualStyleBackColor = true;
@@ -248,12 +240,12 @@
             // 
             // Admin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1713, 750);
+            this.ClientSize = new System.Drawing.Size(1199, 450);
             this.Controls.Add(this.eliminarPost);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.verTags);
+            this.Controls.Add(this.EliminarTags);
             this.Controls.Add(this.listadoTags);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.verPost);
@@ -262,7 +254,6 @@
             this.Controls.Add(this.editUser);
             this.Controls.Add(this.listaUsuarios);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Admin";
             this.Text = "Admin";
             ((System.ComponentModel.ISupportInitialize)(this.listaUsuarios)).EndInit();
@@ -290,7 +281,7 @@
         private System.Windows.Forms.DataGridView listadoTags;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.Button verTags;
+        private System.Windows.Forms.Button EliminarTags;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button eliminarPost;
     }

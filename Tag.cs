@@ -17,5 +17,11 @@ namespace TP1
             this.palabra = palabra;
             posts = new List<Post>();
         }
+        public Tag(int id,string palabra, int idPost)
+        {
+            this.id = idTag;
+            this.palabra = palabra;
+            posts = new List<Post>();
+        }
     }
 }
