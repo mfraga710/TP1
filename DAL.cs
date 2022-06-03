@@ -14,7 +14,6 @@ namespace TP1
             //Cargo la cadena de conexión desde el archivo de properties
             connectionString = Properties.Resources.ConnectionString;
         }
-
         public List<Usuario> inicializarUsuarios()
         {
             List<Usuario> misUsuarios = new List<Usuario>();
@@ -51,7 +50,6 @@ namespace TP1
             }
             return misUsuarios;
         }
-
         public int agregarUsuario(int Dni, string Nombre, string Apellido, string Mail, string Password, int IntentosFallidos, bool Bloqueado, bool IsAdm)
         {
             //primero me aseguro que lo pueda agregar a la base
@@ -275,36 +273,6 @@ namespace TP1
                     return -1;
                 }
                 return idNuevoPost;
-            }
-        }
-        public int relTag(int idTag, int idPost)
-        {
-            DateTime fecha = DateTime.Now;
-            //primero me aseguro que lo pueda agregar a la base
-
-            string connectionString = Properties.Resources.ConnectionString;
-            string queryString =
-                "INSERT INTO [dbo].[Post_Tag] ([IdTag],[IdPost]) " +
-                "VALUES (@idTag,@idPost);";
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand command = new SqlCommand(queryString, connection);
-                command.Parameters.Add(new SqlParameter("@idTag", SqlDbType.Int));
-                command.Parameters.Add(new SqlParameter("@idPost", SqlDbType.Int));                
-                command.Parameters["@idTag"].Value = idTag;
-                command.Parameters["@idPost"].Value = idPost;
-
-                try
-                {
-                    connection.Open();
-                    //esta consulta NO espera un resultado para leer, es del tipo NON Query
-                    return command.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    return 0;
-                }
             }
         }
         public int modificarPost(int idPost, Usuario user, string contenido)
@@ -557,12 +525,9 @@ namespace TP1
         }
         public List<Reaccion> inicializarReaccion()
         {
-
-
             List<Reaccion> misReacciones = new List<Reaccion>();
             List<Usuario> usuarios = inicializarUsuarios();
             List<Post> posts = inicializarPosts();
-
 
             //Defino el string con la consulta que quiero realizar
             string queryString = "SELECT * from dbo.Reacciones";
@@ -701,6 +666,83 @@ namespace TP1
                 }
             }
         }
+        public List<Tag> inicializarTags()
+        {
+            List<Tag> misTags = new List<Tag>();
+            List<Usuario> usuarios = inicializarUsuarios();
+            List<Post> posts = inicializarPosts();
+
+
+            //Defino el string con la consulta que quiero realizar
+            string queryString = "SELECT * from dbo.Tags";
+
+            // Creo una conexión SQL con un Using, de modo que al finalizar, la conexión se cierra y se liberan recursos
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                // Defino el comando a enviar al motor SQL con la consulta y la conexión
+                SqlCommand command = new SqlCommand(queryString, connection);
+                try
+                {
+                    //Abro la conexión
+                    connection.Open();
+                    //mi objecto DataReader va a obtener los resultados de la consulta, notar que a comando se le pide ExecuteReader()
+                    SqlDataReader reader = command.ExecuteReader();
+                    Tag auxTag;
+                    
+                    //mientras haya registros/filas en mi DataReader, sigo leyendo
+                    while (reader.Read())
+                    {
+                        List<Post> postAux = new List<Post>();
+                        foreach (Post p in posts)
+                        {
+                            if (p.id == reader.GetInt32(2))
+                            {
+                                postAux.Add(p);
+                            }
+                        }                        
+                        auxTag = new Tag(reader.GetInt32(0), reader.GetString(1), postAux);
+                        misTags.Add(auxTag);
+                    }
+                    //En este punto ya recorrí todas las filas del resultado de la query
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return misTags;
+        }
+        public int relTag(int idTag, int idPost)
+        {
+            DateTime fecha = DateTime.Now;
+            //primero me aseguro que lo pueda agregar a la base
+
+            string connectionString = Properties.Resources.ConnectionString;
+            string queryString =
+                "INSERT INTO [dbo].[Post_Tag] ([IdTag],[IdPost]) " +
+                "VALUES (@idTag,@idPost);";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.Add(new SqlParameter("@idTag", SqlDbType.Int));
+                command.Parameters.Add(new SqlParameter("@idPost", SqlDbType.Int));
+                command.Parameters["@idTag"].Value = idTag;
+                command.Parameters["@idPost"].Value = idPost;
+
+                try
+                {
+                    connection.Open();
+                    //esta consulta NO espera un resultado para leer, es del tipo NON Query
+                    return command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return 0;
+                }
+            }
+        }
         public int agregarTag(string palabra,int idPost)
         {
             //primero me aseguro que lo pueda agregar a la base
@@ -743,6 +785,51 @@ namespace TP1
                 return idNuevoTag;
             }
         }
-               
+        public int eliminarTagRel(int tagId)
+        {
+            string connectionString = Properties.Resources.ConnectionString;
+            string queryString = "DELETE FROM [dbo].[Post_Tag] WHERE [IdTag]=@Idt";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.Add(new SqlParameter("@Idt", SqlDbType.Int));
+                command.Parameters["@Idt"].Value = tagId;
+
+                try
+                {
+                    connection.Open();
+                    //esta consulta NO espera un resultado para leer, es del tipo NON Query
+                    return command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return 0;
+                }
+            }
+        }
+        public int eliminarTag(int tagId)
+        {
+            string connectionString = Properties.Resources.ConnectionString;
+            string queryString = "DELETE FROM [dbo].[Tags] WHERE [IdTag]=@Idt";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.Add(new SqlParameter("@Idt", SqlDbType.Int));
+                command.Parameters["@Idt"].Value = tagId;
+
+                try
+                {
+                    connection.Open();
+                    //esta consulta NO espera un resultado para leer, es del tipo NON Query
+                    return command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return 0;
+                }
+            }
+        }
     }
 }

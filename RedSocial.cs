@@ -29,6 +29,7 @@ namespace TP1
         {
             usuarios = DB.inicializarUsuarios();
             posts = DB.inicializarPosts();
+            tags = DB.inicializarTags();
             List<Reaccion> reacciones = DB.inicializarReaccion();
             foreach (Reaccion reaccion in reacciones)
             {
@@ -41,7 +42,6 @@ namespace TP1
                 }
             }
             List<Comentario> comentarios = DB.inicializarComentarios();
-            //VER logica para rellenar las listas de post de usuarios y comentarios de posts y de usuarios
             foreach (Post p in posts)
             {
                 foreach (Comentario c in comentarios)
@@ -52,6 +52,21 @@ namespace TP1
                     }
                 }
             }
+
+            foreach (Tag t in tags)
+            {
+                foreach (Post pT in t.posts)
+                {
+                    foreach (Post p in posts)
+                    {
+                        if (pT.id == p.id)
+                        {
+                            p.tags.Add(t);
+                        }
+                    }
+                }
+            }
+
         }       
         public void registrarUsuario(string nombre, string apellido, string mail, int dni, string pass)
         {
@@ -154,6 +169,7 @@ namespace TP1
                     tag.posts.Add(p);
                     p.tags.Add(tag);
                     int auxTagId = DB.agregarTag(tag.palabra, auxPostId);
+                    tag.id = auxTagId;
                     DB.relTag(auxTagId, auxPostId);
                     tags.Add(tag);
                 }
@@ -191,8 +207,6 @@ namespace TP1
             p.user.misPosts.Remove(p);
             posts.Remove(p);
         }
-
-
 
         public void comentar(Post p, Comentario c) 
         {
@@ -449,10 +463,30 @@ namespace TP1
             }
             return null;
         }
-        
+
+        public Tag searchTag(int idTag)
+        {
+            foreach (Tag t in tags)
+            {
+                if (idTag == t.id)
+                {
+                    return t;
+                }
+            }
+            return null;
+        }
         public void bloqUser(int IdUsuario, bool Bloqueado)
         {
             DB.bloqUsuario(IdUsuario, Bloqueado);
+        }
+
+        public void eliminarTag (int tagId)
+        {
+            var result = DB.eliminarTagRel(tagId);
+            var result2 = DB.eliminarTag(tagId);
+            tags.Remove(searchTag(tagId));
+
+
         }
     }
 }

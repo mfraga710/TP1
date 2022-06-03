@@ -13,15 +13,15 @@ namespace TP1
         static int idTag = 0;
         public Tag(string palabra)
         {
-            id = idTag++;         
+            id = idTag++;
             this.palabra = palabra;
             posts = new List<Post>();
         }
-        public Tag(int id,string palabra, int idPost)
+        public Tag(int id,string palabra, List<Post> posts)
         {
-            this.id = idTag;
+            this.id = id;
             this.palabra = palabra;
-            posts = new List<Post>();
+            this.posts = posts;
         }
     }
 }

@@ -94,21 +94,20 @@ namespace TP1.Forms
 
         private void eliminarTag_Click(object sender, EventArgs e)
         {
-           /* var selrow = listadoTags.SelectedRows;
+            var selrow = listadoTags.SelectedRows;
             if (selrow.Count > 0)
-            {
-                EliminarTags.Enabled = true;
+            {                
                 int tagId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
-                List<tag> t = rs.tag;
-                rs.eliminarTag(t);
-                refreshPost();
-                MessageBox.Show("El post fue borrado");
+                rs.eliminarTag(tagId);
+                refreshTags();
+
+
+                MessageBox.Show("El tag fue borrado");
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un Post");
-            }*/
-
+                MessageBox.Show("Debe seleccionar un tag");
+            }
         }
 
         private void eliminarPost_Click(object sender, EventArgs e)
