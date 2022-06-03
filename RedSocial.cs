@@ -30,6 +30,7 @@ namespace TP1
             usuarios = DB.inicializarUsuarios();
             posts = DB.inicializarPosts();
             tags = DB.inicializarTags();
+
             List<Reaccion> reacciones = DB.inicializarReaccion();
             foreach (Reaccion reaccion in reacciones)
             {
@@ -63,6 +64,18 @@ namespace TP1
                         {
                             p.tags.Add(t);
                         }
+                    }
+                }
+            }
+            /*INICIALIZAR AMIGOS*/
+            List<AmigosRel> Amigos = DB.inicializarAmigos();
+            foreach (Usuario u in usuarios)
+            {
+                foreach (AmigosRel amigos in Amigos)
+                {
+                    if (u.id == amigos.idUser)
+                    {
+                        u.amigos.Add(searchUser(amigos.idAmigo));
                     }
                 }
             }
@@ -141,6 +154,8 @@ namespace TP1
             {
                 if (u.id == usuarioActual.id)
                 {
+                    DB.agregarAmigo(amigo.id,u.id);
+                    DB.agregarAmigo(u.id, amigo.id);
                     u.amigos.Add(amigo);
                     amigo.amigos.Add(u);
                 }
@@ -153,8 +168,10 @@ namespace TP1
             {
                 if (u.id == usuarioActual.id)
                 {
+                    DB.eliminarAmigo(exAmigo.id, u.id);
+                    DB.eliminarAmigo(u.id, exAmigo.id);
                     u.amigos.Remove(exAmigo);
-                    exAmigo.amigos.Remove(u);
+                    exAmigo.amigos.Remove(u);                    
                 }
             }
         }

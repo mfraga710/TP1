@@ -55,6 +55,7 @@ namespace TP1.Forms
                     rs.agregarAmigo(u);
                     dataGridViewBuscarAmigos.Rows.Remove(selrow[0]);
                     refreshAmigos();
+
                     break;
                 }
             }
@@ -355,14 +356,22 @@ namespace TP1.Forms
             {   // TRAE TODAS LA LISTA DE USUARIOS QUE NO AMIGOS
                 foreach (Usuario amigo in rs.usuarioActual.amigos)
                 {   // INDICADOR DE NO AMIGO
-                    bool isnotamego = true;
+                    //bool isnotamego = true;
                     foreach (Usuario user in rs.usuarios) // VERIFICA QUE EL NO AMIGO LO TENGA
                     {
-                        if (user.id == amigo.id)
-                            isnotamego = false;
+                        if (rs.usuarioActual.id != user.id)
+                        {
+                            if (user.id != amigo.id)
+                            {
+                                dataGridViewBuscarAmigos.Rows.Add(user.id, user.nombre + " " + user.apellido);
+                            }
+                        }
                     }
-                    if (isnotamego) // AGREGA A LA LISTA
-                        dataGridViewBuscarAmigos.Rows.Add(amigo.id, amigo.nombre + " " + amigo.apellido);
+                    //if (isnotamego) 
+                    //{
+                    //    // AGREGA A LA LISTA
+                    //    dataGridViewBuscarAmigos.Rows.Add(amigo.id, amigo.nombre + " " + amigo.apellido);
+                    //}
                 }
             }
         }

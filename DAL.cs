@@ -831,5 +831,107 @@ namespace TP1
                 }
             }
         }
+        public List<AmigosRel> inicializarAmigos()
+        {
+            List<AmigosRel> idAmigosUsers = new List<AmigosRel>();
+
+            //Defino el string con la consulta que quiero realizar
+            string queryString = "SELECT * from dbo.Usuario_Amigo";
+
+            // Creo una conexión SQL con un Using, de modo que al finalizar, la conexión se cierra y se liberan recursos
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                // Defino el comando a enviar al motor SQL con la consulta y la conexión
+                SqlCommand command = new SqlCommand(queryString, connection);
+
+                try
+                {
+                    //Abro la conexión
+                    connection.Open();
+                    //mi objecto DataReader va a obtener los resultados de la consulta, notar que a comando se le pide ExecuteReader()
+                    SqlDataReader reader = command.ExecuteReader();
+                    AmigosRel aux;
+                    //mientras haya registros/filas en mi DataReader, sigo leyendo
+                    while (reader.Read())
+                    {
+                        aux = new AmigosRel(reader.GetInt32(0), reader.GetInt32(1));
+                        idAmigosUsers.Add(aux);
+                    }
+                    //En este punto ya recorrí todas las filas del resultado de la query
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return idAmigosUsers;
+        }
+        public int agregarAmigo(int amigoId,int userId)
+        {
+            //primero me aseguro que lo pueda agregar a la base
+            int resultadoQuery;
+            int idNuevoAmigo;
+            string connectionString = Properties.Resources.ConnectionString;
+            string queryString =
+                "INSERT INTO [dbo].[Usuario_Amigo] ([idAmigo],[idUsuario]) " +
+                "VALUES (@idA,@idU);";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.Add(new SqlParameter("@idA", SqlDbType.Int));
+                command.Parameters.Add(new SqlParameter("@idU", SqlDbType.Int));
+                command.Parameters["@idA"].Value = amigoId;
+                command.Parameters["@idU"].Value = userId;
+
+                try
+                {
+                    connection.Open();
+                    //esta consulta NO espera un resultado para leer, es del tipo NON Query
+                    resultadoQuery = command.ExecuteNonQuery();
+
+                    //*******************************************
+                    //Ahora hago esta query para obtener el ID
+                    string ConsultaID = "SELECT MAX([IdAmigo]) FROM [dbo].[Usuario_Amigo]";
+                    command = new SqlCommand(ConsultaID, connection);
+                    SqlDataReader reader = command.ExecuteReader();
+                    reader.Read();
+                    idNuevoAmigo = reader.GetInt32(0);
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return -1;
+                }
+                return idNuevoAmigo;
+            }
+        }
+
+        public int eliminarAmigo(int idAmigo, int idUser)
+        {
+            string connectionString = Properties.Resources.ConnectionString;
+            string queryString = "DELETE FROM [dbo].[Usuario_Amigo] WHERE [IdAmigo]=@IdA AND [IdUsuario]=@idB";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.Add(new SqlParameter("@IdA", SqlDbType.Int));
+                command.Parameters.Add(new SqlParameter("@IdB", SqlDbType.Int));
+                command.Parameters["@IdA"].Value = idAmigo;
+                command.Parameters["@IdB"].Value = idUser;
+                try
+                {
+                    connection.Open();
+                    //esta consulta NO espera un resultado para leer, es del tipo NON Query                    
+                    return command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return 0;
+                }
+            }
+        }
     }
 }
+
