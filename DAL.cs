@@ -290,7 +290,8 @@ namespace TP1
             {
                 SqlCommand command = new SqlCommand(queryString, connection);
                 command.Parameters.Add(new SqlParameter("@idTag", SqlDbType.Int));
-                command.Parameters.Add(new SqlParameter("@idPost", SqlDbType.Int));                command.Parameters["@idTag"].Value = idTag;
+                command.Parameters.Add(new SqlParameter("@idPost", SqlDbType.Int));                
+                command.Parameters["@idTag"].Value = idTag;
                 command.Parameters["@idPost"].Value = idPost;
 
                 try
@@ -306,7 +307,6 @@ namespace TP1
                 }
             }
         }
-
         public int modificarPost(int idPost, Usuario user, string contenido)
         {
             string connectionString = Properties.Resources.ConnectionString;
@@ -336,8 +336,6 @@ namespace TP1
                 }
             }
         }
-
-
         public int modificarPostAdm(int postId, string contenido)
         {
             string connectionString = Properties.Resources.ConnectionString;
@@ -388,8 +386,6 @@ namespace TP1
                 }
             }
         }
-
-
         public int eliminarPost(int postId)
         {
             string connectionString = Properties.Resources.ConnectionString;
@@ -412,7 +408,6 @@ namespace TP1
                 }
             }
         }
-
         public List<Comentario> inicializarComentarios()
         {
 
@@ -466,7 +461,6 @@ namespace TP1
             }
             return misComentarios;
         }
-
         public int agregarComentario(Post post, Usuario usuario, string contenido)
         {
             DateTime fecha = DateTime.Now;
@@ -514,7 +508,6 @@ namespace TP1
                 return idNuevoComentario;
             }
         }
-
         public int modificarComent(Comentario c)
         {
             string connectionString = Properties.Resources.ConnectionString;
@@ -540,7 +533,6 @@ namespace TP1
                 }
             }
         }
-
         public int eliminarComent (int comentarioId)
         {
             string connectionString = Properties.Resources.ConnectionString;
@@ -563,7 +555,6 @@ namespace TP1
                 }
             }
         }
-
         public List<Reaccion> inicializarReaccion()
         {
 
@@ -617,7 +608,6 @@ namespace TP1
             }
             return misReacciones;
         }
-
         public int agregarReaccion(string tipoReaccion, int postId, int userId)
         {
             //primero me aseguro que lo pueda agregar a la base
@@ -687,7 +677,6 @@ namespace TP1
                 }
             }
         }
-
         public int eliminarReaccion(int postId, int userId)
         {
             string connectionString = Properties.Resources.ConnectionString;
@@ -712,7 +701,6 @@ namespace TP1
                 }
             }
         }
-
         public int agregarTag(string palabra,int idPost)
         {
             //primero me aseguro que lo pueda agregar a la base
@@ -755,56 +743,6 @@ namespace TP1
                 return idNuevoTag;
             }
         }
-
-        /* public List<Tag> inicializarTags()
-         {
-             List<Tag> tags = new List<Tag>();
-             List<Post> posts = new List<Post>();
-
-             //Defino el string con la consulta que quiero realizar
-             string queryString = "SELECT * from dbo.Tags INNER JOIN dbo.Post ON dbo.Tags.IdPost = dbo.Post.IdPost";
-
-             // Creo una conexión SQL con un Using, de modo que al finalizar, la conexión se cierra y se liberan recursos
-             using (SqlConnection connection = new SqlConnection(connectionString))
-             {
-                 // Defino el comando a enviar al motor SQL con la consulta y la conexión
-                 SqlCommand command = new SqlCommand(queryString, connection);
-
-                 try
-                 {
-                     //Abro la conexión
-                     connection.Open();
-                     //mi objecto DataReader va a obtener los resultados de la consulta, notar que a comando se le pide ExecuteReader()
-                     SqlDataReader reader = command.ExecuteReader();
-                     Tag tagAux;
-                     //mientras haya registros/filas en mi DataReader, sigo leyendo
-                     while (reader.Read())
-                     {
-                         tagAux = new Tag(reader.GetInt32(0), reader.GetString(1),  reader.GetInt32(2));
-                         foreach (Post p in posts)
-                         {
-                             if ()
-                             {
-
-                             }
-                         }
-                         misUsuarios.Add(aux);
-
-                     }
-
-                     //En este punto ya recorrí todas las filas del resultado de la query
-                     reader.Close();
-                 }
-                 catch (Exception ex)
-                 {
-                     Console.WriteLine(ex.Message);
-                 }
-             }
-             return misUsuarios;
-         }*/
-
-
-
-
+               
     }
 }
