@@ -96,9 +96,10 @@
             // 
             this.labelNombreUsuario.AutoSize = true;
             this.labelNombreUsuario.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelNombreUsuario.Location = new System.Drawing.Point(16, 15);
+            this.labelNombreUsuario.Location = new System.Drawing.Point(27, 25);
+            this.labelNombreUsuario.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.labelNombreUsuario.Name = "labelNombreUsuario";
-            this.labelNombreUsuario.Size = new System.Drawing.Size(97, 41);
+            this.labelNombreUsuario.Size = new System.Drawing.Size(160, 67);
             this.labelNombreUsuario.TabIndex = 2;
             this.labelNombreUsuario.Text = "label1";
             // 
@@ -106,20 +107,20 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(1691, 72);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(2875, 118);
+            this.label2.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(191, 25);
+            this.label2.Size = new System.Drawing.Size(311, 40);
             this.label2.TabIndex = 4;
             this.label2.Text = "Lista de Amigos";
             // 
             // pBoxAbrirBuscarAmigos
             // 
             this.pBoxAbrirBuscarAmigos.Image = global::TP1.Properties.Resources.pngwing1;
-            this.pBoxAbrirBuscarAmigos.Location = new System.Drawing.Point(1691, 293);
-            this.pBoxAbrirBuscarAmigos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pBoxAbrirBuscarAmigos.Location = new System.Drawing.Point(2875, 481);
+            this.pBoxAbrirBuscarAmigos.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.pBoxAbrirBuscarAmigos.Name = "pBoxAbrirBuscarAmigos";
-            this.pBoxAbrirBuscarAmigos.Size = new System.Drawing.Size(97, 82);
+            this.pBoxAbrirBuscarAmigos.Size = new System.Drawing.Size(165, 134);
             this.pBoxAbrirBuscarAmigos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pBoxAbrirBuscarAmigos.TabIndex = 5;
             this.pBoxAbrirBuscarAmigos.TabStop = false;
@@ -127,9 +128,10 @@
             // 
             // btnSalirBuscarAmigos
             // 
-            this.btnSalirBuscarAmigos.Location = new System.Drawing.Point(1877, 685);
+            this.btnSalirBuscarAmigos.Location = new System.Drawing.Point(3191, 1123);
+            this.btnSalirBuscarAmigos.Margin = new System.Windows.Forms.Padding(5);
             this.btnSalirBuscarAmigos.Name = "btnSalirBuscarAmigos";
-            this.btnSalirBuscarAmigos.Size = new System.Drawing.Size(147, 53);
+            this.btnSalirBuscarAmigos.Size = new System.Drawing.Size(250, 87);
             this.btnSalirBuscarAmigos.TabIndex = 8;
             this.btnSalirBuscarAmigos.Text = "Salir";
             this.btnSalirBuscarAmigos.UseVisualStyleBackColor = true;
@@ -138,9 +140,10 @@
             // 
             // btnAgregarAmigo
             // 
-            this.btnAgregarAmigo.Location = new System.Drawing.Point(1660, 685);
+            this.btnAgregarAmigo.Location = new System.Drawing.Point(2822, 1123);
+            this.btnAgregarAmigo.Margin = new System.Windows.Forms.Padding(5);
             this.btnAgregarAmigo.Name = "btnAgregarAmigo";
-            this.btnAgregarAmigo.Size = new System.Drawing.Size(146, 53);
+            this.btnAgregarAmigo.Size = new System.Drawing.Size(248, 87);
             this.btnAgregarAmigo.TabIndex = 7;
             this.btnAgregarAmigo.Text = "Agregar amigo";
             this.btnAgregarAmigo.UseVisualStyleBackColor = true;
@@ -151,10 +154,10 @@
             // 
             this.labelBuscarAmigos.AutoSize = true;
             this.labelBuscarAmigos.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.labelBuscarAmigos.Location = new System.Drawing.Point(1691, 437);
-            this.labelBuscarAmigos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.labelBuscarAmigos.Location = new System.Drawing.Point(2875, 717);
+            this.labelBuscarAmigos.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.labelBuscarAmigos.Name = "labelBuscarAmigos";
-            this.labelBuscarAmigos.Size = new System.Drawing.Size(179, 25);
+            this.labelBuscarAmigos.Size = new System.Drawing.Size(292, 40);
             this.labelBuscarAmigos.TabIndex = 9;
             this.labelBuscarAmigos.Text = "Buscar Amigos";
             this.labelBuscarAmigos.Visible = false;
@@ -162,9 +165,10 @@
             // pBoxEliminarAmigo
             // 
             this.pBoxEliminarAmigo.Image = global::TP1.Properties.Resources.eliminar_amigo;
-            this.pBoxEliminarAmigo.Location = new System.Drawing.Point(1904, 292);
+            this.pBoxEliminarAmigo.Location = new System.Drawing.Point(3237, 479);
+            this.pBoxEliminarAmigo.Margin = new System.Windows.Forms.Padding(5);
             this.pBoxEliminarAmigo.Name = "pBoxEliminarAmigo";
-            this.pBoxEliminarAmigo.Size = new System.Drawing.Size(71, 98);
+            this.pBoxEliminarAmigo.Size = new System.Drawing.Size(121, 161);
             this.pBoxEliminarAmigo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pBoxEliminarAmigo.TabIndex = 10;
             this.pBoxEliminarAmigo.TabStop = false;
@@ -179,14 +183,14 @@
             this.tableLayoutPanel1.Controls.Add(this.textBoxNuevoPost, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBoxNuevoTag, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(17, 72);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(29, 118);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64.53901F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35.46099F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(949, 180);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1613, 295);
             this.tableLayoutPanel1.TabIndex = 12;
             // 
             // label5
@@ -196,10 +200,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(4, 116);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(7, 190);
+            this.label5.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 64);
+            this.label5.Size = new System.Drawing.Size(194, 105);
             this.label5.TabIndex = 3;
             this.label5.Text = "Tags";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -209,11 +213,11 @@
             this.textBoxNuevoPost.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxNuevoPost.Location = new System.Drawing.Point(125, 5);
-            this.textBoxNuevoPost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxNuevoPost.Location = new System.Drawing.Point(215, 8);
+            this.textBoxNuevoPost.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.textBoxNuevoPost.Multiline = true;
             this.textBoxNuevoPost.Name = "textBoxNuevoPost";
-            this.textBoxNuevoPost.Size = new System.Drawing.Size(820, 106);
+            this.textBoxNuevoPost.Size = new System.Drawing.Size(1391, 174);
             this.textBoxNuevoPost.TabIndex = 0;
             // 
             // textBoxNuevoTag
@@ -221,10 +225,10 @@
             this.textBoxNuevoTag.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxNuevoTag.Location = new System.Drawing.Point(125, 121);
-            this.textBoxNuevoTag.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxNuevoTag.Location = new System.Drawing.Point(215, 198);
+            this.textBoxNuevoTag.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.textBoxNuevoTag.Name = "textBoxNuevoTag";
-            this.textBoxNuevoTag.Size = new System.Drawing.Size(820, 31);
+            this.textBoxNuevoTag.Size = new System.Drawing.Size(1391, 47);
             this.textBoxNuevoTag.TabIndex = 1;
             // 
             // label4
@@ -234,20 +238,20 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(4, 0);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(7, 0);
+            this.label4.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 116);
+            this.label4.Size = new System.Drawing.Size(194, 190);
             this.label4.TabIndex = 2;
             this.label4.Text = "Post";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnPublicarPost
             // 
-            this.btnPublicarPost.Location = new System.Drawing.Point(819, 257);
-            this.btnPublicarPost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnPublicarPost.Location = new System.Drawing.Point(1392, 421);
+            this.btnPublicarPost.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.btnPublicarPost.Name = "btnPublicarPost";
-            this.btnPublicarPost.Size = new System.Drawing.Size(146, 60);
+            this.btnPublicarPost.Size = new System.Drawing.Size(248, 98);
             this.btnPublicarPost.TabIndex = 13;
             this.btnPublicarPost.Text = "Publicar";
             this.btnPublicarPost.UseVisualStyleBackColor = true;
@@ -257,10 +261,10 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(30, 310);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(51, 508);
+            this.label6.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 32);
+            this.label6.Size = new System.Drawing.Size(122, 54);
             this.label6.TabIndex = 14;
             this.label6.Text = "Posts";
             // 
@@ -268,17 +272,19 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(30, 888);
+            this.label7.Location = new System.Drawing.Point(51, 1456);
+            this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(187, 41);
+            this.label7.Size = new System.Drawing.Size(307, 67);
             this.label7.TabIndex = 18;
             this.label7.Text = "Comentarios";
             // 
             // btnComentarPost
             // 
-            this.btnComentarPost.Location = new System.Drawing.Point(141, 763);
+            this.btnComentarPost.Location = new System.Drawing.Point(240, 1251);
+            this.btnComentarPost.Margin = new System.Windows.Forms.Padding(5);
             this.btnComentarPost.Name = "btnComentarPost";
-            this.btnComentarPost.Size = new System.Drawing.Size(171, 52);
+            this.btnComentarPost.Size = new System.Drawing.Size(291, 85);
             this.btnComentarPost.TabIndex = 19;
             this.btnComentarPost.Text = "Comentar Post";
             this.btnComentarPost.UseVisualStyleBackColor = true;
@@ -286,9 +292,10 @@
             // 
             // textBoxComentarPost
             // 
-            this.textBoxComentarPost.Location = new System.Drawing.Point(141, 727);
+            this.textBoxComentarPost.Location = new System.Drawing.Point(240, 1192);
+            this.textBoxComentarPost.Margin = new System.Windows.Forms.Padding(5);
             this.textBoxComentarPost.Name = "textBoxComentarPost";
-            this.textBoxComentarPost.Size = new System.Drawing.Size(1080, 31);
+            this.textBoxComentarPost.Size = new System.Drawing.Size(1833, 47);
             this.textBoxComentarPost.TabIndex = 22;
             // 
             // dataGridViewPosts
@@ -303,14 +310,15 @@
             this.Column1,
             this.Column2,
             this.Column4});
-            this.dataGridViewPosts.Location = new System.Drawing.Point(141, 358);
+            this.dataGridViewPosts.Location = new System.Drawing.Point(240, 587);
+            this.dataGridViewPosts.Margin = new System.Windows.Forms.Padding(5);
             this.dataGridViewPosts.MultiSelect = false;
             this.dataGridViewPosts.Name = "dataGridViewPosts";
             this.dataGridViewPosts.ReadOnly = true;
             this.dataGridViewPosts.RowHeadersWidth = 62;
             this.dataGridViewPosts.RowTemplate.Height = 33;
             this.dataGridViewPosts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewPosts.Size = new System.Drawing.Size(1279, 355);
+            this.dataGridViewPosts.Size = new System.Drawing.Size(2174, 582);
             this.dataGridViewPosts.TabIndex = 21;
             this.dataGridViewPosts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
@@ -320,7 +328,7 @@
             this.Column3.MinimumWidth = 8;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            this.Column3.Width = 63;
+            this.Column3.Width = 97;
             // 
             // Column1
             // 
@@ -328,7 +336,7 @@
             this.Column1.MinimumWidth = 8;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 114;
+            this.Column1.Width = 182;
             // 
             // Column2
             // 
@@ -344,14 +352,14 @@
             this.Column4.MinimumWidth = 8;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
-            this.Column4.Width = 83;
+            this.Column4.Width = 131;
             // 
             // btnEliminarComentario
             // 
-            this.btnEliminarComentario.Location = new System.Drawing.Point(547, 1187);
-            this.btnEliminarComentario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEliminarComentario.Location = new System.Drawing.Point(930, 1947);
+            this.btnEliminarComentario.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.btnEliminarComentario.Name = "btnEliminarComentario";
-            this.btnEliminarComentario.Size = new System.Drawing.Size(229, 42);
+            this.btnEliminarComentario.Size = new System.Drawing.Size(389, 69);
             this.btnEliminarComentario.TabIndex = 23;
             this.btnEliminarComentario.Text = "Eliminar Comentario";
             this.btnEliminarComentario.UseVisualStyleBackColor = true;
@@ -359,10 +367,10 @@
             // 
             // btnModUsuario
             // 
-            this.btnModUsuario.Location = new System.Drawing.Point(1050, 127);
-            this.btnModUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnModUsuario.Location = new System.Drawing.Point(1785, 208);
+            this.btnModUsuario.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.btnModUsuario.Name = "btnModUsuario";
-            this.btnModUsuario.Size = new System.Drawing.Size(184, 50);
+            this.btnModUsuario.Size = new System.Drawing.Size(313, 82);
             this.btnModUsuario.TabIndex = 24;
             this.btnModUsuario.Text = "Modificar Usuario";
             this.btnModUsuario.UseVisualStyleBackColor = true;
@@ -370,10 +378,10 @@
             // 
             // btnVerPost
             // 
-            this.btnVerPost.Location = new System.Drawing.Point(1427, 437);
-            this.btnVerPost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnVerPost.Location = new System.Drawing.Point(2426, 717);
+            this.btnVerPost.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.btnVerPost.Name = "btnVerPost";
-            this.btnVerPost.Size = new System.Drawing.Size(141, 60);
+            this.btnVerPost.Size = new System.Drawing.Size(240, 98);
             this.btnVerPost.TabIndex = 25;
             this.btnVerPost.Text = "Ver Post";
             this.btnVerPost.UseVisualStyleBackColor = true;
@@ -381,10 +389,10 @@
             // 
             // btnEliminarPost
             // 
-            this.btnEliminarPost.Location = new System.Drawing.Point(1427, 507);
-            this.btnEliminarPost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEliminarPost.Location = new System.Drawing.Point(2426, 831);
+            this.btnEliminarPost.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.btnEliminarPost.Name = "btnEliminarPost";
-            this.btnEliminarPost.Size = new System.Drawing.Size(141, 57);
+            this.btnEliminarPost.Size = new System.Drawing.Size(240, 93);
             this.btnEliminarPost.TabIndex = 26;
             this.btnEliminarPost.Text = "Eliminar Post";
             this.btnEliminarPost.UseVisualStyleBackColor = true;
@@ -392,9 +400,10 @@
             // 
             // btnCerrarSesion
             // 
-            this.btnCerrarSesion.Location = new System.Drawing.Point(1050, 183);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(1785, 300);
+            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(5);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(184, 50);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(313, 82);
             this.btnCerrarSesion.TabIndex = 27;
             this.btnCerrarSesion.Text = "Cerrar Sesion";
             this.btnCerrarSesion.UseVisualStyleBackColor = true;
@@ -402,10 +411,10 @@
             // 
             // btnVerUsuario
             // 
-            this.btnVerUsuario.Location = new System.Drawing.Point(1050, 67);
-            this.btnVerUsuario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnVerUsuario.Location = new System.Drawing.Point(1785, 110);
+            this.btnVerUsuario.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.btnVerUsuario.Name = "btnVerUsuario";
-            this.btnVerUsuario.Size = new System.Drawing.Size(184, 50);
+            this.btnVerUsuario.Size = new System.Drawing.Size(313, 82);
             this.btnVerUsuario.TabIndex = 28;
             this.btnVerUsuario.Text = "Ver Usuario";
             this.btnVerUsuario.UseVisualStyleBackColor = true;
@@ -413,10 +422,10 @@
             // 
             // btnEditarComentario
             // 
-            this.btnEditarComentario.Location = new System.Drawing.Point(153, 1187);
-            this.btnEditarComentario.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnEditarComentario.Location = new System.Drawing.Point(260, 1947);
+            this.btnEditarComentario.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.btnEditarComentario.Name = "btnEditarComentario";
-            this.btnEditarComentario.Size = new System.Drawing.Size(229, 42);
+            this.btnEditarComentario.Size = new System.Drawing.Size(389, 69);
             this.btnEditarComentario.TabIndex = 29;
             this.btnEditarComentario.Text = "Editar Comentario";
             this.btnEditarComentario.UseVisualStyleBackColor = true;
@@ -431,14 +440,14 @@
             this.Column5,
             this.Column6,
             this.Column7});
-            this.dataGridViewComentarios.Location = new System.Drawing.Point(141, 947);
-            this.dataGridViewComentarios.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridViewComentarios.Location = new System.Drawing.Point(240, 1553);
+            this.dataGridViewComentarios.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.dataGridViewComentarios.Name = "dataGridViewComentarios";
             this.dataGridViewComentarios.ReadOnly = true;
             this.dataGridViewComentarios.RowHeadersWidth = 62;
             this.dataGridViewComentarios.RowTemplate.Height = 25;
             this.dataGridViewComentarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewComentarios.Size = new System.Drawing.Size(634, 230);
+            this.dataGridViewComentarios.Size = new System.Drawing.Size(1078, 377);
             this.dataGridViewComentarios.TabIndex = 30;
             // 
             // Column5
@@ -468,10 +477,10 @@
             // 
             // btnVerMisPost
             // 
-            this.btnVerMisPost.Location = new System.Drawing.Point(1427, 573);
-            this.btnVerMisPost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnVerMisPost.Location = new System.Drawing.Point(2426, 940);
+            this.btnVerMisPost.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.btnVerMisPost.Name = "btnVerMisPost";
-            this.btnVerMisPost.Size = new System.Drawing.Size(141, 57);
+            this.btnVerMisPost.Size = new System.Drawing.Size(240, 93);
             this.btnVerMisPost.TabIndex = 31;
             this.btnVerMisPost.Text = "Ver mis Post";
             this.btnVerMisPost.UseVisualStyleBackColor = true;
@@ -479,10 +488,10 @@
             // 
             // btnVerPostAmigos
             // 
-            this.btnVerPostAmigos.Location = new System.Drawing.Point(1427, 640);
-            this.btnVerPostAmigos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnVerPostAmigos.Location = new System.Drawing.Point(2426, 1050);
+            this.btnVerPostAmigos.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.btnVerPostAmigos.Name = "btnVerPostAmigos";
-            this.btnVerPostAmigos.Size = new System.Drawing.Size(141, 63);
+            this.btnVerPostAmigos.Size = new System.Drawing.Size(240, 103);
             this.btnVerPostAmigos.TabIndex = 32;
             this.btnVerPostAmigos.Text = "Ver Post Amigos";
             this.btnVerPostAmigos.UseVisualStyleBackColor = true;
@@ -496,14 +505,14 @@
             this.dataGridViewBuscarAmigos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column8,
             this.Column9});
-            this.dataGridViewBuscarAmigos.Location = new System.Drawing.Point(1660, 470);
-            this.dataGridViewBuscarAmigos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridViewBuscarAmigos.Location = new System.Drawing.Point(2822, 771);
+            this.dataGridViewBuscarAmigos.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.dataGridViewBuscarAmigos.Name = "dataGridViewBuscarAmigos";
             this.dataGridViewBuscarAmigos.ReadOnly = true;
             this.dataGridViewBuscarAmigos.RowHeadersWidth = 62;
             this.dataGridViewBuscarAmigos.RowTemplate.Height = 25;
             this.dataGridViewBuscarAmigos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewBuscarAmigos.Size = new System.Drawing.Size(364, 180);
+            this.dataGridViewBuscarAmigos.Size = new System.Drawing.Size(619, 295);
             this.dataGridViewBuscarAmigos.TabIndex = 33;
             this.dataGridViewBuscarAmigos.Visible = false;
             // 
@@ -531,14 +540,14 @@
             this.dataGridViewAmigos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
-            this.dataGridViewAmigos.Location = new System.Drawing.Point(1660, 103);
-            this.dataGridViewAmigos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridViewAmigos.Location = new System.Drawing.Point(2822, 169);
+            this.dataGridViewAmigos.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.dataGridViewAmigos.Name = "dataGridViewAmigos";
             this.dataGridViewAmigos.ReadOnly = true;
             this.dataGridViewAmigos.RowHeadersWidth = 62;
             this.dataGridViewAmigos.RowTemplate.Height = 25;
             this.dataGridViewAmigos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewAmigos.Size = new System.Drawing.Size(364, 180);
+            this.dataGridViewAmigos.Size = new System.Drawing.Size(619, 295);
             this.dataGridViewAmigos.TabIndex = 34;
             // 
             // dataGridViewTextBoxColumn1
@@ -560,10 +569,10 @@
             // 
             // btnBuscarPost
             // 
-            this.btnBuscarPost.Location = new System.Drawing.Point(241, 312);
-            this.btnBuscarPost.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnBuscarPost.Location = new System.Drawing.Point(410, 512);
+            this.btnBuscarPost.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.btnBuscarPost.Name = "btnBuscarPost";
-            this.btnBuscarPost.Size = new System.Drawing.Size(236, 48);
+            this.btnBuscarPost.Size = new System.Drawing.Size(401, 79);
             this.btnBuscarPost.TabIndex = 35;
             this.btnBuscarPost.Text = "Buscar Post";
             this.btnBuscarPost.UseVisualStyleBackColor = true;
@@ -571,79 +580,83 @@
             // 
             // textBoxBuscarContenido
             // 
-            this.textBoxBuscarContenido.Location = new System.Drawing.Point(31, 130);
-            this.textBoxBuscarContenido.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxBuscarContenido.Location = new System.Drawing.Point(53, 213);
+            this.textBoxBuscarContenido.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.textBoxBuscarContenido.Name = "textBoxBuscarContenido";
-            this.textBoxBuscarContenido.Size = new System.Drawing.Size(234, 31);
+            this.textBoxBuscarContenido.Size = new System.Drawing.Size(395, 47);
             this.textBoxBuscarContenido.TabIndex = 36;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(29, 77);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(49, 126);
+            this.label8.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(181, 25);
+            this.label8.Size = new System.Drawing.Size(301, 41);
             this.label8.TabIndex = 37;
             this.label8.Text = "Buscar por contenido";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(29, 182);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(49, 298);
+            this.label9.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(136, 25);
+            this.label9.Size = new System.Drawing.Size(225, 41);
             this.label9.TabIndex = 39;
             this.label9.Text = "Buscar por Tags";
             // 
             // textBoxBuscarTags
             // 
-            this.textBoxBuscarTags.Location = new System.Drawing.Point(31, 233);
-            this.textBoxBuscarTags.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.textBoxBuscarTags.Location = new System.Drawing.Point(53, 382);
+            this.textBoxBuscarTags.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.textBoxBuscarTags.Name = "textBoxBuscarTags";
-            this.textBoxBuscarTags.Size = new System.Drawing.Size(234, 31);
+            this.textBoxBuscarTags.Size = new System.Drawing.Size(395, 47);
             this.textBoxBuscarTags.TabIndex = 38;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(309, 77);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(525, 126);
+            this.label10.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(143, 25);
+            this.label10.Size = new System.Drawing.Size(237, 41);
             this.label10.TabIndex = 40;
             this.label10.Text = "Buscar por fecha";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(416, 130);
+            this.dateTimePicker1.Location = new System.Drawing.Point(707, 213);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(5);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(300, 31);
+            this.dateTimePicker1.Size = new System.Drawing.Size(507, 47);
             this.dateTimePicker1.TabIndex = 42;
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(416, 233);
+            this.dateTimePicker2.Location = new System.Drawing.Point(707, 382);
+            this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(5);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(300, 31);
+            this.dateTimePicker2.Size = new System.Drawing.Size(507, 47);
             this.dateTimePicker2.TabIndex = 43;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(309, 130);
+            this.label11.Location = new System.Drawing.Point(525, 213);
+            this.label11.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(62, 25);
+            this.label11.Size = new System.Drawing.Size(102, 41);
             this.label11.TabIndex = 44;
             this.label11.Text = "Desde";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(309, 240);
+            this.label12.Location = new System.Drawing.Point(525, 394);
+            this.label12.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(57, 25);
+            this.label12.Size = new System.Drawing.Size(92, 41);
             this.label12.TabIndex = 45;
             this.label12.Text = "Hasta";
             // 
@@ -659,19 +672,21 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.textBoxBuscarContenido);
             this.groupBox1.Controls.Add(this.btnBuscarPost);
-            this.groupBox1.Location = new System.Drawing.Point(869, 888);
+            this.groupBox1.Location = new System.Drawing.Point(1477, 1456);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(771, 382);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(5);
+            this.groupBox1.Size = new System.Drawing.Size(1311, 626);
             this.groupBox1.TabIndex = 46;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Busqueda de Posts";
             // 
             // btnVerAllPosts
             // 
-            this.btnVerAllPosts.Location = new System.Drawing.Point(1427, 363);
-            this.btnVerAllPosts.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnVerAllPosts.Location = new System.Drawing.Point(2426, 595);
+            this.btnVerAllPosts.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
             this.btnVerAllPosts.Name = "btnVerAllPosts";
-            this.btnVerAllPosts.Size = new System.Drawing.Size(141, 63);
+            this.btnVerAllPosts.Size = new System.Drawing.Size(240, 103);
             this.btnVerAllPosts.TabIndex = 47;
             this.btnVerAllPosts.Text = "Ver Todos los Posts";
             this.btnVerAllPosts.UseVisualStyleBackColor = true;
@@ -679,9 +694,10 @@
             // 
             // btnSalirApp
             // 
-            this.btnSalirApp.Location = new System.Drawing.Point(1050, 243);
+            this.btnSalirApp.Location = new System.Drawing.Point(1785, 399);
+            this.btnSalirApp.Margin = new System.Windows.Forms.Padding(5);
             this.btnSalirApp.Name = "btnSalirApp";
-            this.btnSalirApp.Size = new System.Drawing.Size(184, 50);
+            this.btnSalirApp.Size = new System.Drawing.Size(313, 82);
             this.btnSalirApp.TabIndex = 48;
             this.btnSalirApp.Text = "Salir de la Aplicacion";
             this.btnSalirApp.UseVisualStyleBackColor = true;
@@ -689,9 +705,9 @@
             // 
             // Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2117, 1303);
+            this.ClientSize = new System.Drawing.Size(3599, 2108);
             this.Controls.Add(this.btnSalirApp);
             this.Controls.Add(this.btnVerAllPosts);
             this.Controls.Add(this.groupBox1);
@@ -721,8 +737,8 @@
             this.Controls.Add(this.pBoxAbrirBuscarAmigos);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelNombreUsuario);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.MinimumSize = new System.Drawing.Size(1362, 714);
+            this.Margin = new System.Windows.Forms.Padding(7, 8, 7, 8);
+            this.MinimumSize = new System.Drawing.Size(2293, 1115);
             this.Name = "Home";
             this.Text = "Home";
             ((System.ComponentModel.ISupportInitialize)(this.pBoxAbrirBuscarAmigos)).EndInit();

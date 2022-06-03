@@ -346,10 +346,15 @@ namespace TP1.Forms
             {   // CARGA TODOS LOS USUARIOS
                 foreach (Usuario user in rs.usuarios)
                 {
-                    if (user.id != rs.usuarioActual.id)
+                    if (!user.isAdm)
                     {
-                        dataGridViewBuscarAmigos.Rows.Add(user.id, user.nombre + " " + user.apellido);
+                        if (user.id != rs.usuarioActual.id)
+                        {
+                            dataGridViewBuscarAmigos.Rows.Add(user.id, user.nombre + " " + user.apellido);
+                        }
+                    
                     }
+
                 }
             }
             else
@@ -359,11 +364,14 @@ namespace TP1.Forms
                     //bool isnotamego = true;
                     foreach (Usuario user in rs.usuarios) // VERIFICA QUE EL NO AMIGO LO TENGA
                     {
-                        if (rs.usuarioActual.id != user.id)
+                        if (!user.isAdm)
                         {
-                            if (user.id != amigo.id)
+                            if (rs.usuarioActual.id != user.id)
                             {
-                                dataGridViewBuscarAmigos.Rows.Add(user.id, user.nombre + " " + user.apellido);
+                                if (user.id != amigo.id)
+                                {
+                                    dataGridViewBuscarAmigos.Rows.Add(user.id, user.nombre + " " + user.apellido);
+                                }
                             }
                         }
                     }
