@@ -52,7 +52,7 @@ namespace TP1.Forms
             textBox1.Show();
             textBox1.Text = label1.Text;
             AceptarPost.Show();
-            button6.Show();
+            CancelarEditPostButton.Show();
         }
 
         private void editComentButton_Click(object sender, EventArgs e)
@@ -66,7 +66,7 @@ namespace TP1.Forms
                 textBox2.Show();
                 textBox2.Text = c.contenido;
                 aceptarComment.Show();
-                button7.Show();
+                cancelarEditComentButton.Show();
             }
             else
             {
@@ -94,6 +94,27 @@ namespace TP1.Forms
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ElimComentButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CancelarEditPostButton_Click(object sender, EventArgs e)
+        {
+            groupBox3.Hide();
+        }
+
+        private void cancelarEditComentButton_Click(object sender, EventArgs e)
+        {
+            groupBox6.Hide();
+
+        }
+
+        private void salirButton_Click(object sender, EventArgs e)
         {
 
         }
