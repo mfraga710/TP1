@@ -341,6 +341,32 @@ namespace TP1
                 }
             }
         }
+        public int modificarCommentAdm(int commentId, string contenido)
+        {
+            string connectionString = Properties.Resources.ConnectionString;
+            string queryString = "UPDATE [dbo].[Comentarios] SET [Contenido]=@contenido WHERE IdComentario=@id;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Parameters.Add(new SqlParameter("@id", SqlDbType.Int));
+                command.Parameters.Add(new SqlParameter("@contenido", SqlDbType.NVarChar));
+                command.Parameters["@id"].Value = commentId;
+                command.Parameters["@contenido"].Value = contenido;
+                try
+                {
+                    connection.Open();
+                    //esta consulta NO espera un resultado para leer, es del tipo NON Query
+                    return command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    return 0;
+                }
+            }
+        }
+
 
         public int eliminarPost(int postId)
         {

@@ -20,8 +20,6 @@ namespace TP1.Forms
             DB = new DAL();
             InitializeComponent();
 
-
-
             // AGREGA NOMBRE DE USUARIO
             labelNombreUsuario.Text = "Bienvenido " + rs.usuarioActual.nombre + " " + rs.usuarioActual.apellido;
 
@@ -123,15 +121,12 @@ namespace TP1.Forms
 
             foreach (var word in sTags)
             {
-                Console.Write("1: "+word);
                 if (word.Length > 1)
                 {
                     if (rs.tags.Count > 0)
                     {
-
                         foreach (Tag tag in rs.tags)
-                        {
-                            Console.Write("4: " + tag);
+                        {             
                             if (!tag.palabra.Equals("#" + word))
                             {
                                 listTags.Add(new Tag("#" + word));
@@ -144,10 +139,8 @@ namespace TP1.Forms
                     }
                 }
             }
-            Console.Write("5: " + listTags);
             return listTags;
         }
-
 
         // BUTTON - COMENTA EL POST
         private void btnComentarPost_Click(object sender, EventArgs e)
@@ -242,6 +235,7 @@ namespace TP1.Forms
                         dataGridViewPosts.Rows.RemoveAt(sel);
                         rs.eliminarPost(pBorrar);
                         dataGridViewComentarios.Rows.Clear();
+                        
                         MessageBox.Show("Su posteo ha sido eliminado correctamente");
                     }
                     else
@@ -459,9 +453,10 @@ namespace TP1.Forms
         {
 
             dataGridViewPosts.Rows.Clear();
-            string pTags = "";
+            
             foreach (Post p in listaPost)
             {
+                string pTags = "";
                 Console.Write("2: "+p.contenido);
                 foreach (Tag t in p.tags)
                 {

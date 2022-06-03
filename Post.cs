@@ -12,9 +12,7 @@ namespace TP1
         public List<Comentario> comentarios { get; set; }
         public List<Reaccion> reacciones { get; set; }
         public List<Tag> tags { get; set; }
-        public DateTime fecha { get; set; }
-
-      
+        public DateTime fecha { get; set; }      
 
         public Post(int id,Usuario user, string contenido)
         {

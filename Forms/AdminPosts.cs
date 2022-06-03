@@ -13,6 +13,7 @@ namespace TP1.Forms
         private RedSocial rs;
         private Post post;
         private Admin frm1;
+        private Comentario c;
 
         public AdminPosts(RedSocial rs1, Admin frm1, Post post)
         {
@@ -21,6 +22,7 @@ namespace TP1.Forms
             this.post = post;
             InitializeComponent();
             refreshPost();
+            refreshComent();
 
         }
 
@@ -37,17 +39,11 @@ namespace TP1.Forms
 
         public void refreshComent()
         {
-           /* foreach (Post p in rs.posts)
+            dataGridView1.Rows.Clear();
+            foreach (Comentario c in post.comentarios)
             {
-                foreach(Comentario c in post.comentarios)
-                {
-                    if (p.id == post.id)
-                }
-                if (p.id == post.id)
-                {
-                    label1.Text = p.contenido;
-                }
-            }*/
+                dataGridView1.Rows.Add(c.id,c.contenido);
+            }
         }
 
         private void editarPosteoBotton_Click(object sender, EventArgs e)
@@ -65,11 +61,11 @@ namespace TP1.Forms
             if (selrow.Count > 0)
             {
                 int comentId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
-                Comentario c = rs.searchComent(comentId);
+                c = rs.searchComent(comentId);
                 groupBox6.Show();
                 textBox2.Show();
                 textBox2.Text = c.contenido;
-                button2.Show();
+                aceptarComment.Show();
                 button7.Show();
             }
             else
@@ -82,6 +78,24 @@ namespace TP1.Forms
         {
             label1.Text = textBox1.Text;
             rs.modificarPostAdmin(post.id,textBox1.Text);
+        }
+
+        private void aceptarComment_Click(object sender, EventArgs e)
+        {
+            rs.modificarCommentAdmin(post, c.id, textBox2.Text);
+            dataGridView1.Rows.Clear();
+            refreshComent();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            rs.comentarAdmin(post,rs.usuarioActual,textBox3.Text);
+            refreshComent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

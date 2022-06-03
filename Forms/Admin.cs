@@ -96,5 +96,22 @@ namespace TP1.Forms
         {
 
         }
+
+        private void eliminarPost_Click(object sender, EventArgs e)
+        {
+            var selrow = listadoPost.SelectedRows;
+            if (selrow.Count > 0)
+            {
+                int postId = Int32.Parse(selrow[0].Cells[0].Value.ToString());
+                Post p = rs.searchPost(postId);
+                rs.eliminarPost(p);
+                refreshPost();
+                MessageBox.Show("El post fue borrado");
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un Post");
+            }
+        }
     }
 }

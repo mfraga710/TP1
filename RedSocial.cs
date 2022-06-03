@@ -40,29 +40,17 @@ namespace TP1
                 }
             }
             List<Comentario> comentarios = DB.inicializarComentarios();
-            // VER logica para rellenar las listas de post de usuarios y comentarios de posts y de usuarios
-            //foreach (Post p in posts)
-            //{
-            //    foreach (Comentario c in comentarios)
-            //    {
-            //        if (p.id == c.post.id)
-            //        {
-            //            p.comentarios.Add(c);
-            //        }
-            //        foreach (Usuario user in usuarios)
-            //        {
-            //            if (c.usuario.id == user.id)
-            //            {
-            //                user.misComentarios.Add(c);
-            //            }
-
-            //            if (p.user.id == user.id)
-            //            {
-            //                user.misPosts.Add(p);
-            //            }
-            //        }
-            //    }
-            //}
+            //VER logica para rellenar las listas de post de usuarios y comentarios de posts y de usuarios
+            foreach (Post p in posts)
+            {
+                foreach (Comentario c in comentarios)
+                {
+                    if (p.id == c.post.id)
+                    {
+                        p.comentarios.Add(c);
+                    }
+                }
+            }
         }       
         public void registrarUsuario(string nombre, string apellido, string mail, int dni, string pass)
         {
@@ -202,6 +190,8 @@ namespace TP1
             posts.Remove(p);
         }
 
+
+
         public void comentar(Post p, Comentario c) 
         {
             p.comentarios.Add(c);
@@ -232,6 +222,28 @@ namespace TP1
                     if (post.id == postId)
                     {
                         post.contenido = nuevoContenido;
+                    }
+                }
+            }
+        }
+
+        public void comentarAdmin(Post p, Usuario u, string contenido)
+        {
+            //p.comentarios.Add(c);
+            Comentario coment = new Comentario(DB.agregarComentario(p, u, contenido), p, u, contenido);
+            p.comentarios.Add(coment);
+        }
+
+        public void modificarCommentAdmin(Post p,int comentId, string nuevoContenido)
+        {
+            if (comentId != 0)
+            {
+                DB.modificarCommentAdm(comentId, nuevoContenido);
+                foreach (Comentario c in p.comentarios)
+                {
+                    if (c.id == comentId)
+                    {
+                        c.contenido = nuevoContenido;
                     }
                 }
             }
